@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECF62D46-9BAE-4D61-8E36-84DF9199789F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TribalBrowser</RootNamespace>
+    <AssemblyName>FDBrowser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>images\cat_logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>3rdParty\CSharpDriver-1.8.1\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>3rdParty\CSharpDriver-1.8.1\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMessageBox.Designer.cs">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="helpers\DataAccess.cs" />
+    <Compile Include="forms\frmBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmBrowser.Designer.cs">
+      <DependentUpon>frmBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmInsertTribe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmInsertTribe.Designer.cs">
+      <DependentUpon>frmInsertTribe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmTribeMemberDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmTribeMemberDetails.Designer.cs">
+      <DependentUpon>frmTribeMemberDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmDetailsSites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmDetailsSites.Designer.cs">
+      <DependentUpon>frmDetailsSites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmJoinTribe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmJoinTribe.Designer.cs">
+      <DependentUpon>frmJoinTribe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmInsertTribeLinks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmInsertTribeLinks.Designer.cs">
+      <DependentUpon>frmInsertTribeLinks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmTools.Designer.cs">
+      <DependentUpon>frmTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="helpers\TribeMisc.cs" />
+    <Compile Include="helpers\TribeClasses.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="helpers\StringProvider.cs" />
+    <EmbeddedResource Include="forms\frmBrowser.resx">
+      <DependentUpon>frmBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmInsertTribe.resx">
+      <DependentUpon>frmInsertTribe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmTribeMemberDetails.resx">
+      <DependentUpon>frmTribeMemberDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmDetailsSites.resx">
+      <DependentUpon>frmDetailsSites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmJoinTribe.resx">
+      <DependentUpon>frmJoinTribe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmInsertTribeLinks.resx">
+      <DependentUpon>frmInsertTribeLinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmMessageBox.resx">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmTools.resx">
+      <DependentUpon>frmTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\back.png" />
+    <Content Include="images\bull.png" />
+    <Content Include="images\cat.png" />
+    <Content Include="images\cat_logo.ico" />
+    <Content Include="images\cat_logo.png" />
+    <Content Include="images\cross.png" />
+    <Content Include="images\elephant.png" />
+    <Content Include="images\forward.png" />
+    <Content Include="images\house.png" />
+    <Content Include="images\info.png" />
+    <Content Include="images\lizard.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\magnify.png" />
+    <Content Include="images\minus.png" />
+    <Content Include="images\monkey.png" />
+    <Content Include="images\ok.png" />
+    <Content Include="images\plus.png" />
+    <Content Include="images\refresh.png" />
+    <Content Include="images\save.png" />
+    <Content Include="images\spider.png" />
+    <Content Include="images\tick.png" />
+    <Content Include="images\tools.png" />
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
