@@ -24,11 +24,15 @@
 
 using System;
 using System.Windows.Forms;
+using TribalBrowser.helpers;
 
 namespace TribalBrowser.forms
 {
     public partial class frmDetailsSites : Form
     {
+        readonly DataAccess m_oDataAccess = new DataAccess();
+        readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+
         public frmDetailsSites()
         {
             InitializeComponent();
@@ -42,6 +46,7 @@ namespace TribalBrowser.forms
         private void frmDetailsSites_Load(object sender, EventArgs e)
         {
             _AddTooltips();
+            _PopulateFields();
         }
 
         #region private helper methods
@@ -50,6 +55,32 @@ namespace TribalBrowser.forms
         {
 
 
+        }
+
+        private void _PopulateFields()
+        {
+            _ShowMyDetails();
+            _ShowTribeList();
+        }
+
+        private void _ShowMyDetails()
+        {
+            TribeMember oTribeMember = new TribeMember();
+            oTribeMember = m_oDataAccess.FindTribeMember();
+            txtUsrNm.Text = oTribeMember.UsrNm;
+            txtPss.Text = oTribeMember.Pss;
+            txtConfirmPss.Text = oTribeMember.Pss;
+        }
+
+        private void _ShowTribeList()
+        {
+            dgMyTribes.DataSource = m_oDataAccess.FindAllMyTribes(mTribeMember.UsrNm);
+            if (dgMyTribes["colTbNm", 0].Value != null) _ShowSiteList(dgMyTribes["colTbNm", 0].Value.ToString());
+        }
+
+        private void _ShowSiteList(string sTbNm)
+        {
+            dgMySites.DataSource = m_oDataAccess.FindAllMyTribeLinks(mTribeMember.UsrNm, sTbNm);
         }
 
         #endregion

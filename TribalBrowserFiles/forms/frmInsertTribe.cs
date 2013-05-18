@@ -24,6 +24,7 @@
 
 using System;
 using System.Windows.Forms;
+using TribalBrowser.helpers;
 
 namespace TribalBrowser.forms
 {
@@ -46,7 +47,7 @@ namespace TribalBrowser.forms
 
         private void _CreateTribe()
         {
-            if (m_oDataAccess.TribeExist(txtTbNm.Text))
+            if (m_oDataAccess.TribeExists(txtTbNm.Text))
             {
                 m_oMessageBox.Show(StringProvider.sTribeExists);
                 return;
@@ -58,7 +59,8 @@ namespace TribalBrowser.forms
                 return;
             }
 
-            m_oDataAccess.InsertTribe(txtTbNm.Text, txtDsc.Text);
+            m_oDataAccess.InsertTribe(txtTbNm.Text, txtDsc.Text,mTribeMember.UsrNm);
+            m_oDataAccess.UpdateTribeMemberTribe(txtTbNm.Text);
             m_oMessageBox.Show(StringProvider.sTribeCreated);
         }
 

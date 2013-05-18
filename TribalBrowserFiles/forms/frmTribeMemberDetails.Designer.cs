@@ -53,25 +53,25 @@ namespace TribalBrowser.forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTribeMemberDetails));
-            this.lblConfirmPass = new System.Windows.Forms.Label();
+            this.lblConfirmPss = new System.Windows.Forms.Label();
             this.txtConfirmPss = new System.Windows.Forms.TextBox();
-            this.lblPass = new System.Windows.Forms.Label();
+            this.lblPss = new System.Windows.Forms.Label();
             this.txtPss = new System.Windows.Forms.TextBox();
-            this.lblUserName = new System.Windows.Forms.Label();
+            this.lblUsrNm = new System.Windows.Forms.Label();
             this.txtUsrNm = new System.Windows.Forms.TextBox();
             this.btnDetails = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblConfirmPass
+            // lblConfirmPss
             // 
-            this.lblConfirmPass.AutoSize = true;
-            this.lblConfirmPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPass.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblConfirmPass.Location = new System.Drawing.Point(8, 111);
-            this.lblConfirmPass.Name = "lblConfirmPass";
-            this.lblConfirmPass.Size = new System.Drawing.Size(158, 22);
-            this.lblConfirmPass.TabIndex = 17;
-            this.lblConfirmPass.Text = "Confirm Password";
+            this.lblConfirmPss.AutoSize = true;
+            this.lblConfirmPss.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPss.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblConfirmPss.Location = new System.Drawing.Point(8, 111);
+            this.lblConfirmPss.Name = "lblConfirmPss";
+            this.lblConfirmPss.Size = new System.Drawing.Size(158, 22);
+            this.lblConfirmPss.TabIndex = 17;
+            this.lblConfirmPss.Text = "Confirm Password";
             // 
             // txtConfirmPss
             // 
@@ -82,16 +82,16 @@ namespace TribalBrowser.forms
             this.txtConfirmPss.TabIndex = 3;
             this.txtConfirmPss.UseSystemPasswordChar = true;
             // 
-            // lblPass
+            // lblPss
             // 
-            this.lblPass.AutoSize = true;
-            this.lblPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPass.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPass.Location = new System.Drawing.Point(8, 57);
-            this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(88, 22);
-            this.lblPass.TabIndex = 15;
-            this.lblPass.Text = "Password";
+            this.lblPss.AutoSize = true;
+            this.lblPss.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPss.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPss.Location = new System.Drawing.Point(8, 57);
+            this.lblPss.Name = "lblPss";
+            this.lblPss.Size = new System.Drawing.Size(88, 22);
+            this.lblPss.TabIndex = 15;
+            this.lblPss.Text = "Password";
             // 
             // txtPss
             // 
@@ -102,16 +102,16 @@ namespace TribalBrowser.forms
             this.txtPss.TabIndex = 2;
             this.txtPss.UseSystemPasswordChar = true;
             // 
-            // lblUserName
+            // lblUsrNm
             // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUserName.Location = new System.Drawing.Point(8, 7);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(56, 22);
-            this.lblUserName.TabIndex = 13;
-            this.lblUserName.Text = "Name";
+            this.lblUsrNm.AutoSize = true;
+            this.lblUsrNm.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsrNm.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUsrNm.Location = new System.Drawing.Point(8, 7);
+            this.lblUsrNm.Name = "lblUsrNm";
+            this.lblUsrNm.Size = new System.Drawing.Size(56, 22);
+            this.lblUsrNm.TabIndex = 13;
+            this.lblUsrNm.Text = "Name";
             // 
             // txtUsrNm
             // 
@@ -145,11 +145,11 @@ namespace TribalBrowser.forms
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(372, 315);
             this.Controls.Add(this.btnDetails);
-            this.Controls.Add(this.lblConfirmPass);
+            this.Controls.Add(this.lblConfirmPss);
             this.Controls.Add(this.txtConfirmPss);
-            this.Controls.Add(this.lblPass);
+            this.Controls.Add(this.lblPss);
             this.Controls.Add(this.txtPss);
-            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.lblUsrNm);
             this.Controls.Add(this.txtUsrNm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -163,11 +163,11 @@ namespace TribalBrowser.forms
 
         #endregion
 
-        private System.Windows.Forms.Label lblConfirmPass;
+        private System.Windows.Forms.Label lblConfirmPss;
         private System.Windows.Forms.TextBox txtConfirmPss;
-        private System.Windows.Forms.Label lblPass;
+        private System.Windows.Forms.Label lblPss;
         private System.Windows.Forms.TextBox txtPss;
-        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Label lblUsrNm;
         private System.Windows.Forms.TextBox txtUsrNm;
         private System.Windows.Forms.Button btnDetails;
     }

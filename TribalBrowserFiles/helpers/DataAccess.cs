@@ -53,11 +53,12 @@ namespace TribalBrowser
 
         #region Insert
 
-        public void InsertTribe(string sTbNm, string sDsc)
+        public void InsertTribe(string sTbNm, string sDsc, string sUsrNm)
         {
             var oTb = new Tribe
             {
                 TbNm = sTbNm,
+                UsrNm = sUsrNm,
                 Dsc = sDsc
             };
             m_colTribes.Insert(oTb);
@@ -92,10 +93,22 @@ namespace TribalBrowser
 
         #region Find
 
+        public TribeMember FindTribeMember()
+        {
+            var query = Query<TribeMember>.EQ(e => e.UsrNm, mTribeMember.UsrNm);
+            return m_colTribeMembers.FindOne(query);
+        }
+
         public Tribe FindTribe(string sTbNm)
         {
             var query = Query<Tribe>.EQ(e => e.TbNm, sTbNm);
             return m_colTribes.FindOne(query);
+        }
+
+        public List<Tribe> FindAllMyTribes(string sUsrNm)
+        {
+            var query = Query<Tribe>.EQ(e => e.UsrNm, sUsrNm);
+            return m_colTribes.Find(query).ToList();
         }
 
         public List<Tribe> FindTribeAndTop20(string sTbNm)
@@ -107,7 +120,7 @@ namespace TribalBrowser
             return oTribes.ToList();
         }
 
-        public bool TribeExist(string sTbNm)
+        public bool TribeExists(string sTbNm)
         {
             var query = Query<Tribe>.EQ(e => e.TbNm, sTbNm);
             return m_colTribes.Find(query).Any();
@@ -240,7 +253,7 @@ namespace TribalBrowser
         #endregion
 
         #region misc
-
+                
         public void Login()
         {
             var query = Query<TribeMember>.EQ(e => e.UsrNm, mTribeMember.UsrNm);

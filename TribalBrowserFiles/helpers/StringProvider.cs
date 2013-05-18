@@ -42,7 +42,7 @@ namespace TribalBrowser
 
         #region frmInsertTribe
 
-        public static string sTribeCreated = "Your Tribe has been created. Now add some links to it.";
+        public static string sTribeCreated = "Your Tribe has been created. You are also the first member so now go add some links to it.";
         public static string sTribeExists = "This Tribe already exists. Please choose another name.";
         public static string sTribeBlank = "The Tribe name cannot be blank.";
         

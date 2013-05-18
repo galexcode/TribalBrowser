@@ -32,6 +32,7 @@ namespace TribalBrowser.helpers
         public ObjectId Id { get; set; }
         public string TbNm { get; set; }
         public string Dsc { get; set; }
+        public string UsrNm { get; set; }
 
         public override int GetHashCode()
         {
