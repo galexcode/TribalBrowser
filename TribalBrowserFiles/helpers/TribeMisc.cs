@@ -7,6 +7,8 @@ namespace TribalBrowser.helpers
     {
         private static string m_sFilename = "UserInfo.ini";
         
+        #region inifile methods
+
         public static void GetUserInfo()
         {
             string sLine = "";
@@ -27,6 +29,10 @@ namespace TribalBrowser.helpers
                 writer.WriteLine(sTbNm);
             }
         }
+
+        #endregion
+        
+        #region String Methods
 
         public static string StripHttp(string sUrl)
         {
@@ -50,5 +56,7 @@ namespace TribalBrowser.helpers
             }
             return o.ToString().Trim();
         }
+
+        #endregion
     }
 }

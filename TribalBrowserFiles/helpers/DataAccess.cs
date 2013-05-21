@@ -76,7 +76,7 @@ namespace TribalBrowser
             mTribeMember.TbNm = sTbNm;
         }
 
-        public void InsertTribeLinks(string sSt, string sUrl, string sDsc, string sTbNm, string sUsrNm)
+        public void InsertTribeLink(string sSt, string sUrl, string sDsc, string sTbNm, string sUsrNm)
         {
             var oTL = new TribeLinks
             {
@@ -109,6 +109,11 @@ namespace TribalBrowser
         {
             var query = Query<Tribe>.EQ(e => e.UsrNm, sUsrNm);
             return m_colTribes.Find(query).ToList();
+        }
+
+        public List<Tribe> FindAllTribes()
+        {
+            return m_colTribes.FindAll().ToList();
         }
 
         public List<Tribe> FindTribeAndTop20(string sTbNm)
@@ -240,6 +245,24 @@ namespace TribalBrowser
             m_colTribeMembers.Update(query, update);
         }
 
+        public void UpdateTribeLink(string sSt, string sUrl, string sDsc, string sTbNm, string sUsrNm)
+        {
+            var query = Query<TribeLinks>.Where(e => e.St == sSt && e.TbNm == sTbNm);
+            var update = Update<TribeLinks>.Set(e => e.St, sSt)
+                                           .Set(e => e.Url, sUrl)
+                                           .Set(e => e.Dsc, sDsc)
+                                           .Set(e => e.TbNm, sTbNm);
+            m_colTribeLinks.Update(query, update);
+        }
+
+        public void UpdateTribe(string sPrevTbNm, string sDsc)
+        {
+            var query = Query<Tribe>.Where(e => e.TbNm == sPrevTbNm);
+            var update = Update<Tribe>.Set(e => e.TbNm, sPrevTbNm)
+                                           .Set(e => e.Dsc, sDsc);
+            m_colTribes.Update(query, update);
+        }
+
         #endregion
 
         #region Delete
@@ -253,7 +276,7 @@ namespace TribalBrowser
         #endregion
 
         #region misc
-                
+
         public void Login()
         {
             var query = Query<TribeMember>.EQ(e => e.UsrNm, mTribeMember.UsrNm);

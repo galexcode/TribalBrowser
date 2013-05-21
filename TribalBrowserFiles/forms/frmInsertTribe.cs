@@ -53,7 +53,7 @@ namespace TribalBrowser.forms
                 return;
             }
 
-            if (txtTbNm.Text == "")
+            if (txtTbNm.Text == "" || txtDsc.Text == "")
             {
                 m_oMessageBox.Show(StringProvider.sTribeBlank);
                 return;

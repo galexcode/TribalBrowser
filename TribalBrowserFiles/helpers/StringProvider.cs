@@ -44,7 +44,7 @@ namespace TribalBrowser
 
         public static string sTribeCreated = "Your Tribe has been created. You are also the first member so now go add some links to it.";
         public static string sTribeExists = "This Tribe already exists. Please choose another name.";
-        public static string sTribeBlank = "The Tribe name cannot be blank.";
+        public static string sTribeBlank = "The Tribe Name or Description cannot be blank.";
         
         #endregion
 
@@ -80,5 +80,12 @@ namespace TribalBrowser
         public static string sConfirmDeleteTribeSite = "Are you sure you want to delete site: ";
 
         #endregion
+
+        #region frmDetailsSites
+
+        public static string sTribeDetailsSaved = "Your Tribe details have been saved.";
+
+        #endregion
+
     }
 }
