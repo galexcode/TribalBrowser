@@ -144,7 +144,7 @@ namespace TribalBrowser
             return m_colTribes.FindAs<Tribe>(query).ToList();
         }
 
-        public bool DoesTribeMemberExist(string sUsrNm)
+        public bool TribeMemberExists(string sUsrNm)
         {
             var query = Query<TribeMember>.EQ(e => e.UsrNm, sUsrNm);
             return m_colTribeMembers.Find(query).Any();

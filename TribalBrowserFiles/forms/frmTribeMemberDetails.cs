@@ -77,15 +77,15 @@ namespace TribalBrowser.forms
                 return;
             }
 
-            if (m_oDataAccess.DoesTribeMemberExist(txtUsrNm.Text) == false)
+            if (m_oDataAccess.TribeMemberExists(txtUsrNm.Text))
+            {
+                m_oMessageBox.Show(StringProvider.sTribeMemberExists);
+            }
+            else
             {
                 m_oDataAccess.InsertTribeMember(txtUsrNm.Text, txtPss.Text, mTribeMember.DefaultTbNm);
                 m_oMessageBox.Show(StringProvider.sTribeMemberCreated);
                 Close();
-            }
-            else
-            {
-                m_oMessageBox.Show(StringProvider.sTribeMemberExists);
             }
         }
 

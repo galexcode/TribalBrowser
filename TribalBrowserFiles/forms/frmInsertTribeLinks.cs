@@ -30,7 +30,7 @@ namespace TribalBrowser.forms
 {
     public partial class frmInsertTribeLinks : Form
     {
-        private TribeSitesGrid m_oTribeDataGrid;
+        private TribeSitesGrid m_oTribeSitesGrid;
 
         public frmInsertTribeLinks()
         {
@@ -39,31 +39,18 @@ namespace TribalBrowser.forms
 
         private void frmInsertTribeLinks_Load(object sender, EventArgs e)
         {
-           m_oTribeDataGrid = new TribeSitesGrid(dgMySites);
-           m_oTribeDataGrid.RefreshGrid();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
+           m_oTribeSitesGrid = new TribeSitesGrid(dgMySites);
+           m_oTribeSitesGrid.RefreshGrid();
         }
 
         private void dgMySites_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgMySites.Columns["colSaveSite"].Index && e.RowIndex >= 0)
-            {
-                m_oTribeDataGrid.SaveTribeLink(e);
-            }
-
-            if (e.ColumnIndex == dgMySites.Columns["colDeleteSite"].Index && e.RowIndex >= 0)
-            {
-                m_oTribeDataGrid.DeleteTribeLink(e);
-            }
+            m_oTribeSitesGrid.ClickCell(e);
         }
 
         private void dgMySites_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            m_oTribeDataGrid.ValidateUrl(e);
+            m_oTribeSitesGrid.ValidateUrl(e);
         }
     }
 }

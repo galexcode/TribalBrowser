@@ -33,6 +33,7 @@ namespace TribalBrowser.forms
         readonly DataAccess m_oDataAccess = new DataAccess();
         readonly frmMessageBox m_oMessageBox = new frmMessageBox();
         private TribeSitesGrid m_oTribeSitesGrid;
+        private TribesGrid m_oTribesGrid;
 
         public frmDetailsSites()
         {
@@ -47,21 +48,14 @@ namespace TribalBrowser.forms
         private void frmDetailsSites_Load(object sender, EventArgs e)
         {
             m_oTribeSitesGrid = new TribeSitesGrid(dgMySites);
+            m_oTribesGrid = new TribesGrid(dgMyTribes);
             _AddTooltips();
             _PopulateFields();
         }
 
         private void dgMySites_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgMySites.Columns["colSaveSite"].Index && e.RowIndex >= 0)
-            {
-                m_oTribeSitesGrid.SaveTribeLink(e);
-            }
-
-            if (e.ColumnIndex == dgMySites.Columns["colDeleteSite"].Index && e.RowIndex >= 0)
-            {
-                m_oTribeSitesGrid.DeleteTribeLink(e);
-            }
+            m_oTribeSitesGrid.ClickCell(e);
         }
 
         private void dgMySites_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -71,10 +65,7 @@ namespace TribalBrowser.forms
                 
         private void dgMyTribes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgMyTribes.Columns["colSaveTribe"].Index && e.RowIndex >= 0)
-            {
-                _UpdateTribe(e);
-            }
+            m_oTribesGrid.ClickCell(e);
         }
 
         #region private helper methods
@@ -85,35 +76,11 @@ namespace TribalBrowser.forms
 
         }
 
-        private void _UpdateTribe(DataGridViewCellEventArgs e)
-        {
-            if (_MyTribeFieldsNull(e))
-            {
-                m_oMessageBox.Show(StringProvider.sTribeBlank);
-                return;
-            }
-
-            m_oDataAccess.UpdateTribe(dgMyTribes["colTrTbNm", e.RowIndex].Value.ToString().Trim(),
-                                dgMyTribes["colTrDsc", e.RowIndex].Value.ToString().Trim());
-            m_oMessageBox.Show(StringProvider.sTribeDetailsSaved);
-        }
-
-        private bool _MyTribeFieldsNull(DataGridViewCellEventArgs e)
-        {
-            bool bFieldsAreNull = (dgMyTribes["colTrTbNm", e.RowIndex].Value == null);
-
-            if (dgMyTribes["colTrDsc", e.RowIndex].Value == null)
-            {
-                bFieldsAreNull = true;
-            }
-
-            return bFieldsAreNull;
-        }
-
         private void _PopulateFields()
         {
             _ShowMyDetails();
-            _ShowTribeList();
+            m_oTribesGrid.ShowAllMyTribes();
+            if (dgMyTribes["colTrTbNm", 0].Value != null) m_oTribeSitesGrid.ShowAllMyTribeLinks(dgMyTribes["colTrTbNm", 0].Value.ToString());
         }
 
         private void _ShowMyDetails()
@@ -125,18 +92,6 @@ namespace TribalBrowser.forms
             txtConfirmPss.Text = oTribeMember.Pss;
         }
 
-        private void _ShowTribeList()
-        {
-            dgMyTribes.DataSource = m_oDataAccess.FindAllMyTribes(mTribeMember.UsrNm);
-            if (dgMyTribes["colTrTbNm", 0].Value != null) _ShowSiteList(dgMyTribes["colTrTbNm", 0].Value.ToString());
-        }
-
-        private void _ShowSiteList(string sTbNm)
-        {
-            dgMySites.DataSource = m_oDataAccess.FindAllMyTribeLinks(mTribeMember.UsrNm, sTbNm);
-        }
-
         #endregion
-
     }
 }

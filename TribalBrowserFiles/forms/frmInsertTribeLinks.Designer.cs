@@ -74,7 +74,6 @@ namespace TribalBrowser.forms
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTbNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnlMySites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgMySites)).BeginInit();
@@ -237,29 +236,12 @@ namespace TribalBrowser.forms
             this.colTbNm.Name = "colTbNm";
             this.colTbNm.Visible = false;
             // 
-            // btnSave
-            // 
-            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
-            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSave.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(421, 336);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(167, 156);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save Your Links";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // frmInsertTribeLinks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1060, 495);
-            this.Controls.Add(this.btnSave);
+            this.ClientSize = new System.Drawing.Size(1048, 338);
             this.Controls.Add(this.lblMySites);
             this.Controls.Add(this.pnlMySites);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -279,7 +261,6 @@ namespace TribalBrowser.forms
         private System.Windows.Forms.Label lblMySites;
         private System.Windows.Forms.Panel pnlMySites;
         private System.Windows.Forms.DataGridView dgMySites;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSt;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUrl;

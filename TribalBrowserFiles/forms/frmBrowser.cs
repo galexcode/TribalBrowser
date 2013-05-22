@@ -1,6 +1,6 @@
 ﻿#region GPL Licence
 
-    /*
+/*
     Tribal Browser: A web browser that allows you to share your personal sites and 
     interact with your Tribe, bypassing search engines and ICANN.
     Copyright (C) 2012 Darren Udaiyan, Frugal Disruptive ltd, darren@frugaldisruptive.com
@@ -34,6 +34,7 @@ namespace TribalBrowser.forms
 
         readonly DataAccess m_oDataAccess = new DataAccess();
         readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        private TribeSitesGrid m_oTribeSitesGrid;
 
         #endregion
 
@@ -47,6 +48,7 @@ namespace TribalBrowser.forms
         private void frmMain_Load(object sender, EventArgs e)
         {
             _Initialise();
+            m_oTribeSitesGrid = new TribeSitesGrid(dgTribeSites);
         }
 
         #endregion
@@ -55,19 +57,19 @@ namespace TribalBrowser.forms
 
         private void txtUrl_TextChanged(object sender, EventArgs e)
         {
-            _GetGridValues();
+            m_oTribeSitesGrid.GetBrowserLinks(txtUrl.Text.Trim());
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            _FindAndNavigate();
+            m_oTribeSitesGrid.BrowserFindAndNavigate(txtUrl.Text.Trim());
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            _GetGridValues();
+            m_oTribeSitesGrid.GetBrowserLinks(txtUrl.Text.Trim());
         }
-        
+
         private void btnTools_Click(object sender, EventArgs e)
         {
             _ShowToolsDialog();
@@ -75,12 +77,8 @@ namespace TribalBrowser.forms
 
         private void dgTribeSites_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex ==dgTribeSites.Columns["colSt"].Index && e.RowIndex >= 0)
-            {
-                if (dgTribeSites["colUrl", dgTribeSites.CurrentRow.Index].Value == null) return;
-                string sUrl = dgTribeSites["colUrl", dgTribeSites.CurrentRow.Index].Value.ToString();
-                _NavigateToUrl(sUrl);
-            }
+            string sUrl = m_oTribeSitesGrid.BrowserClickNavigate(e);
+            if (sUrl != "") _NavigateToUrl(sUrl);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -91,7 +89,7 @@ namespace TribalBrowser.forms
             }
             else
             {
-                _GetGridValues();
+                m_oTribeSitesGrid.GetBrowserLinks(txtUrl.Text.Trim());
             }
         }
 
@@ -106,12 +104,6 @@ namespace TribalBrowser.forms
         #endregion
 
         #region Private Helpers
-
-        private void _FindAndNavigate()
-        {
-            if (String.IsNullOrEmpty(txtUrl.Text.Trim())) return;
-            dgTribeSites.DataSource= m_oDataAccess.FindTribeLinksAndTop20(txtUrl.Text.Trim(),mTribeMember.TbNm);
-        }
 
         private void _ShowToolsDialog()
         {
@@ -131,10 +123,10 @@ namespace TribalBrowser.forms
         private void _Initialise()
         {
             _AddTooltips();
-            _ShowTribeLinks();
+            _ShowBrowserTribeLinks();
         }
 
-        private void _ShowTribeLinks()
+        private void _ShowBrowserTribeLinks()
         {
             dgTribeSites.DataSource = m_oDataAccess.FindAllTribeLinks(mTribeMember.TbNm);
         }
@@ -146,19 +138,6 @@ namespace TribalBrowser.forms
             toolTip.SetToolTip(btnLoad, StringProvider.sLoad);
             toolTip.SetToolTip(btnTools, StringProvider.sTools);
             toolTip.SetToolTip(txtUrl, StringProvider.sUrl);
-        }
-              
-        private void _GetGridValues()
-        {
-            dgTribeSites.Visible = true;
-            if (String.IsNullOrEmpty(txtUrl.Text.Trim()))
-            {
-                dgTribeSites.DataSource = m_oDataAccess.FindAllTribeLinks(mTribeMember.TbNm);
-            }
-            else
-            {
-                dgTribeSites.DataSource = m_oDataAccess.FindTribeLinksAndTop20(txtUrl.Text.Trim(),mTribeMember.TbNm);
-            }
         }
 
         private void _NavigateToUrl(string sUrl)

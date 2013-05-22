@@ -39,7 +39,36 @@ namespace TribalBrowser.helpers
         {
             m_oDataGridView = oDataGridView;
         }
-        
+
+        public void GetBrowserLinks(string sUrl)
+        {
+            m_oDataGridView.Visible = true;
+            if (String.IsNullOrEmpty(sUrl))
+            {
+                m_oDataGridView.DataSource = m_oDataAccess.FindAllTribeLinks(mTribeMember.TbNm);
+            }
+            else
+            {
+                m_oDataGridView.DataSource = m_oDataAccess.FindTribeLinksAndTop20(sUrl, mTribeMember.TbNm);
+            }
+        }
+
+        public void BrowserFindAndNavigate(string sUrl)
+        {
+            if (String.IsNullOrEmpty(sUrl.Trim())) return;
+            m_oDataGridView.DataSource = m_oDataAccess.FindTribeLinksAndTop20(sUrl.Trim(), mTribeMember.TbNm);
+        }
+
+        public string BrowserClickNavigate(DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == m_oDataGridView.Columns["colSt"].Index && e.RowIndex >= 0)
+            {
+                if (m_oDataGridView["colUrl", m_oDataGridView.CurrentRow.Index].Value == null) return "";
+                return m_oDataGridView["colUrl", m_oDataGridView.CurrentRow.Index].Value.ToString();
+            }
+            return "";
+        }
+
         public void DeleteTribeLink(DataGridViewCellEventArgs e)
         {
             if (_CheckIfAnyFieldsNull(e)) return;
@@ -47,6 +76,19 @@ namespace TribalBrowser.helpers
             {
                 m_oDataAccess.DeleteTribeLinks(m_oDataGridView["colSt", e.RowIndex].Value.ToString().Trim(), mTribeMember.TbNm);
                 RefreshGrid();
+            }
+        }
+
+        public void ClickCell(DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == m_oDataGridView.Columns["colSaveSite"].Index && e.RowIndex >= 0)
+            {
+                SaveTribeLink(e);
+            }
+
+            if (e.ColumnIndex == m_oDataGridView.Columns["colDeleteSite"].Index && e.RowIndex >= 0)
+            {
+                DeleteTribeLink(e);
             }
         }
 
@@ -83,6 +125,11 @@ namespace TribalBrowser.helpers
             {
                 _UpdateTribeLink(e);
             }
+        }
+
+        public void ShowAllMyTribeLinks(string sTbNm)
+        {
+            m_oDataGridView.DataSource = m_oDataAccess.FindAllMyTribeLinks(mTribeMember.UsrNm, sTbNm);
         }
 
         public void ValidateUrl(DataGridViewCellEventArgs e)
