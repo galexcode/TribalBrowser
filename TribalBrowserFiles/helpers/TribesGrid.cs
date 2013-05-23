@@ -28,14 +28,24 @@ namespace TribalBrowser.helpers
 {
     public class TribesGrid
     {
-        private DataGridView m_oDataGridView;
+        #region Member Variables
+
+        private readonly DataGridView m_oDataGridView;
         private readonly DataAccess m_oDataAccess = new DataAccess();
         private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public TribesGrid(DataGridView oDataGridView)
         {
             m_oDataGridView = oDataGridView;
         }
+
+        #endregion
+
+        #region Public methods
 
         public void ClickCell(DataGridViewCellEventArgs e)
         {
@@ -50,7 +60,35 @@ namespace TribalBrowser.helpers
             m_oDataGridView.DataSource = m_oDataAccess.FindAllMyTribes(mTribeMember.UsrNm);
         }
 
-        #region Private Helper Methods
+        public void JoinTribe(Form oParent)
+        {
+            string sTbNm = m_oDataGridView["colTbNm", m_oDataGridView.CurrentRow.Index].Value.ToString();
+            if (sTbNm != "")
+            {
+                m_oDataAccess.UpdateTribeMemberTribe(sTbNm);
+                TribeMisc.SaveUserInfo(sTbNm);
+                m_oMessageBox.Show(StringProvider.sTribeJoined + sTbNm);
+                oParent.Close();
+            }
+            else
+            {
+                m_oMessageBox.Show(StringProvider.sTribeNameBlank);
+            }
+        }
+
+        public void FindTop20Tribes()
+        {
+            m_oDataGridView.DataSource = m_oDataAccess.FindTop20Tribes();
+        }
+
+        public void FindTribeAndTop20(string sSearch)
+        {
+            m_oDataGridView.DataSource = m_oDataAccess.FindTribeAndTop20(sSearch.Trim());
+        }
+
+        #endregion
+
+        #region Private Helpers
 
         private void _UpdateTribe(DataGridViewCellEventArgs e)
         {

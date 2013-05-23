@@ -59,7 +59,7 @@ namespace TribalBrowser.forms
             this.txtPss = new System.Windows.Forms.TextBox();
             this.lblUsrNm = new System.Windows.Forms.Label();
             this.txtUsrNm = new System.Windows.Forms.TextBox();
-            this.btnDetails = new System.Windows.Forms.Button();
+            this.btnSaveDetails = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblConfirmPss
@@ -121,30 +121,30 @@ namespace TribalBrowser.forms
             this.txtUsrNm.Size = new System.Drawing.Size(342, 22);
             this.txtUsrNm.TabIndex = 1;
             // 
-            // btnDetails
+            // btnSaveDetails
             // 
-            this.btnDetails.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDetails.BackgroundImage")));
-            this.btnDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDetails.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetails.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDetails.Location = new System.Drawing.Point(113, 164);
-            this.btnDetails.Name = "btnDetails";
-            this.btnDetails.Size = new System.Drawing.Size(140, 144);
-            this.btnDetails.TabIndex = 4;
-            this.btnDetails.Text = "Save My Details";
-            this.btnDetails.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDetails.UseVisualStyleBackColor = true;
-            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
+            this.btnSaveDetails.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveDetails.BackgroundImage")));
+            this.btnSaveDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSaveDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSaveDetails.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDetails.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSaveDetails.Location = new System.Drawing.Point(113, 164);
+            this.btnSaveDetails.Name = "btnSaveDetails";
+            this.btnSaveDetails.Size = new System.Drawing.Size(140, 144);
+            this.btnSaveDetails.TabIndex = 4;
+            this.btnSaveDetails.Text = "Save My Details";
+            this.btnSaveDetails.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSaveDetails.UseVisualStyleBackColor = true;
+            this.btnSaveDetails.Click += new System.EventHandler(this.btnSaveDetails_Click);
             // 
             // frmTribeMemberDetails
             // 
-            this.AcceptButton = this.btnDetails;
+            this.AcceptButton = this.btnSaveDetails;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(372, 315);
-            this.Controls.Add(this.btnDetails);
+            this.Controls.Add(this.btnSaveDetails);
             this.Controls.Add(this.lblConfirmPss);
             this.Controls.Add(this.txtConfirmPss);
             this.Controls.Add(this.lblPss);
@@ -169,6 +169,6 @@ namespace TribalBrowser.forms
         private System.Windows.Forms.TextBox txtPss;
         private System.Windows.Forms.Label lblUsrNm;
         private System.Windows.Forms.TextBox txtUsrNm;
-        private System.Windows.Forms.Button btnDetails;
+        private System.Windows.Forms.Button btnSaveDetails;
     }
 }

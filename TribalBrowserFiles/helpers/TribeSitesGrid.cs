@@ -31,14 +31,24 @@ namespace TribalBrowser.helpers
 {
     public class TribeSitesGrid
     {
+        #region Member Variables
+
         private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
         private readonly DataAccess m_oDataAccess = new DataAccess();
-        private DataGridView m_oDataGridView;
+        private readonly DataGridView m_oDataGridView;
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public TribeSitesGrid(DataGridView oDataGridView)
         {
             m_oDataGridView = oDataGridView;
         }
+
+        #endregion
+
+        #region Public methods
 
         public void GetBrowserLinks(string sUrl)
         {
@@ -53,10 +63,21 @@ namespace TribalBrowser.helpers
             }
         }
 
-        public void BrowserFindAndNavigate(string sUrl)
+        public void BrowserFindAndNavigate(string sSt)
         {
-            if (String.IsNullOrEmpty(sUrl.Trim())) return;
-            m_oDataGridView.DataSource = m_oDataAccess.FindTribeLinksAndTop20(sUrl.Trim(), mTribeMember.TbNm);
+            if (String.IsNullOrEmpty(sSt.Trim())) return;
+            m_oDataGridView.DataSource = m_oDataAccess.FindTribeLinksAndTop20(sSt.Trim(), mTribeMember.TbNm);
+        }
+
+        public bool MatchesFirstGridValue(string sSt)
+        {
+            if (m_oDataGridView["colSt", 0].Value == null) return false;
+            return m_oDataGridView["colSt", 0].Value.ToString().Trim() == sSt.Trim();
+        }
+
+        public string FirstGridValue()
+        {
+            return m_oDataGridView["colUrl", 0].Value.ToString().Trim();
         }
 
         public string BrowserClickNavigate(DataGridViewCellEventArgs e)
@@ -141,7 +162,9 @@ namespace TribalBrowser.helpers
             }
         }
 
-        #region Private Helper methods
+        #endregion
+
+        #region Private Helpers
 
         private void _UpdateTribeLink(DataGridViewCellEventArgs e)
         {

@@ -31,12 +31,22 @@ namespace TribalBrowser.forms
 {
     public partial class frmLogin : Form
     {
-        readonly DataAccess m_oDataAccess = new DataAccess();
+        #region Member variables
+
+        private readonly DataAccess m_oDataAccess = new DataAccess();
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public frmLogin()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Controls
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -64,11 +74,12 @@ namespace TribalBrowser.forms
             _CheckPassword();
         }
 
-        #region Private Helper methods
+        #endregion
+
+        #region Private Helpers
 
         private void _AddTooltips()
         {
-            
         }
 
         private void _CheckPassword()

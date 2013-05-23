@@ -29,10 +29,16 @@ namespace TribalBrowser.forms
 {
     public partial class frmTools : Form
     {
+        #region Constructors/ Initialisers
+
         public frmTools()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Controls
 
         private void btnBrowser_Click(object sender, EventArgs e)
         {
@@ -68,5 +74,7 @@ namespace TribalBrowser.forms
             frmTribeMemberDetails ofrmDetails = new frmTribeMemberDetails();
             ofrmDetails.ShowDialog();
         }
+
+        #endregion
     }
 }

@@ -30,7 +30,13 @@ namespace TribalBrowser.forms
 {
     public partial class frmInsertTribeLinks : Form
     {
+        #region Member variables
+
         private TribeSitesGrid m_oTribeSitesGrid;
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public frmInsertTribeLinks()
         {
@@ -39,9 +45,13 @@ namespace TribalBrowser.forms
 
         private void frmInsertTribeLinks_Load(object sender, EventArgs e)
         {
-           m_oTribeSitesGrid = new TribeSitesGrid(dgMySites);
-           m_oTribeSitesGrid.RefreshGrid();
+            m_oTribeSitesGrid = new TribeSitesGrid(dgMySites);
+            m_oTribeSitesGrid.RefreshGrid();
         }
+
+        #endregion
+
+        #region Controls
 
         private void dgMySites_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -52,5 +62,7 @@ namespace TribalBrowser.forms
         {
             m_oTribeSitesGrid.ValidateUrl(e);
         }
+
+        #endregion
     }
 }

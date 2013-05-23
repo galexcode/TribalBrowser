@@ -5,16 +5,20 @@ namespace TribalBrowser.helpers
 {
     public static class TribeMisc
     {
-        private static string m_sFilename = "UserInfo.ini";
-        
+        #region Member variables
+
+        private const string m_sFilename = "UserInfo.ini";
+
+        #endregion
+
         #region inifile methods
 
         public static void GetUserInfo()
         {
-            string sLine = "";
             if (File.Exists(m_sFilename))
             {
                 StreamReader oReader = new StreamReader(m_sFilename);
+                string sLine = "";
                 while ((sLine = oReader.ReadLine()) != null)
                 {
                     mTribeMember.TbNm = sLine;

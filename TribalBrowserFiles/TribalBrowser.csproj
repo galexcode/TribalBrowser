@@ -110,6 +110,7 @@
     <Compile Include="forms\frmTools.Designer.cs">
       <DependentUpon>frmTools.cs</DependentUpon>
     </Compile>
+    <Compile Include="helpers\TribeLogon.cs" />
     <Compile Include="helpers\TribesGrid.cs" />
     <Compile Include="helpers\TribeSitesGrid.cs" />
     <Compile Include="helpers\TribeMisc.cs" />

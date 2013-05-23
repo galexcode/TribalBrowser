@@ -62,7 +62,7 @@ namespace TribalBrowser.forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnForward = new System.Windows.Forms.Button();
-            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.txtSt = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnTools = new System.Windows.Forms.Button();
@@ -106,15 +106,15 @@ namespace TribalBrowser.forms
             this.btnForward.UseVisualStyleBackColor = true;
             this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
-            // txtUrl
+            // txtSt
             // 
-            this.txtUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUrl.Location = new System.Drawing.Point(182, 16);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(583, 22);
-            this.txtUrl.TabIndex = 1;
-            this.txtUrl.TextChanged += new System.EventHandler(this.txtUrl_TextChanged);
+            this.txtSt.Location = new System.Drawing.Point(182, 16);
+            this.txtSt.Name = "txtSt";
+            this.txtSt.Size = new System.Drawing.Size(583, 22);
+            this.txtSt.TabIndex = 1;
+            this.txtSt.TextChanged += new System.EventHandler(this.txtUrl_TextChanged);
             // 
             // btnLoad
             // 
@@ -292,7 +292,7 @@ namespace TribalBrowser.forms
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnTools);
             this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.txtUrl);
+            this.Controls.Add(this.txtSt);
             this.Controls.Add(this.btnForward);
             this.Controls.Add(this.btnBack);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -312,7 +312,7 @@ namespace TribalBrowser.forms
 
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnForward;
-        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.TextBox txtSt;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button btnTools;

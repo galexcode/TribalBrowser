@@ -27,6 +27,8 @@ using MongoDB.Bson;
 
 namespace TribalBrowser.helpers
 {
+    #region Class Tribe
+
     public class Tribe
     {
         public ObjectId Id { get; set; }
@@ -51,6 +53,10 @@ namespace TribalBrowser.helpers
         }
     }
 
+    #endregion
+
+    #region Class TribeMember
+
     public class TribeMember
     {
         public ObjectId Id { get; set; }
@@ -60,6 +66,10 @@ namespace TribalBrowser.helpers
         public string LgIn { get; set; }
     }
 
+    #endregion
+
+    #region Static Class mTribeMember
+
     public static class mTribeMember
     {
         public static string UsrNm { get; set; }
@@ -67,6 +77,10 @@ namespace TribalBrowser.helpers
         public static bool LgIn { get; set; }
         public static string DefaultTbNm = "FrugalDisruptive";
     }
+
+    #endregion
+
+    #region Class TribeLinks
 
     public class TribeLinks
     {
@@ -79,7 +93,7 @@ namespace TribalBrowser.helpers
 
         public override int GetHashCode()
         {
-            unchecked 
+            unchecked
             {
                 int hash = 17;
                 hash = hash * 23 + St.GetHashCode();
@@ -95,4 +109,6 @@ namespace TribalBrowser.helpers
                 && oObject.Url == this.Url;
         }
     }
+
+    #endregion
 }

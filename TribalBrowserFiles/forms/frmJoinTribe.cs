@@ -30,56 +30,50 @@ namespace TribalBrowser.forms
 {
     public partial class frmJoinTribe : Form
     {
-        readonly DataAccess m_oDataAccess = new DataAccess();
-        readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        #region Member vaiables
+
+        private TribesGrid m_oTribesGrid;
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public frmJoinTribe()
         {
             InitializeComponent();
         }
 
+        private void frmJoinTribe_Load(object sender, EventArgs e)
+        {
+            m_oTribesGrid = new TribesGrid(dgTribes);
+            m_oTribesGrid.FindTop20Tribes();
+        }
+
+        #endregion
+
+        #region Controls
+
         private void btnJoin_Click(object sender, EventArgs e)
         {
-            _JoinTribe();
+            m_oTribesGrid.JoinTribe(this);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dgTribes.DataSource = m_oDataAccess.FindTribeAndTop20(txtSearch.Text);
-        }
-
-        private void frmJoinTribe_Load(object sender, EventArgs e)
-        {
-            dgTribes.DataSource = m_oDataAccess.FindTop20Tribes();
+            m_oTribesGrid.FindTribeAndTop20(txtSearch.Text);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            dgTribes.DataSource = m_oDataAccess.FindTribeAndTop20(txtSearch.Text);
+            m_oTribesGrid.FindTribeAndTop20(txtSearch.Text);
         }
 
-        #region Private Helper Methods
+        #endregion
+
+        #region Private Helpers
 
         private void _AddTooltips()
         {
-
-
-        }
-
-        private void _JoinTribe()
-        {
-            string sTbNm = dgTribes["colTbNm", dgTribes.CurrentRow.Index].Value.ToString();
-            if (sTbNm != "")
-            {
-                m_oDataAccess.UpdateTribeMemberTribe(sTbNm);
-                TribeMisc.SaveUserInfo(sTbNm);
-                m_oMessageBox.Show(StringProvider.sTribeJoined + sTbNm);
-                this.Close();
-            }
-            else
-            {
-                m_oMessageBox.Show(StringProvider.sTribeNameBlank);
-            }
         }
 
         #endregion

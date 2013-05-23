@@ -32,8 +32,8 @@ namespace TribalBrowser.forms
     {
         #region Member variables
 
-        readonly DataAccess m_oDataAccess = new DataAccess();
-        readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        private readonly DataAccess m_oDataAccess = new DataAccess();
+        private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
         private TribeSitesGrid m_oTribeSitesGrid;
 
         #endregion
@@ -57,17 +57,18 @@ namespace TribalBrowser.forms
 
         private void txtUrl_TextChanged(object sender, EventArgs e)
         {
-            m_oTribeSitesGrid.GetBrowserLinks(txtUrl.Text.Trim());
+            m_oTribeSitesGrid.GetBrowserLinks(txtSt.Text.Trim());
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            m_oTribeSitesGrid.BrowserFindAndNavigate(txtUrl.Text.Trim());
+            m_oTribeSitesGrid.BrowserFindAndNavigate(txtSt.Text.Trim());
+            _NavigateFirstLink();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            m_oTribeSitesGrid.GetBrowserLinks(txtUrl.Text.Trim());
+            m_oTribeSitesGrid.GetBrowserLinks(txtSt.Text.Trim());
         }
 
         private void btnTools_Click(object sender, EventArgs e)
@@ -89,7 +90,7 @@ namespace TribalBrowser.forms
             }
             else
             {
-                m_oTribeSitesGrid.GetBrowserLinks(txtUrl.Text.Trim());
+                m_oTribeSitesGrid.GetBrowserLinks(txtSt.Text.Trim());
             }
         }
 
@@ -107,7 +108,7 @@ namespace TribalBrowser.forms
 
         private void _ShowToolsDialog()
         {
-            if (mTribeMember.LgIn == true)
+            if (mTribeMember.LgIn)
             {
                 frmTools ofrmMain = new frmTools();
                 ofrmMain.ShowDialog();
@@ -137,13 +138,22 @@ namespace TribalBrowser.forms
             toolTip.SetToolTip(btnForward, StringProvider.sForward);
             toolTip.SetToolTip(btnLoad, StringProvider.sLoad);
             toolTip.SetToolTip(btnTools, StringProvider.sTools);
-            toolTip.SetToolTip(txtUrl, StringProvider.sUrl);
+            toolTip.SetToolTip(txtSt, StringProvider.sUrl);
         }
 
         private void _NavigateToUrl(string sUrl)
         {
             wbTribalBrowser.Url = new Uri(TribeMisc.AddHttp(sUrl));
             dgTribeSites.Visible = false;
+        }
+
+        private void _NavigateFirstLink()
+        {
+            if (m_oTribeSitesGrid.MatchesFirstGridValue(txtSt.Text))
+            {
+                wbTribalBrowser.Url = new Uri(TribeMisc.AddHttp(m_oTribeSitesGrid.FirstGridValue()));
+                dgTribeSites.Visible = false;
+            }
         }
 
         #endregion

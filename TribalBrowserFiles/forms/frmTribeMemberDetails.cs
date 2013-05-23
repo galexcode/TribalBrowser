@@ -30,8 +30,13 @@ namespace TribalBrowser.forms
 {
     public partial class frmTribeMemberDetails : Form
     {
-        readonly DataAccess m_oDataAccess = new DataAccess();
-        readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        #region Member variables
+
+        private readonly TribeLogon m_oTribeLogon = new TribeLogon();
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public frmTribeMemberDetails()
         {
@@ -45,48 +50,17 @@ namespace TribalBrowser.forms
                 txtUsrNm.Text = mTribeMember.UsrNm;
                 txtUsrNm.ReadOnly = true;
                 txtUsrNm.Enabled = false;
+                m_oTribeLogon.ShowMyDetails(txtUsrNm, txtPss, txtConfirmPss);
             }
         }
 
-        private void btnDetails_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Controls
+
+        private void btnSaveDetails_Click(object sender, EventArgs e)
         {
-            if (_PasswordsMatch())
-            {
-                _SaveTribeMember();
-            }
-            else
-            {
-                m_oMessageBox.Show("Passwords do not match");
-            }
-        }
-
-        #region Private Helper methods
-
-        private bool _PasswordsMatch()
-        {
-            return (txtPss.Text == txtConfirmPss.Text); 
-        }
-
-        private void _SaveTribeMember()
-        {
-            if (mTribeMember.LgIn)
-            {
-                m_oDataAccess.UpdateTribeMemberPasswd(txtPss.Text);
-                m_oMessageBox.Show(StringProvider.sTribeMemberAmended);
-                Close();
-                return;
-            }
-
-            if (m_oDataAccess.TribeMemberExists(txtUsrNm.Text))
-            {
-                m_oMessageBox.Show(StringProvider.sTribeMemberExists);
-            }
-            else
-            {
-                m_oDataAccess.InsertTribeMember(txtUsrNm.Text, txtPss.Text, mTribeMember.DefaultTbNm);
-                m_oMessageBox.Show(StringProvider.sTribeMemberCreated);
-                Close();
-            }
+            m_oTribeLogon.SaveTribeMember(this, txtUsrNm.Text, txtPss.Text, txtConfirmPss.Text, false);
         }
 
         #endregion

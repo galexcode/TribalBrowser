@@ -30,19 +30,21 @@ namespace TribalBrowser.forms
 {
     public partial class frmDetailsSites : Form
     {
-        readonly DataAccess m_oDataAccess = new DataAccess();
-        readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        #region Member variables
+
+        private readonly DataAccess m_oDataAccess = new DataAccess();
+        private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        private readonly TribeLogon oTribeLogon = new TribeLogon();
         private TribeSitesGrid m_oTribeSitesGrid;
         private TribesGrid m_oTribesGrid;
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public frmDetailsSites()
         {
             InitializeComponent();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void frmDetailsSites_Load(object sender, EventArgs e)
@@ -53,6 +55,15 @@ namespace TribalBrowser.forms
             _PopulateFields();
         }
 
+        #endregion
+
+        #region Controls
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            oTribeLogon.SaveTribeMember(this, txtUsrNm.Text, txtPss.Text,txtConfirmPss.Text, false);
+        }
+        
         private void dgMySites_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             m_oTribeSitesGrid.ClickCell(e);
@@ -68,7 +79,9 @@ namespace TribalBrowser.forms
             m_oTribesGrid.ClickCell(e);
         }
 
-        #region private helper methods
+        #endregion
+
+        #region Private Helpers
 
         private void _AddTooltips()
         {
@@ -78,18 +91,9 @@ namespace TribalBrowser.forms
 
         private void _PopulateFields()
         {
-            _ShowMyDetails();
+            oTribeLogon.ShowMyDetails(txtUsrNm, txtPss, txtConfirmPss);
             m_oTribesGrid.ShowAllMyTribes();
             if (dgMyTribes["colTrTbNm", 0].Value != null) m_oTribeSitesGrid.ShowAllMyTribeLinks(dgMyTribes["colTrTbNm", 0].Value.ToString());
-        }
-
-        private void _ShowMyDetails()
-        {
-            TribeMember oTribeMember = new TribeMember();
-            oTribeMember = m_oDataAccess.FindTribeMember();
-            txtUsrNm.Text = oTribeMember.UsrNm;
-            txtPss.Text = oTribeMember.Pss;
-            txtConfirmPss.Text = oTribeMember.Pss;
         }
 
         #endregion

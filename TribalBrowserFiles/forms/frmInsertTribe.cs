@@ -30,20 +30,32 @@ namespace TribalBrowser.forms
 {
     public partial class frmInsertTribe : Form
     {
-        readonly DataAccess m_oDataAccess = new DataAccess();
-        readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        #region Member variables
+
+        private readonly DataAccess m_oDataAccess = new DataAccess();
+        private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
         
+        #endregion
+
+        #region Constructors/ Initialisers
+
         public frmInsertTribe()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Controls
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
             _CreateTribe();
         }
 
-        #region Private Helper methods
+        #endregion
+
+        #region Private Helpers
 
         private void _CreateTribe()
         {

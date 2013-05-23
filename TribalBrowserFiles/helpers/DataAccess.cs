@@ -34,12 +34,18 @@ namespace TribalBrowser
 {
     public class DataAccess
     {
-        private string m_sConn = "mongodb://FDTribalBrowser:UnitedTheWorld23@ds055397.mongolab.com:55397/tribalbrowser";
-        private MongoDatabase m_oDatabase;
+        #region Member variables
 
-        private MongoCollection<Tribe> m_colTribes;
-        private MongoCollection<TribeMember> m_colTribeMembers;
-        private MongoCollection<TribeLinks> m_colTribeLinks;
+        private const string m_sConn = "mongodb://FDTribalBrowser:UnitedTheWorld23@ds055397.mongolab.com:55397/tribalbrowser";
+        private readonly MongoDatabase m_oDatabase;
+
+        private readonly MongoCollection<Tribe> m_colTribes;
+        private readonly MongoCollection<TribeMember> m_colTribeMembers;
+        private readonly MongoCollection<TribeLinks> m_colTribeLinks;
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public DataAccess()
         {
@@ -50,6 +56,10 @@ namespace TribalBrowser
             m_colTribeMembers = m_oDatabase.GetCollection<TribeMember>("TribeMembers");
             m_colTribeLinks = m_oDatabase.GetCollection<TribeLinks>("TribeLinks");
         }
+
+        #endregion
+
+        #region Public Methods
 
         #region Insert
 
@@ -203,26 +213,32 @@ namespace TribalBrowser
 
         public void SaveTribeDesc(string sDsc)
         {
-            Tribe oTribe = new Tribe();
-            oTribe.Dsc = sDsc;
+            Tribe oTribe = new Tribe
+                {
+                    Dsc = sDsc
+                };
             m_colTribes.Save(oTribe);
         }
 
         public void SaveTribeLinkDetails(string sUrl, string sDsc, string sTbNm, string sUsrNm)
         {
-            TribeLinks oTribeLinks = new TribeLinks();
-            oTribeLinks.Url = sUrl;
-            oTribeLinks.Dsc = sDsc;
-            oTribeLinks.TbNm = sTbNm;
-            oTribeLinks.UsrNm = sUsrNm;
+            TribeLinks oTribeLinks = new TribeLinks
+                {
+                    Url = sUrl,
+                    Dsc = sDsc,
+                    TbNm = sTbNm,
+                    UsrNm = sUsrNm
+                };
             m_colTribeLinks.Save(oTribeLinks);
         }
 
         public void SaveTribeMemberDetails(string sPss, string sTbNm)
         {
-            TribeMember oTribeMember = new TribeMember();
-            oTribeMember.Pss = sPss;
-            oTribeMember.TbNm = sTbNm;
+            TribeMember oTribeMember = new TribeMember
+                {
+                    Pss = sPss,
+                    TbNm = sTbNm
+                };
             m_colTribeMembers.Save(oTribeMember);
         }
 
@@ -290,6 +306,8 @@ namespace TribalBrowser
             var query = Query<TribeMember>.Where(e => e.UsrNm == sUsrNm && e.Pss == sPss);
             return m_colTribeMembers.Find(query).Any();
         }
+
+        #endregion
 
         #endregion
     }

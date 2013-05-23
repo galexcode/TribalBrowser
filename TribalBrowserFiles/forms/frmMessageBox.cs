@@ -29,10 +29,16 @@ namespace TribalBrowser.forms
 {
     public partial class frmMessageBox : Form
     {
+        #region Constructors/ Initialisers
+
         public frmMessageBox()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Public Methods
 
         public DialogResult Show(string text, Color foreColour)
         {
@@ -51,9 +57,11 @@ namespace TribalBrowser.forms
         {
             btnCancel.Visible = true;
             btnOK.Left = 100;
-            btnCancel.Left  = 170;
+            btnCancel.Left = 170;
             lblText.Text = text;
             return ShowDialog();
         }
+
+        #endregion
     }
 }
