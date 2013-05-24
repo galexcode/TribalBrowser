@@ -53,7 +53,30 @@ namespace TribalBrowser.forms
 
         #endregion
 
+        #region Public methods
+
+        public void NavigateTo(string sUrl)
+        {
+            _NavigateToUrl(sUrl);
+        }
+
+        #endregion
+
         #region Controls
+
+        private void menuItemNew_Click(object sender, EventArgs e)
+        {
+            string sUrl = wbTribalBrowser.Document.ActiveElement.GetAttribute("href").ToString();
+            frmBrowser oBrowser = new frmBrowser();
+            oBrowser.Show();
+            if (!String.IsNullOrEmpty(sUrl.Trim())) oBrowser.NavigateTo(sUrl);
+        }
+
+        private void wbTribalBrowser_NewWindow(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            wbTribalBrowser.Navigate(wbTribalBrowser.StatusText);
+            e.Cancel = true;
+        }
 
         private void txtUrl_TextChanged(object sender, EventArgs e)
         {
