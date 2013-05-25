@@ -87,5 +87,18 @@ namespace TribalBrowser
 
         #endregion
 
+        #region frmAddFavourite
+
+        public static string sTribeSiteDscNull = "The Site name and description cannot be blank.";
+        public static string sTribeFavouriteExists = "You have already got a favourite site with this name:";
+        public static string sTribeFavouriteAdded = "Your favourite site has been saved.";
+
+        #endregion
+
+        #region Misc
+
+        public static string sFavourites = @"'s Favourite: ";
+        
+        #endregion
     }
 }

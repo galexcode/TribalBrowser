@@ -90,6 +90,7 @@ namespace TribalBrowser.helpers
         public string Dsc { get; set; }
         public string UsrNm { get; set; }
         public string TbNm { get; set; }
+        public string Fav  { get; set; }
 
         public override int GetHashCode()
         {

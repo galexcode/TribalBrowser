@@ -140,7 +140,7 @@ namespace TribalBrowser.helpers
 
             if (m_oDataGridView.CurrentRow.IsNewRow)
             {
-                _InsertribeLink(e);
+                _InsertTribeLink(e);
             }
             else
             {
@@ -175,10 +175,9 @@ namespace TribalBrowser.helpers
             m_oMessageBox.Show(StringProvider.sTribeLinkSaved);
         }
 
-        private void _InsertribeLink(DataGridViewCellEventArgs e)
+        private void _InsertTribeLink(DataGridViewCellEventArgs e)
         {
-            if (m_oDataAccess.DoesTribeLinkExist(m_oDataGridView["colSt", e.RowIndex].Value.ToString(),
-                   mTribeMember.TbNm) == true)
+            if (m_oDataAccess.TribeLinkExists(m_oDataGridView["colSt", e.RowIndex].Value.ToString(),mTribeMember.TbNm))
             {
                 m_oMessageBox.Show(StringProvider.sTribeLinkExists);
                 return;

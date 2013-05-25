@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\frmAddFavourite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmAddFavourite.Designer.cs">
+      <DependentUpon>frmAddFavourite.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,12 @@
     </Compile>
     <Compile Include="forms\frmMessageBox.Designer.cs">
       <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmViewFavourites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmViewFavourites.Designer.cs">
+      <DependentUpon>frmViewFavourites.cs</DependentUpon>
     </Compile>
     <Compile Include="helpers\DataAccess.cs" />
     <Compile Include="forms\frmBrowser.cs">
@@ -110,7 +122,9 @@
     <Compile Include="forms\frmTools.Designer.cs">
       <DependentUpon>frmTools.cs</DependentUpon>
     </Compile>
+    <Compile Include="helpers\Favourite.cs" />
     <Compile Include="helpers\TribeLogon.cs" />
+    <Compile Include="helpers\TribeMemberFavourites.cs" />
     <Compile Include="helpers\TribesGrid.cs" />
     <Compile Include="helpers\TribeSitesGrid.cs" />
     <Compile Include="helpers\TribeMisc.cs" />
@@ -118,11 +132,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="helpers\StringProvider.cs" />
+    <EmbeddedResource Include="forms\frmAddFavourite.resx">
+      <DependentUpon>frmAddFavourite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmBrowser.resx">
       <DependentUpon>frmBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmInsertTribe.resx">
       <DependentUpon>frmInsertTribe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmViewFavourites.resx">
+      <DependentUpon>frmViewFavourites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmTribeMemberDetails.resx">
       <DependentUpon>frmTribeMemberDetails.cs</DependentUpon>
@@ -171,6 +191,7 @@
     <Content Include="images\cat.png" />
     <Content Include="images\cat_logo.ico" />
     <Content Include="images\cat_logo.png" />
+    <Content Include="images\chat.png" />
     <Content Include="images\cross.png" />
     <Content Include="images\elephant.png" />
     <Content Include="images\forward.png" />
@@ -186,8 +207,10 @@
     <Content Include="images\refresh.png" />
     <Content Include="images\save.png" />
     <Content Include="images\spider.png" />
+    <Content Include="images\star.png" />
     <Content Include="images\tick.png" />
     <Content Include="images\tools.png" />
+    <Content Include="Resources\tick.png" />
     <None Include="Resources\cross.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

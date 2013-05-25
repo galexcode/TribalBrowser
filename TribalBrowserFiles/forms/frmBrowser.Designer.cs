@@ -54,12 +54,12 @@ namespace TribalBrowser.forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBrowser));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnForward = new System.Windows.Forms.Button();
             this.txtSt = new System.Windows.Forms.TextBox();
@@ -79,6 +79,7 @@ namespace TribalBrowser.forms
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemNew = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTribeSites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTribeSites)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
@@ -179,8 +180,8 @@ namespace TribalBrowser.forms
             // dgTribeSites
             // 
             this.dgTribeSites.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgTribeSites.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgTribeSites.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgTribeSites.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgTribeSites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgTribeSites.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -190,30 +191,30 @@ namespace TribalBrowser.forms
             this.colUrl,
             this.colUsrNm,
             this.colTbNm});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgTribeSites.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgTribeSites.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgTribeSites.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgTribeSites.EnableHeadersVisualStyles = false;
             this.dgTribeSites.Location = new System.Drawing.Point(0, 0);
             this.dgTribeSites.Name = "dgTribeSites";
             this.dgTribeSites.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgTribeSites.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTribeSites.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgTribeSites.RowHeadersVisible = false;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgTribeSites.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgTribeSites.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgTribeSites.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgTribeSites.RowTemplate.Height = 24;
             this.dgTribeSites.Size = new System.Drawing.Size(908, 415);
@@ -223,12 +224,12 @@ namespace TribalBrowser.forms
             // colSt
             // 
             this.colSt.DataPropertyName = "St";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Silver;
-            this.colSt.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            this.colSt.DefaultCellStyle = dataGridViewCellStyle2;
             this.colSt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colSt.HeaderText = "Site";
             this.colSt.Name = "colSt";
@@ -237,11 +238,11 @@ namespace TribalBrowser.forms
             // colDsc
             // 
             this.colDsc.DataPropertyName = "Dsc";
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Silver;
-            this.colDsc.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            this.colDsc.DefaultCellStyle = dataGridViewCellStyle3;
             this.colDsc.HeaderText = "Description";
             this.colDsc.Name = "colDsc";
             this.colDsc.Width = 600;
@@ -293,9 +294,10 @@ namespace TribalBrowser.forms
             this.contextMenuStrip.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemNew,
-            this.menuItemAdd});
+            this.menuItemAdd,
+            this.menuItemView});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(219, 52);
+            this.contextMenuStrip.Size = new System.Drawing.Size(219, 98);
             // 
             // menuItemNew
             // 
@@ -315,6 +317,17 @@ namespace TribalBrowser.forms
             this.menuItemAdd.Name = "menuItemAdd";
             this.menuItemAdd.Size = new System.Drawing.Size(218, 24);
             this.menuItemAdd.Text = "Add to favourites";
+            this.menuItemAdd.Click += new System.EventHandler(this.menuItemAdd_Click);
+            // 
+            // menuItemView
+            // 
+            this.menuItemView.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuItemView.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.menuItemView.Image = ((System.Drawing.Image)(resources.GetObject("menuItemView.Image")));
+            this.menuItemView.Name = "menuItemView";
+            this.menuItemView.Size = new System.Drawing.Size(218, 24);
+            this.menuItemView.Text = "Show Favourites";
+            this.menuItemView.Click += new System.EventHandler(this.menuItemView_Click);
             // 
             // frmBrowser
             // 
@@ -365,6 +378,7 @@ namespace TribalBrowser.forms
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuItemNew;
         private System.Windows.Forms.ToolStripMenuItem menuItemAdd;
+        private System.Windows.Forms.ToolStripMenuItem menuItemView;
     }
 }
 

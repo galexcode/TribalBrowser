@@ -86,7 +86,7 @@ namespace TribalBrowser
             mTribeMember.TbNm = sTbNm;
         }
 
-        public void InsertTribeLink(string sSt, string sUrl, string sDsc, string sTbNm, string sUsrNm)
+        public void InsertTribeLink(string sSt, string sUrl, string sDsc, string sTbNm, string sUsrNm, string sFav = Favourite.False)
         {
             var oTL = new TribeLinks
             {
@@ -94,7 +94,8 @@ namespace TribalBrowser
                 Dsc = sDsc,
                 TbNm = sTbNm,
                 UsrNm = sUsrNm,
-                Url = sUrl
+                Url = sUrl,
+                Fav = sFav
             };
             m_colTribeLinks.Insert(oTL);
         }
@@ -172,6 +173,12 @@ namespace TribalBrowser
             return new BindingList<TribeLinks>(m_colTribeLinks.Find(query).ToList());
         }
 
+        public BindingList<TribeLinks> FindAllMyFavouriteLinks(string sUsrNm, string sTbNm)
+        {
+            var query = Query<TribeLinks>.Where(e => e.UsrNm == sUsrNm && e.TbNm == sTbNm && e.Fav == Favourite.True);
+            return new BindingList<TribeLinks>(m_colTribeLinks.Find(query).ToList());
+        }
+
         public List<TribeLinks> FindTribeLinksAndTop20(string sSt, string sTbNm)
         {
             HashSet<TribeLinks> oTribeLinks = new HashSet<TribeLinks>();
@@ -193,9 +200,15 @@ namespace TribalBrowser
             return m_colTribeLinks.Find(query).ToList();
         }
 
-        public bool DoesTribeLinkExist(string sSt, string sTbNm)
+        public bool TribeLinkExists(string sSt, string sTbNm)
         {
             var query = Query<TribeLinks>.Where(e => e.St == sSt && e.TbNm == sTbNm);
+            return m_colTribeLinks.Find(query).Any();
+        }
+
+        public bool TribeFavouriteExists(string sSt, string sTbNm, string sUsrNm)
+        {
+            var query = Query<TribeLinks>.Where(e => e.St == sSt && e.TbNm == sTbNm && e.UsrNm == sUsrNm);
             return m_colTribeLinks.Find(query).Any();
         }
 

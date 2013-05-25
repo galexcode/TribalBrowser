@@ -67,9 +67,22 @@ namespace TribalBrowser.forms
         private void menuItemNew_Click(object sender, EventArgs e)
         {
             string sUrl = wbTribalBrowser.Document.ActiveElement.GetAttribute("href").ToString();
-            frmBrowser oBrowser = new frmBrowser();
-            oBrowser.Show();
-            if (!String.IsNullOrEmpty(sUrl.Trim())) oBrowser.NavigateTo(sUrl);
+            frmBrowser ofrmBrowser = new frmBrowser();
+            ofrmBrowser.Show();
+            if (!String.IsNullOrEmpty(sUrl.Trim())) ofrmBrowser.NavigateTo(sUrl);
+        }
+
+        private void menuItemAdd_Click(object sender, EventArgs e)
+        {
+            string sUrl = wbTribalBrowser.Document.ActiveElement.GetAttribute("href").ToString();
+            frmAddFavourite ofrmAddFavourite = new frmAddFavourite(TribeMisc.StripHttp(sUrl));
+            ofrmAddFavourite.ShowDialog();
+        }
+
+        private void menuItemView_Click(object sender, EventArgs e)
+        {
+            frmViewFavourites ofrmViewFavourites = new frmViewFavourites();
+            ofrmViewFavourites.ShowDialog();
         }
 
         private void wbTribalBrowser_NewWindow(object sender, System.ComponentModel.CancelEventArgs e)
