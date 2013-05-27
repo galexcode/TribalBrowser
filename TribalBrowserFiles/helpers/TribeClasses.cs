@@ -90,7 +90,7 @@ namespace TribalBrowser.helpers
         public string Dsc { get; set; }
         public string UsrNm { get; set; }
         public string TbNm { get; set; }
-        public string Fav  { get; set; }
+        public string Fav { get; set; }
 
         public override int GetHashCode()
         {
@@ -112,4 +112,18 @@ namespace TribalBrowser.helpers
     }
 
     #endregion
+
+    #region TribeChat
+
+    public class TribeChat
+    {
+        public ObjectId Id { get; set; }
+        public string UsrNm { get; set; }
+        public string TbNm { get; set; }
+        public string Msg { get; set; }
+        public DateTime dt { get; set; }
+    }
+
+    #endregion
+
 }

@@ -30,8 +30,14 @@ namespace TribalBrowser.forms
 {
     public partial class frmAddFavourite : Form
     {
+        #region Member variables
+
         TribeMemberFavourites oFavourites = new TribeMemberFavourites();
         private string m_sUrl;
+
+        #endregion
+
+        #region Constructors/ Initialisers
 
         public frmAddFavourite(string sUrl)
         {
@@ -39,9 +45,15 @@ namespace TribalBrowser.forms
             m_sUrl = sUrl;
         }
 
+        #endregion
+
+        #region Controls
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             oFavourites.AddFavourite(txtSt.Text.Trim(),m_sUrl.Trim(),txtDsc.Text.Trim());
         }
+
+        #endregion
     }
 }

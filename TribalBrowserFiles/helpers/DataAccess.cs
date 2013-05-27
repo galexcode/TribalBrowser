@@ -29,6 +29,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using TribalBrowser.helpers;
 using System.ComponentModel;
+using System;
 
 namespace TribalBrowser
 {
@@ -42,6 +43,7 @@ namespace TribalBrowser
         private readonly MongoCollection<Tribe> m_colTribes;
         private readonly MongoCollection<TribeMember> m_colTribeMembers;
         private readonly MongoCollection<TribeLinks> m_colTribeLinks;
+        private readonly MongoCollection<TribeChat> m_colTribeChat;
 
         #endregion
 
@@ -55,6 +57,7 @@ namespace TribalBrowser
             m_colTribes = m_oDatabase.GetCollection<Tribe>("Tribes");
             m_colTribeMembers = m_oDatabase.GetCollection<TribeMember>("TribeMembers");
             m_colTribeLinks = m_oDatabase.GetCollection<TribeLinks>("TribeLinks");
+            m_colTribeChat = m_oDatabase.GetCollection<TribeChat>("TribeChat");
         }
 
         #endregion
@@ -98,6 +101,18 @@ namespace TribalBrowser
                 Fav = sFav
             };
             m_colTribeLinks.Insert(oTL);
+        }
+
+        public void InsertTribeChat(string sUsrNm, string sTbNm, string sMsg, DateTime odt)
+        {
+            var oTC = new TribeChat
+            {
+                UsrNm = sUsrNm,
+                TbNm = sTbNm,
+                Msg = sMsg,
+                dt = odt
+            };
+            m_colTribeChat.Insert(oTC);
         }
 
         #endregion
@@ -218,6 +233,14 @@ namespace TribalBrowser
             sbb.Descending("_id");
             var query = Query<TribeLinks>.EQ(e => e.TbNm, sTbNm);
             return m_colTribeLinks.Find(query).SetSortOrder(sbb).SetLimit(50).ToList().ToList();
+        }
+
+        public List<TribeChat> FindTop50TribeChat(string sTbNm)
+        {
+            SortByBuilder sbb = new SortByBuilder();
+            sbb.Descending("dt");
+            var query = Query<TribeChat>.EQ(e => e.TbNm, sTbNm);
+            return m_colTribeChat.Find(query).SetSortOrder(sbb).SetLimit(50).ToList().ToList();
         }
 
         #endregion

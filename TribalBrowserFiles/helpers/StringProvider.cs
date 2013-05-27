@@ -95,10 +95,17 @@ namespace TribalBrowser
 
         #endregion
 
+        #region Chat
+
+        public static string sJoinChat = " has joined the conversation.";
+        public static string sEndChat = " has left the conversation.";
+
+        #endregion
+
         #region Misc
 
         public static string sFavourites = @"'s Favourite: ";
-        
+
         #endregion
     }
 }
