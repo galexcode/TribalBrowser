@@ -117,7 +117,12 @@ namespace TribalBrowser.helpers
         {
             m_oDataGridView.DataSource = m_oDataAccess.FindAllMyTribeLinks(mTribeMember.UsrNm, mTribeMember.TbNm);
         }
-                
+
+        public void RefreshFavGrid()
+        {
+            m_oDataGridView.DataSource = m_oDataAccess.FindAllMyFavouriteLinks(mTribeMember.UsrNm, mTribeMember.TbNm);
+        }
+
         public void SaveTribeLink(DataGridViewCellEventArgs e)
         {
             if (_CheckIfAnyFieldsNull(e) == true)

@@ -61,6 +61,12 @@
     <Compile Include="forms\frmAddFavourite.Designer.cs">
       <DependentUpon>frmAddFavourite.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmChat.Designer.cs">
+      <DependentUpon>frmChat.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmBrowser.resx">
       <DependentUpon>frmBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmChat.resx">
+      <DependentUpon>frmChat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmInsertTribe.resx">
       <DependentUpon>frmInsertTribe.cs</DependentUpon>

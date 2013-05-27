@@ -38,6 +38,35 @@ namespace TribalBrowser.helpers
 
         #region Public Methods
 
+        public void ShowDialogForm<T>(T oForm) where T : Form
+        {
+            if (mTribeMember.LgIn)
+            {
+                oForm.ShowDialog();
+            }
+            else
+            {
+                m_oMessageBox.Show(StringProvider.sPleaseLogin);
+                frmLogin ofrmLogin = new frmLogin(oForm);
+                ofrmLogin.ShowDialog();
+            }
+        }
+
+        public void ShowWindowForm<T>(T oForm) where T : Form
+        {
+            if (mTribeMember.LgIn)
+            {
+                oForm.Show();
+                oForm.BringToFront();
+            }
+            else
+            {
+                m_oMessageBox.Show(StringProvider.sPleaseLogin);
+                frmLogin ofrmLogin = new frmLogin(oForm);
+                ofrmLogin.ShowDialog();
+            }
+        }
+
         public void SaveTribeMember(Form oParentForm, string sUsrNm, string sPss, string sConfirmPss, bool bCloseParent = true)
         {
             if (_PasswordsMatch(sPss, sConfirmPss))

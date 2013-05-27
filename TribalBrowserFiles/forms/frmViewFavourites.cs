@@ -45,7 +45,7 @@ namespace TribalBrowser.forms
         private void frmViewFavourites_Load(object sender, System.EventArgs e)
         {
             m_oTribeSitesGrid = new TribeSitesGrid(dgMySites);
-            m_oTribeSitesGrid.RefreshGrid();
+            m_oTribeSitesGrid.RefreshFavGrid();
         }
 
         #endregion

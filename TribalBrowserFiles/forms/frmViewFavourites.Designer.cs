@@ -71,6 +71,7 @@ namespace TribalBrowser.forms
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTbNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFav = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgMySites)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,7 +90,8 @@ namespace TribalBrowser.forms
             this.colDeleteSite,
             this.colId,
             this.colUsrNm,
-            this.colTbNm});
+            this.colTbNm,
+            this.colFav});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,7 +214,14 @@ namespace TribalBrowser.forms
             this.colTbNm.Name = "colTbNm";
             this.colTbNm.Visible = false;
             // 
-            // frmShowFavourites
+            // colFav
+            // 
+            this.colFav.DataPropertyName = "Fav";
+            this.colFav.HeaderText = "colFav";
+            this.colFav.Name = "colFav";
+            this.colFav.Visible = false;
+            // 
+            // frmViewFavourites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -221,7 +230,7 @@ namespace TribalBrowser.forms
             this.Controls.Add(this.dgMySites);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmShowFavourites";
+            this.Name = "frmViewFavourites";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmViewFavourites_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgMySites)).EndInit();
@@ -240,5 +249,6 @@ namespace TribalBrowser.forms
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUsrNm;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTbNm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFav;
     }
 }

@@ -34,6 +34,7 @@ namespace TribalBrowser.forms
 
         private readonly DataAccess m_oDataAccess = new DataAccess();
         private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        private readonly TribeLogon oTribeLogon = new TribeLogon();
         private TribeSitesGrid m_oTribeSitesGrid;
 
         #endregion
@@ -75,14 +76,17 @@ namespace TribalBrowser.forms
         private void menuItemAdd_Click(object sender, EventArgs e)
         {
             string sUrl = wbTribalBrowser.Document.ActiveElement.GetAttribute("href").ToString();
-            frmAddFavourite ofrmAddFavourite = new frmAddFavourite(TribeMisc.StripHttp(sUrl));
-            ofrmAddFavourite.ShowDialog();
+            _ShowAddFavDialog(sUrl);
         }
 
         private void menuItemView_Click(object sender, EventArgs e)
         {
-            frmViewFavourites ofrmViewFavourites = new frmViewFavourites();
-            ofrmViewFavourites.ShowDialog();
+            _ShowViewFavDialog();
+        }
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            _ShowChatWindow();
         }
 
         private void wbTribalBrowser_NewWindow(object sender, System.ComponentModel.CancelEventArgs e)
@@ -142,19 +146,28 @@ namespace TribalBrowser.forms
 
         #region Private Helpers
 
+        private void _ShowChatWindow()
+        {
+            frmChat ofrmChat = new frmChat();
+            oTribeLogon.ShowWindowForm<frmChat>(ofrmChat);
+        }
+
         private void _ShowToolsDialog()
         {
-            if (mTribeMember.LgIn)
-            {
-                frmTools ofrmMain = new frmTools();
-                ofrmMain.ShowDialog();
-            }
-            else
-            {
-                m_oMessageBox.Show(StringProvider.sPleaseLogin);
-                frmLogin ofrmLogin = new frmLogin();
-                ofrmLogin.ShowDialog();
-            }
+            frmTools ofrmTools = new frmTools();
+            oTribeLogon.ShowDialogForm<frmTools>(ofrmTools);
+        }
+
+        private void _ShowAddFavDialog(string sUrl)
+        {
+            frmAddFavourite ofrmAddFavourite = new frmAddFavourite(TribeMisc.StripHttp(sUrl));
+            oTribeLogon.ShowDialogForm<frmAddFavourite>(ofrmAddFavourite);
+        }
+
+        private void _ShowViewFavDialog()
+        {
+            frmViewFavourites ofrmViewFavourites = new frmViewFavourites();
+            oTribeLogon.ShowDialogForm<frmViewFavourites>(ofrmViewFavourites);
         }
 
         private void _Initialise()
@@ -192,6 +205,6 @@ namespace TribalBrowser.forms
             }
         }
 
-        #endregion
+        #endregion      
     }
 }

@@ -34,6 +34,7 @@ namespace TribalBrowser.forms
         #region Member variables
 
         private readonly DataAccess m_oDataAccess = new DataAccess();
+        private Form m_oOpeningForm;
 
         #endregion
 
@@ -44,18 +45,19 @@ namespace TribalBrowser.forms
             InitializeComponent();
         }
 
+        public frmLogin(Form oOpeningForm)
+        {
+            m_oOpeningForm = oOpeningForm;
+            InitializeComponent();
+        }
+
         #endregion
 
         #region Controls
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            mTribeMember.UsrNm = txtUsrNm.Text;
-            m_oDataAccess.Login();
-            Visible = false;
-            frmTools ofrmTools = new frmTools();
-            ofrmTools.ShowDialog();
-            Close();
+            _Login();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -99,6 +101,15 @@ namespace TribalBrowser.forms
                 lblCheckPass.ForeColor = Color.OrangeRed;
                 btnLogin.BackgroundImage = Properties.Resources.cross;
             }
+        }
+
+        private void _Login()
+        {
+            mTribeMember.UsrNm = txtUsrNm.Text;
+            m_oDataAccess.Login();
+            Visible = false;
+            m_oOpeningForm.ShowDialog();
+            Close();
         }
 
         #endregion
