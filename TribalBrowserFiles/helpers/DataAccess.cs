@@ -239,7 +239,7 @@ namespace TribalBrowser
         public List<TribeChat> FindTop50TribeChat(string sTbNm)
         {
             SortByBuilder sbb = new SortByBuilder();
-            sbb.Descending("dt");
+            sbb.Ascending("dt");
             var query = Query<TribeChat>.EQ(e => e.TbNm, sTbNm);
             return m_colTribeChat.Find(query).SetSortOrder(sbb).SetLimit(50).ToList().ToList();
         }

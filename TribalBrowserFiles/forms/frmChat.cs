@@ -94,6 +94,7 @@ namespace TribalBrowser.forms
             _ShowTribeChat();
             txtChat.Text = ">";
             txtChat.SelectionStart = txtChat.Text.Length;
+            dgTribeChat.FirstDisplayedScrollingRowIndex = dgTribeChat.RowCount - 1;
         }
 
         private void _JoinChat()
