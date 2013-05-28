@@ -60,7 +60,7 @@ namespace TribalBrowser.forms
 
         private void btnSaveDetails_Click(object sender, EventArgs e)
         {
-            m_oTribeLogon.SaveTribeMember(this, txtUsrNm.Text, txtPss.Text, txtConfirmPss.Text, false);
+            m_oTribeLogon.SaveTribeMember(this, txtUsrNm.Text, txtPss.Text, txtConfirmPss.Text, txtMl.Text, false);
         }
 
         #endregion

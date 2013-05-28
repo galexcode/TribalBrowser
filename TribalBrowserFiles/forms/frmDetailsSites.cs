@@ -61,7 +61,7 @@ namespace TribalBrowser.forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            oTribeLogon.SaveTribeMember(this, txtUsrNm.Text, txtPss.Text,txtConfirmPss.Text, false);
+            oTribeLogon.SaveTribeMember(this, txtUsrNm.Text, txtPss.Text,txtConfirmPss.Text,txtMl.Text, false);
         }
         
         private void dgMySites_CellContentClick(object sender, DataGridViewCellEventArgs e)

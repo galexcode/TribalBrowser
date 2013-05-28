@@ -60,6 +60,8 @@ namespace TribalBrowser.forms
             this.lblUsrNm = new System.Windows.Forms.Label();
             this.txtUsrNm = new System.Windows.Forms.TextBox();
             this.btnSaveDetails = new System.Windows.Forms.Button();
+            this.lblMl = new System.Windows.Forms.Label();
+            this.txtMl = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblConfirmPss
@@ -128,7 +130,7 @@ namespace TribalBrowser.forms
             this.btnSaveDetails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSaveDetails.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveDetails.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSaveDetails.Location = new System.Drawing.Point(113, 164);
+            this.btnSaveDetails.Location = new System.Drawing.Point(110, 220);
             this.btnSaveDetails.Name = "btnSaveDetails";
             this.btnSaveDetails.Size = new System.Drawing.Size(140, 144);
             this.btnSaveDetails.TabIndex = 4;
@@ -137,13 +139,35 @@ namespace TribalBrowser.forms
             this.btnSaveDetails.UseVisualStyleBackColor = true;
             this.btnSaveDetails.Click += new System.EventHandler(this.btnSaveDetails_Click);
             // 
+            // lblMl
+            // 
+            this.lblMl.AutoSize = true;
+            this.lblMl.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMl.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMl.Location = new System.Drawing.Point(8, 165);
+            this.lblMl.Name = "lblMl";
+            this.lblMl.Size = new System.Drawing.Size(297, 22);
+            this.lblMl.TabIndex = 19;
+            this.lblMl.Text = "Email (in case you forget password)";
+            // 
+            // txtMl
+            // 
+            this.txtMl.Location = new System.Drawing.Point(12, 190);
+            this.txtMl.MaxLength = 100;
+            this.txtMl.Name = "txtMl";
+            this.txtMl.Size = new System.Drawing.Size(342, 22);
+            this.txtMl.TabIndex = 18;
+            this.txtMl.UseSystemPasswordChar = true;
+            // 
             // frmTribeMemberDetails
             // 
             this.AcceptButton = this.btnSaveDetails;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(372, 315);
+            this.ClientSize = new System.Drawing.Size(372, 370);
+            this.Controls.Add(this.lblMl);
+            this.Controls.Add(this.txtMl);
             this.Controls.Add(this.btnSaveDetails);
             this.Controls.Add(this.lblConfirmPss);
             this.Controls.Add(this.txtConfirmPss);
@@ -170,5 +194,7 @@ namespace TribalBrowser.forms
         private System.Windows.Forms.Label lblUsrNm;
         private System.Windows.Forms.TextBox txtUsrNm;
         private System.Windows.Forms.Button btnSaveDetails;
+        private System.Windows.Forms.Label lblMl;
+        private System.Windows.Forms.TextBox txtMl;
     }
 }

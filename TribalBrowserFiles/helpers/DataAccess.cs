@@ -77,13 +77,14 @@ namespace TribalBrowser
             m_colTribes.Insert(oTb);
         }
 
-        public void InsertTribeMember(string sUsrNm, string sPss, string sTbNm)
+        public void InsertTribeMember(string sUsrNm, string sPss, string sTbNm, string sMl)
         {
             var oTM = new TribeMember
             {
                 UsrNm = sUsrNm,
                 Pss = sPss,
-                TbNm = sTbNm
+                TbNm = sTbNm,
+                Ml = sMl
             };
             m_colTribeMembers.Insert(oTM);
             mTribeMember.TbNm = sTbNm;

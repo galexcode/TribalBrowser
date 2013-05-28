@@ -64,6 +64,7 @@ namespace TribalBrowser.helpers
         public string Pss { get; set; }
         public string TbNm { get; set; }
         public string LgIn { get; set; }
+        public string Ml { get; set; }
     }
 
     #endregion

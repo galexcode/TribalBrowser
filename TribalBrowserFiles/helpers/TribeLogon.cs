@@ -67,11 +67,11 @@ namespace TribalBrowser.helpers
             }
         }
 
-        public void SaveTribeMember(Form oParentForm, string sUsrNm, string sPss, string sConfirmPss, bool bCloseParent = true)
+        public void SaveTribeMember(Form oParentForm, string sUsrNm, string sPss, string sConfirmPss, string sMl, bool bCloseParent = true)
         {
             if (_PasswordsMatch(sPss, sConfirmPss))
             {
-                _SaveTribeMemberToDatabase(oParentForm, sUsrNm, sPss, bCloseParent);
+                _SaveTribeMemberToDatabase(oParentForm, sUsrNm, sPss,sMl, bCloseParent);
             }
             else
             {
@@ -96,7 +96,7 @@ namespace TribalBrowser.helpers
             return (sPss.Trim() == sConfirmPss.Trim());
         }
 
-        private void _SaveTribeMemberToDatabase(Form oParentForm, string sUsrNm, string sPss, bool bCloseParent = true)
+        private void _SaveTribeMemberToDatabase(Form oParentForm, string sUsrNm, string sPss,string sMl, bool bCloseParent = true)
         {
             if (mTribeMember.LgIn)
             {
@@ -112,7 +112,7 @@ namespace TribalBrowser.helpers
             }
             else
             {
-                m_oDataAccess.InsertTribeMember(sUsrNm.Trim(), sPss.Trim(), mTribeMember.DefaultTbNm);
+                m_oDataAccess.InsertTribeMember(sUsrNm.Trim(), sPss.Trim(), mTribeMember.DefaultTbNm.Trim(),sMl.Trim());
                 m_oMessageBox.Show(StringProvider.sTribeMemberCreated);
                 if (bCloseParent) oParentForm.Close();
             }
