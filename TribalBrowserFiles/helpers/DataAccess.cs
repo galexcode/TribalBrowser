@@ -37,6 +37,8 @@ namespace TribalBrowser
     {
         #region Member variables
 
+        // The connection string is open and publicized. This is just a test bed database – ideally you'll set-up your own. 
+        // Try not to fill it up too much – we periodically do a clean out :)
         private const string m_sConn = "mongodb://FDTribalBrowser:UnitedTheWorld23@ds055397.mongolab.com:55397/tribalbrowser";
         private readonly MongoDatabase m_oDatabase;
 
