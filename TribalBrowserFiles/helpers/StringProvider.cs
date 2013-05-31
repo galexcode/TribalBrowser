@@ -67,6 +67,10 @@ namespace TribalBrowser
 
         public static string sCorrect = "Correct";
         public static string sInCorrect = "Incorrect";
+        public static string sEnterUserName = "Please enter your username";
+        public static string sNoEmail = "Unfortunately there is no associated email with this user name - please email: info@frugaldisruptive.com for help.";
+        public static string sForgotPssSubj = "Information for Tribal Browser";
+        public static string sForgotPssMssg = "The information you require is: ";
 
         #endregion
 

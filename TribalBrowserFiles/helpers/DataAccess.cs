@@ -128,6 +128,12 @@ namespace TribalBrowser
             return m_colTribeMembers.FindOne(query);
         }
 
+        public TribeMember FindTribeMember(string sUsrNm)
+        {
+            var query = Query<TribeMember>.EQ(e => e.UsrNm, sUsrNm);
+            return m_colTribeMembers.FindOne(query);
+        }
+
         public Tribe FindTribe(string sTbNm)
         {
             var query = Query<Tribe>.EQ(e => e.TbNm, sTbNm);

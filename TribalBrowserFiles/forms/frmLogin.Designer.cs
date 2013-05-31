@@ -62,6 +62,7 @@ namespace TribalBrowser.forms
             this.btnCreate = new System.Windows.Forms.Button();
             this.lblCheckPass = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnForgot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -127,9 +128,9 @@ namespace TribalBrowser.forms
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreate.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCreate.Location = new System.Drawing.Point(271, 174);
+            this.btnCreate.Location = new System.Drawing.Point(266, 174);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(83, 77);
+            this.btnCreate.Size = new System.Drawing.Size(88, 77);
             this.btnCreate.TabIndex = 4;
             this.btnCreate.Text = "Create New Account";
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -151,6 +152,22 @@ namespace TribalBrowser.forms
             this.lblCheckPass.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.lblCheckPass.Visible = false;
             // 
+            // btnForgot
+            // 
+            this.btnForgot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnForgot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnForgot.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForgot.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnForgot.Location = new System.Drawing.Point(12, 174);
+            this.btnForgot.Name = "btnForgot";
+            this.btnForgot.Size = new System.Drawing.Size(94, 77);
+            this.btnForgot.TabIndex = 26;
+            this.btnForgot.Text = "Forgot Your Password";
+            this.btnForgot.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnForgot.UseCompatibleTextRendering = true;
+            this.btnForgot.UseVisualStyleBackColor = true;
+            this.btnForgot.Click += new System.EventHandler(this.btnForgot_Click);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -158,6 +175,7 @@ namespace TribalBrowser.forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(365, 263);
+            this.Controls.Add(this.btnForgot);
             this.Controls.Add(this.lblCheckPass);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnLogin);
@@ -169,6 +187,7 @@ namespace TribalBrowser.forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "-";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +203,6 @@ namespace TribalBrowser.forms
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lblCheckPass;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Button btnForgot;
     }
 }

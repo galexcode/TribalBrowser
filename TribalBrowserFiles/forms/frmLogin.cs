@@ -34,6 +34,7 @@ namespace TribalBrowser.forms
         #region Member variables
 
         private readonly DataAccess m_oDataAccess = new DataAccess();
+        private readonly frmMessageBox ofrmMessageBox = new frmMessageBox();
         private Form m_oOpeningForm;
 
         #endregion
@@ -76,9 +77,32 @@ namespace TribalBrowser.forms
             _CheckPassword();
         }
 
+        private void btnForgot_Click(object sender, EventArgs e)
+        {
+            _ForgotPassword();
+        }
+
         #endregion
 
         #region Private Helpers
+
+        private void _ForgotPassword()
+        {
+            if (String.IsNullOrEmpty(txtUsrNm.Text.Trim()))
+            {
+                ofrmMessageBox.Show(StringProvider.sEnterUserName);
+                return;
+            }
+
+            TribeMember oTribeMember = m_oDataAccess.FindTribeMember(txtUsrNm.Text.Trim());
+            if (String.IsNullOrEmpty(oTribeMember.Ml))
+            {
+                ofrmMessageBox.Show(StringProvider.sNoEmail);
+                return;
+            }
+
+            TribeEmail.SendMail(oTribeMember.Ml, StringProvider.sForgotPssSubj, StringProvider.sForgotPssMssg + oTribeMember.Pss);
+        }
 
         private void _AddTooltips()
         {

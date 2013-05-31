@@ -129,6 +129,7 @@
       <DependentUpon>frmTools.cs</DependentUpon>
     </Compile>
     <Compile Include="helpers\Favourite.cs" />
+    <Compile Include="helpers\TribeEmail.cs" />
     <Compile Include="helpers\TribeLogon.cs" />
     <Compile Include="helpers\TribeMemberFavourites.cs" />
     <Compile Include="helpers\TribesGrid.cs" />
