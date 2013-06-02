@@ -22,7 +22,7 @@
 
 #endregion
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     partial class frmChat
     {
@@ -52,82 +52,34 @@ namespace TribalBrowser.forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChat));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTribeChat = new System.Windows.Forms.Panel();
-            this.pnlChat = new System.Windows.Forms.Panel();
-            this.txtChat = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.dgTribeChat = new System.Windows.Forms.DataGridView();
             this.Msg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTbNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coldt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlChat = new System.Windows.Forms.Panel();
+            this.txtChat = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.pnlTribeChat.SuspendLayout();
-            this.pnlChat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTribeChat)).BeginInit();
+            this.pnlChat.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTribeChat
             // 
-            this.pnlTribeChat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlTribeChat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTribeChat.Controls.Add(this.dgTribeChat);
             this.pnlTribeChat.Location = new System.Drawing.Point(2, 2);
+            this.pnlTribeChat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTribeChat.Name = "pnlTribeChat";
-            this.pnlTribeChat.Size = new System.Drawing.Size(808, 349);
+            this.pnlTribeChat.Size = new System.Drawing.Size(606, 284);
             this.pnlTribeChat.TabIndex = 0;
-            // 
-            // pnlChat
-            // 
-            this.pnlChat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlChat.Controls.Add(this.txtChat);
-            this.pnlChat.Location = new System.Drawing.Point(2, 397);
-            this.pnlChat.Name = "pnlChat";
-            this.pnlChat.Size = new System.Drawing.Size(808, 110);
-            this.pnlChat.TabIndex = 1;
-            // 
-            // txtChat
-            // 
-            this.txtChat.BackColor = System.Drawing.SystemColors.WindowText;
-            this.txtChat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtChat.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChat.ForeColor = System.Drawing.Color.Lime;
-            this.txtChat.Location = new System.Drawing.Point(0, 0);
-            this.txtChat.Multiline = true;
-            this.txtChat.Name = "txtChat";
-            this.txtChat.Size = new System.Drawing.Size(808, 110);
-            this.txtChat.TabIndex = 0;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSend.BackgroundImage")));
-            this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSend.Location = new System.Drawing.Point(762, 353);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(48, 43);
-            this.btnSend.TabIndex = 14;
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClear.Location = new System.Drawing.Point(714, 353);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(48, 43);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // dgTribeChat
             // 
@@ -145,24 +97,25 @@ namespace TribalBrowser.forms
             this.coldt});
             this.dgTribeChat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgTribeChat.Location = new System.Drawing.Point(0, 0);
+            this.dgTribeChat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgTribeChat.Name = "dgTribeChat";
             this.dgTribeChat.ReadOnly = true;
             this.dgTribeChat.RowHeadersVisible = false;
             this.dgTribeChat.RowTemplate.Height = 24;
-            this.dgTribeChat.Size = new System.Drawing.Size(808, 349);
+            this.dgTribeChat.Size = new System.Drawing.Size(606, 284);
             this.dgTribeChat.TabIndex = 0;
             this.dgTribeChat.SizeChanged += new System.EventHandler(this.dgTribeChat_SizeChanged);
             // 
             // Msg
             // 
             this.Msg.DataPropertyName = "Msg";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Msg.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Msg.DefaultCellStyle = dataGridViewCellStyle1;
             this.Msg.HeaderText = "Msg";
             this.Msg.Name = "Msg";
             this.Msg.ReadOnly = true;
@@ -200,27 +153,81 @@ namespace TribalBrowser.forms
             this.coldt.ReadOnly = true;
             this.coldt.Visible = false;
             // 
+            // pnlChat
+            // 
+            this.pnlChat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlChat.Controls.Add(this.txtChat);
+            this.pnlChat.Location = new System.Drawing.Point(2, 323);
+            this.pnlChat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlChat.Name = "pnlChat";
+            this.pnlChat.Size = new System.Drawing.Size(606, 89);
+            this.pnlChat.TabIndex = 1;
+            // 
+            // txtChat
+            // 
+            this.txtChat.BackColor = System.Drawing.SystemColors.WindowText;
+            this.txtChat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtChat.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChat.ForeColor = System.Drawing.Color.Lime;
+            this.txtChat.Location = new System.Drawing.Point(0, 0);
+            this.txtChat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtChat.Multiline = true;
+            this.txtChat.Name = "txtChat";
+            this.txtChat.Size = new System.Drawing.Size(606, 89);
+            this.txtChat.TabIndex = 0;
+            // 
+            // btnSend
+            // 
+            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSend.BackgroundImage")));
+            this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSend.Location = new System.Drawing.Point(572, 287);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(36, 35);
+            this.btnSend.TabIndex = 14;
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClear.Location = new System.Drawing.Point(536, 287);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(36, 35);
+            this.btnClear.TabIndex = 15;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmChat
             // 
             this.AcceptButton = this.btnSend;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(813, 506);
+            this.ClientSize = new System.Drawing.Size(610, 411);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.pnlChat);
             this.Controls.Add(this.pnlTribeChat);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmChat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tribe Chat";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmChat_FormClosed);
             this.Load += new System.EventHandler(this.frmChat_Load);
             this.pnlTribeChat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgTribeChat)).EndInit();
             this.pnlChat.ResumeLayout(false);
             this.pnlChat.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgTribeChat)).EndInit();
             this.ResumeLayout(false);
 
         }

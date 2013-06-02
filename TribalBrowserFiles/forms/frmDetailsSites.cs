@@ -24,16 +24,15 @@
 
 using System;
 using System.Windows.Forms;
-using TribalBrowser.helpers;
+using TribalHelper;
+using TribalLogin.Helpers;
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     public partial class frmDetailsSites : Form
     {
         #region Member variables
 
-        private readonly DataAccess m_oDataAccess = new DataAccess();
-        private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
         private readonly TribeLogon oTribeLogon = new TribeLogon();
         private TribeSitesGrid m_oTribeSitesGrid;
         private TribesGrid m_oTribesGrid;

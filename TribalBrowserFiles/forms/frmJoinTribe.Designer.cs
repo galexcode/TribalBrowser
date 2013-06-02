@@ -22,7 +22,7 @@
 
 #endregion
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     partial class frmJoinTribe
     {
@@ -71,6 +71,7 @@ namespace TribalBrowser.forms
             this.colDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTribes)).BeginInit();
             this.SuspendLayout();
@@ -150,7 +151,8 @@ namespace TribalBrowser.forms
             this.colTbNm,
             this.colDsc,
             this.ID,
-            this.colUsrNm});
+            this.colUsrNm,
+            this.colDelete});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,6 +224,14 @@ namespace TribalBrowser.forms
             this.colUsrNm.Name = "colUsrNm";
             this.colUsrNm.Visible = false;
             // 
+            // colDelete
+            // 
+            this.colDelete.HeaderText = "";
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Text = "Delete";
+            this.colDelete.UseColumnTextForButtonValue = true;
+            this.colDelete.Visible = false;
+            // 
             // frmJoinTribe
             // 
             this.AcceptButton = this.btnSearch;
@@ -259,5 +269,6 @@ namespace TribalBrowser.forms
         private System.Windows.Forms.DataGridViewTextBoxColumn colDsc;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUsrNm;
+        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
     }
 }

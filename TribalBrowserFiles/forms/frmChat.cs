@@ -24,9 +24,9 @@
 
 using System.Windows.Forms;
 using System;
-using TribalBrowser.helpers;
+using TribalHelper;
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     public partial class frmChat : Form
     {

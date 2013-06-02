@@ -24,13 +24,13 @@
 
 using System;
 using System.Windows.Forms;
-using TribalBrowser.helpers;
+using TribalHelper;
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     public partial class frmJoinTribe : Form
     {
-        #region Member vaiables
+        #region Member variables
 
         private TribesGrid m_oTribesGrid;
 
@@ -47,6 +47,16 @@ namespace TribalBrowser.forms
         {
             m_oTribesGrid = new TribesGrid(dgTribes);
             m_oTribesGrid.FindTop20Tribes();
+        }
+
+        #endregion
+
+        #region public Methods
+
+        public void AllowDelete()
+        {
+            dgTribes.Columns["colDelete"].Visible = true;
+            Width = Width + 100;
         }
 
         #endregion

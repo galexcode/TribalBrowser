@@ -23,9 +23,9 @@
 #endregion
 
 using System.Windows.Forms;
-using TribalBrowser.helpers;
+using TribalHelper;
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     public partial class frmViewFavourites : Form
     {

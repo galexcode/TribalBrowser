@@ -22,7 +22,7 @@
 
 #endregion
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     partial class frmInsertTribe
     {

@@ -24,8 +24,9 @@
 
 using System;
 using System.Windows.Forms;
+using TribalLogin.Forms;
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     public partial class frmTools : Form
     {

@@ -24,9 +24,10 @@
 
 using System;
 using System.Windows.Forms;
-using TribalBrowser.helpers;
+using TribalHelper;
+using TribalMessageBox;
 
-namespace TribalBrowser.forms
+namespace TribalBrowser.Forms
 {
     public partial class frmInsertTribe : Form
     {
