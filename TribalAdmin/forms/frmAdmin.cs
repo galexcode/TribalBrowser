@@ -51,7 +51,7 @@ namespace TribalAdmin.forms
 
         private void btnDelTbSt_Click(object sender, System.EventArgs e)
         {
-
+            _ShowAllTribesAndLinks();
         }
 
         private void btnDelTbUsr_Click(object sender, System.EventArgs e)
@@ -86,6 +86,12 @@ namespace TribalAdmin.forms
             ofrmJoinTribe.ShowDialog();
         }
 
+        private void _ShowAllTribesAndLinks()
+        {
+            frmInsertTribeLinks ofrmInsertTribeLinks = new frmInsertTribeLinks();
+            ofrmInsertTribeLinks.Show();
+            ofrmInsertTribeLinks.ShowAllTribeLinks();
+        }
         #endregion
     }
 }

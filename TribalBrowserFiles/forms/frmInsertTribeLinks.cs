@@ -51,6 +51,17 @@ namespace TribalBrowser.Forms
 
         #endregion
 
+        #region Public Methods
+
+        public void ShowAllTribeLinks()
+        {
+            if (m_oTribeSitesGrid == null) m_oTribeSitesGrid = new TribeSitesGrid(dgMySites);
+            m_oTribeSitesGrid.AdminMode = true;
+            m_oTribeSitesGrid.FindAllTribeLinks();
+        }
+
+        #endregion
+
         #region Controls
 
         private void dgMySites_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -62,7 +73,7 @@ namespace TribalBrowser.Forms
         {
             m_oTribeSitesGrid.ValidateUrl(e);
         }
-
+       
         #endregion
     }
 }

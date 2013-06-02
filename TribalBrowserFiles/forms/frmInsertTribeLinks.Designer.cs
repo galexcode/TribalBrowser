@@ -66,7 +66,6 @@ namespace TribalBrowser.Forms
             this.lblMySites = new System.Windows.Forms.Label();
             this.pnlMySites = new System.Windows.Forms.Panel();
             this.dgMySites = new System.Windows.Forms.DataGridView();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.colSt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +75,7 @@ namespace TribalBrowser.Forms
             this.colUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTbNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFav = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnlMySites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgMySites)).BeginInit();
             this.SuspendLayout();

@@ -190,6 +190,11 @@ namespace TribalHelper
             return m_colTribeLinks.Find(query).ToList();
         }
 
+        public BindingList<TribeLinks> FindAllTribeLinks()
+        {
+            return new BindingList<TribeLinks>(m_colTribeLinks.FindAll().ToList());
+        }
+
         public BindingList<TribeLinks> FindAllMyTribeLinks(string sUsrNm, string sTbNm)
         {
             var query = Query<TribeLinks>.Where(e => e.UsrNm == sUsrNm && e.TbNm == sTbNm);
@@ -333,6 +338,11 @@ namespace TribalHelper
             m_colTribeLinks.Remove(query);
         }
 
+        public void DeleteTribeLinks(ObjectId oId)
+        {
+            var query = Query<TribeLinks>.Where(e => e.Id == oId);
+            m_colTribeLinks.Remove(query);
+        }
         #endregion
 
         #region misc

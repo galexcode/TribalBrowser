@@ -1,6 +1,6 @@
 ﻿#region GPL Licence
 
-    /*
+/*
     Tribal Browser: A web browser that allows you to share your personal sites and 
     interact with your Tribe, bypassing search engines and ICANN.
     Copyright (C) 2012 Darren Udaiyan, Frugal Disruptive ltd, darren@frugaldisruptive.com
@@ -26,6 +26,7 @@ using System;
 using System.Net;
 using System.Windows.Forms;
 using TribalMessageBox;
+using MongoDB.Bson;
 
 namespace TribalHelper
 {
@@ -36,6 +37,23 @@ namespace TribalHelper
         private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
         private readonly DataAccess m_oDataAccess = new DataAccess();
         private readonly DataGridView m_oDataGridView;
+        private bool bAdminMode = false;
+
+        #endregion
+
+        #region Public Properties
+
+        public bool AdminMode
+        {
+            get
+            {
+                return bAdminMode;
+            }
+            set
+            {
+                bAdminMode = value;
+            }
+        }
 
         #endregion
 
@@ -95,7 +113,14 @@ namespace TribalHelper
             if (_CheckIfAnyFieldsNull(e)) return;
             if (m_oMessageBox.ShowCancel(StringProvider.sConfirmDeleteTribeSite + m_oDataGridView["colSt", e.RowIndex].Value.ToString().Trim()) == DialogResult.OK)
             {
-                m_oDataAccess.DeleteTribeLinks(m_oDataGridView["colSt", e.RowIndex].Value.ToString().Trim(), mTribeMember.TbNm);
+                if (AdminMode)
+                {
+                    m_oDataAccess.DeleteTribeLinks((ObjectId)m_oDataGridView["colId", e.RowIndex].Value);
+                }
+                else
+                {
+                    m_oDataAccess.DeleteTribeLinks(m_oDataGridView["colSt", e.RowIndex].Value.ToString().Trim(), mTribeMember.TbNm);
+                }
                 RefreshGrid();
             }
         }
@@ -115,7 +140,14 @@ namespace TribalHelper
 
         public void RefreshGrid()
         {
-            m_oDataGridView.DataSource = m_oDataAccess.FindAllMyTribeLinks(mTribeMember.UsrNm, mTribeMember.TbNm);
+            if (AdminMode)
+            {
+                FindAllTribeLinks();
+            }
+            else
+            {
+                m_oDataGridView.DataSource = m_oDataAccess.FindAllMyTribeLinks(mTribeMember.UsrNm, mTribeMember.TbNm);
+            }
         }
 
         public void RefreshFavGrid()
@@ -143,7 +175,7 @@ namespace TribalHelper
                 return;
             }
 
-            if (m_oDataGridView.CurrentRow.IsNewRow)
+            if ((ObjectId)m_oDataGridView["colId", e.RowIndex].Value == ObjectId.Empty)
             {
                 _InsertTribeLink(e);
             }
@@ -153,9 +185,14 @@ namespace TribalHelper
             }
         }
 
-        public void ShowAllMyTribeLinks(string sTbNm)
+        public void FindAllMyTribeLinks(string sTbNm)
         {
             m_oDataGridView.DataSource = m_oDataAccess.FindAllMyTribeLinks(mTribeMember.UsrNm, sTbNm);
+        }
+
+        public void FindAllTribeLinks()
+        {
+            m_oDataGridView.DataSource = m_oDataAccess.FindAllTribeLinks();
         }
 
         public void ValidateUrl(DataGridViewCellEventArgs e)
@@ -182,7 +219,7 @@ namespace TribalHelper
 
         private void _InsertTribeLink(DataGridViewCellEventArgs e)
         {
-            if (m_oDataAccess.TribeLinkExists(m_oDataGridView["colSt", e.RowIndex].Value.ToString(),mTribeMember.TbNm))
+            if (m_oDataAccess.TribeLinkExists(m_oDataGridView["colSt", e.RowIndex].Value.ToString(), mTribeMember.TbNm))
             {
                 m_oMessageBox.Show(StringProvider.sTribeLinkExists);
                 return;
@@ -194,14 +231,14 @@ namespace TribalHelper
                    mTribeMember.TbNm, mTribeMember.UsrNm);
             m_oMessageBox.Show(StringProvider.sTribeLinkSaved);
         }
-        
+
         private bool _CheckUrlExists(string sUrl)
         {
             bool bExists = true;
 
             try
             {
-                WebRequest webRequest = WebRequest.Create(TribeMisc.AddHttp(sUrl));
+                WebRequest webRequest = WebRequest.Create(TribeMisc.AddHttp(sUrl.Trim().ToLower()));
                 webRequest.Timeout = 1200; // miliseconds
                 webRequest.Method = WebRequestMethods.Http.Head;
                 webRequest.GetResponse();
@@ -225,7 +262,7 @@ namespace TribalHelper
 
             return bFieldsAreNull;
         }
-        
+
         #endregion
     }
 }

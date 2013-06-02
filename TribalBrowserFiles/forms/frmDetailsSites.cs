@@ -92,7 +92,7 @@ namespace TribalBrowser.Forms
         {
             oTribeLogon.ShowMyDetails(txtUsrNm, txtPss, txtConfirmPss);
             m_oTribesGrid.ShowAllMyTribes();
-            if (dgMyTribes["colTrTbNm", 0].Value != null) m_oTribeSitesGrid.ShowAllMyTribeLinks(dgMyTribes["colTrTbNm", 0].Value.ToString());
+            if (dgMyTribes["colTrTbNm", 0].Value != null) m_oTribeSitesGrid.FindAllMyTribeLinks(dgMyTribes["colTrTbNm", 0].Value.ToString());
         }
 
         #endregion
