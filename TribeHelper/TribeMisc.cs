@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 
 namespace TribalHelper
 {
@@ -59,6 +60,29 @@ namespace TribalHelper
                 return "";
             }
             return o.ToString().Trim();
+        }
+
+        #endregion
+
+        #region Url Methods
+
+        public static bool CheckUrlExists(string sUrl)
+        {
+            bool bExists = true;
+
+            try
+            {
+                WebRequest webRequest = WebRequest.Create(TribeMisc.AddHttp(sUrl.Trim().ToLower()));
+                webRequest.Timeout = 1200; // miliseconds
+                webRequest.Method = WebRequestMethods.Http.Head;
+                webRequest.GetResponse();
+            }
+            catch
+            {
+                bExists = false;
+            }
+
+            return bExists;
         }
 
         #endregion

@@ -45,6 +45,7 @@ namespace TribalHelper
         private readonly MongoCollection<TribeMember> m_colTribeMembers;
         private readonly MongoCollection<TribeLinks> m_colTribeLinks;
         private readonly MongoCollection<TribeChat> m_colTribeChat;
+        private readonly MongoCollection<TribeBlock> m_colTribeBlock;
 
         #endregion
 
@@ -59,6 +60,7 @@ namespace TribalHelper
             m_colTribeMembers = m_oDatabase.GetCollection<TribeMember>("TribeMembers");
             m_colTribeLinks = m_oDatabase.GetCollection<TribeLinks>("TribeLinks");
             m_colTribeChat = m_oDatabase.GetCollection<TribeChat>("TribeChat");
+            m_colTribeBlock = m_oDatabase.GetCollection<TribeBlock>("TribeBlock");
         }
 
         #endregion
@@ -117,6 +119,15 @@ namespace TribalHelper
             m_colTribeChat.Insert(oTC);
         }
 
+        public void InsertTribeBlock(string sTbNm, string sUrl)
+        {
+            var oTB = new TribeBlock
+            {
+                TbNm = sTbNm,
+                Url = sUrl
+            };
+            m_colTribeBlock.Insert(oTB);
+        }
         #endregion
 
         #region Find
@@ -125,6 +136,11 @@ namespace TribalHelper
         {
             var query = Query<TribeMember>.EQ(e => e.UsrNm, mTribeMember.UsrNm);
             return m_colTribeMembers.FindOne(query);
+        }
+
+        public BindingList<TribeMember> FindAllTribeMembers()
+        {
+            return new BindingList<TribeMember>(m_colTribeMembers.FindAll().ToList());
         }
 
         public TribeMember FindTribeMember(string sUsrNm)
@@ -256,6 +272,17 @@ namespace TribalHelper
             return m_colTribeChat.Find(query).SetSortOrder(sbb).SetLimit(50).ToList().ToList();
         }
 
+        public BindingList<TribeBlock> FindTribeBlocks(string sTbNm)
+        {
+            var query = Query<TribeBlock>.EQ(e => e.TbNm, sTbNm);
+            return new BindingList<TribeBlock>(m_colTribeBlock.Find(query).ToList());
+        }
+
+        public BindingList<TribeBlock> FindAllTribeBlocks()
+        {
+            return new BindingList<TribeBlock>(m_colTribeBlock.FindAll().ToList());
+        }
+
         #endregion
 
         #region Save
@@ -328,10 +355,17 @@ namespace TribalHelper
             m_colTribes.Update(query, update);
         }
 
+        public void UpdateTribeBlock(string sTbNm, string sUrl)
+        {
+            var query = Query<TribeBlock>.Where(e => e.TbNm == sTbNm);
+            var update = Update<TribeBlock>.Set(e => e.Url, sUrl);
+            m_colTribeBlock.Update(query, update);
+        }
+
         #endregion
 
         #region Delete
-        //Can only delete tribe links if you own it
+
         public void DeleteTribeLinks(string sSt, string sTbNm)
         {
             var query = Query<TribeLinks>.Where(e => e.St == sSt && e.TbNm == sTbNm);
@@ -343,6 +377,19 @@ namespace TribalHelper
             var query = Query<TribeLinks>.Where(e => e.Id == oId);
             m_colTribeLinks.Remove(query);
         }
+
+        public void DeleteTribeChat(string sTbNm)
+        {
+            var query = Query<TribeChat>.Where(e => e.TbNm == sTbNm);
+            m_colTribeChat.Remove(query);
+        }
+
+        public void DeleteTribeMember(string sUsrNm)
+        {
+            var query = Query<TribeMember>.Where(e => e.UsrNm == sUsrNm);
+            m_colTribeMembers.Remove(query);
+        }
+
         #endregion
 
         #region misc

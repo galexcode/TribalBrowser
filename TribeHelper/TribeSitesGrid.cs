@@ -169,13 +169,14 @@ namespace TribalHelper
                 return;
             }
 
-            if (_CheckUrlExists(m_oDataGridView["colUrl", e.RowIndex].Value.ToString()) == false)
+            if (TribeMisc.CheckUrlExists(m_oDataGridView["colUrl", e.RowIndex].Value.ToString()) == false)
             {
                 m_oMessageBox.Show(StringProvider.sTribeLinkUrlBad);
                 return;
             }
 
-            if ((ObjectId)m_oDataGridView["colId", e.RowIndex].Value == ObjectId.Empty)
+            ObjectId oRowID = (ObjectId)m_oDataGridView["colId", e.RowIndex].Value; //Get the row id if it exists
+            if (oRowID == ObjectId.Empty)
             {
                 _InsertTribeLink(e);
             }
@@ -232,25 +233,7 @@ namespace TribalHelper
             m_oMessageBox.Show(StringProvider.sTribeLinkSaved);
         }
 
-        private bool _CheckUrlExists(string sUrl)
-        {
-            bool bExists = true;
-
-            try
-            {
-                WebRequest webRequest = WebRequest.Create(TribeMisc.AddHttp(sUrl.Trim().ToLower()));
-                webRequest.Timeout = 1200; // miliseconds
-                webRequest.Method = WebRequestMethods.Http.Head;
-                webRequest.GetResponse();
-            }
-            catch
-            {
-                bExists = false;
-            }
-
-            return bExists;
-        }
-
+        
         private bool _CheckIfAnyFieldsNull(DataGridViewCellEventArgs e)
         {
             bool bFieldsAreNull = (m_oDataGridView["colSt", e.RowIndex].Value == null);

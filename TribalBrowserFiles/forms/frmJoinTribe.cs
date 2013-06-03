@@ -57,6 +57,7 @@ namespace TribalBrowser.Forms
         {
             dgTribes.Columns["colDelete"].Visible = true;
             Width = Width + 100;
+            btnJoin.Visible = false;
         }
 
         #endregion

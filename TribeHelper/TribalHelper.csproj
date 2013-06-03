@@ -54,6 +54,7 @@
     <Compile Include="Favourite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringProvider.cs" />
+    <Compile Include="TribeBlockGrid.cs" />
     <Compile Include="TribeClasses.cs" />
     <Compile Include="TribeEmail.cs" />
     <Compile Include="TribeMemberFavourites.cs" />

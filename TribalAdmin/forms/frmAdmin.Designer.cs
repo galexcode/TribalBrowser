@@ -53,77 +53,77 @@ namespace TribalAdmin.forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
-            this.btnDelTb = new System.Windows.Forms.Button();
-            this.btnDelTbSt = new System.Windows.Forms.Button();
-            this.btnBlockTbSt = new System.Windows.Forms.Button();
-            this.btnClearTbChat = new System.Windows.Forms.Button();
+            this.btnDeleteTribe = new System.Windows.Forms.Button();
+            this.btnDeleteTribeLinks = new System.Windows.Forms.Button();
+            this.btnBlockTribeLinks = new System.Windows.Forms.Button();
+            this.btnClearTribeChat = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.btnDelTbUsr = new System.Windows.Forms.Button();
+            this.btnDeleteTribeMember = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnDelTb
+            // btnDeleteTribe
             // 
-            this.btnDelTb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelTb.BackgroundImage")));
-            this.btnDelTb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelTb.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelTb.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelTb.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDelTb.Location = new System.Drawing.Point(0, 2);
-            this.btnDelTb.Name = "btnDelTb";
-            this.btnDelTb.Size = new System.Drawing.Size(200, 200);
-            this.btnDelTb.TabIndex = 2;
-            this.btnDelTb.Text = "Delete Tribe";
-            this.btnDelTb.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelTb.UseVisualStyleBackColor = true;
-            this.btnDelTb.Click += new System.EventHandler(this.btnDelTb_Click);
+            this.btnDeleteTribe.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteTribe.BackgroundImage")));
+            this.btnDeleteTribe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeleteTribe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeleteTribe.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTribe.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDeleteTribe.Location = new System.Drawing.Point(0, 2);
+            this.btnDeleteTribe.Name = "btnDeleteTribe";
+            this.btnDeleteTribe.Size = new System.Drawing.Size(200, 200);
+            this.btnDeleteTribe.TabIndex = 2;
+            this.btnDeleteTribe.Text = "Delete Tribe";
+            this.btnDeleteTribe.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDeleteTribe.UseVisualStyleBackColor = true;
+            this.btnDeleteTribe.Click += new System.EventHandler(this.btnDeleteTribe_Click);
             // 
-            // btnDelTbSt
+            // btnDeleteTribeLinks
             // 
-            this.btnDelTbSt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelTbSt.BackgroundImage")));
-            this.btnDelTbSt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelTbSt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelTbSt.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelTbSt.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDelTbSt.Location = new System.Drawing.Point(195, 2);
-            this.btnDelTbSt.Name = "btnDelTbSt";
-            this.btnDelTbSt.Size = new System.Drawing.Size(200, 200);
-            this.btnDelTbSt.TabIndex = 3;
-            this.btnDelTbSt.Text = "Delete Tribe Links";
-            this.btnDelTbSt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelTbSt.UseVisualStyleBackColor = true;
-            this.btnDelTbSt.Click += new System.EventHandler(this.btnDelTbSt_Click);
+            this.btnDeleteTribeLinks.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteTribeLinks.BackgroundImage")));
+            this.btnDeleteTribeLinks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeleteTribeLinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeleteTribeLinks.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTribeLinks.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDeleteTribeLinks.Location = new System.Drawing.Point(195, 2);
+            this.btnDeleteTribeLinks.Name = "btnDeleteTribeLinks";
+            this.btnDeleteTribeLinks.Size = new System.Drawing.Size(200, 200);
+            this.btnDeleteTribeLinks.TabIndex = 3;
+            this.btnDeleteTribeLinks.Text = "Delete Tribe Links";
+            this.btnDeleteTribeLinks.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDeleteTribeLinks.UseVisualStyleBackColor = true;
+            this.btnDeleteTribeLinks.Click += new System.EventHandler(this.btnDeleteTribeLinks_Click);
             // 
-            // btnBlockTbSt
+            // btnBlockTribeLinks
             // 
-            this.btnBlockTbSt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBlockTbSt.BackgroundImage")));
-            this.btnBlockTbSt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBlockTbSt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBlockTbSt.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlockTbSt.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBlockTbSt.Location = new System.Drawing.Point(0, 202);
-            this.btnBlockTbSt.Name = "btnBlockTbSt";
-            this.btnBlockTbSt.Size = new System.Drawing.Size(200, 200);
-            this.btnBlockTbSt.TabIndex = 4;
-            this.btnBlockTbSt.Text = "Block Tribe Links";
-            this.btnBlockTbSt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBlockTbSt.UseVisualStyleBackColor = true;
-            this.btnBlockTbSt.Click += new System.EventHandler(this.btnBlockTbSt_Click);
+            this.btnBlockTribeLinks.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBlockTribeLinks.BackgroundImage")));
+            this.btnBlockTribeLinks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBlockTribeLinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBlockTribeLinks.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlockTribeLinks.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnBlockTribeLinks.Location = new System.Drawing.Point(0, 202);
+            this.btnBlockTribeLinks.Name = "btnBlockTribeLinks";
+            this.btnBlockTribeLinks.Size = new System.Drawing.Size(200, 200);
+            this.btnBlockTribeLinks.TabIndex = 4;
+            this.btnBlockTribeLinks.Text = "Block Tribe Links";
+            this.btnBlockTribeLinks.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBlockTribeLinks.UseVisualStyleBackColor = true;
+            this.btnBlockTribeLinks.Click += new System.EventHandler(this.btnBlockTribeLinks_Click);
             // 
-            // btnClearTbChat
+            // btnClearTribeChat
             // 
-            this.btnClearTbChat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClearTbChat.BackgroundImage")));
-            this.btnClearTbChat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClearTbChat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClearTbChat.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearTbChat.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClearTbChat.Location = new System.Drawing.Point(195, 202);
-            this.btnClearTbChat.Name = "btnClearTbChat";
-            this.btnClearTbChat.Size = new System.Drawing.Size(200, 200);
-            this.btnClearTbChat.TabIndex = 5;
-            this.btnClearTbChat.Text = "Clear Tribe Chat";
-            this.btnClearTbChat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClearTbChat.UseVisualStyleBackColor = true;
-            this.btnClearTbChat.Click += new System.EventHandler(this.btnClearTbChat_Click);
+            this.btnClearTribeChat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClearTribeChat.BackgroundImage")));
+            this.btnClearTribeChat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClearTribeChat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClearTribeChat.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearTribeChat.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClearTribeChat.Location = new System.Drawing.Point(195, 202);
+            this.btnClearTribeChat.Name = "btnClearTribeChat";
+            this.btnClearTribeChat.Size = new System.Drawing.Size(200, 200);
+            this.btnClearTribeChat.TabIndex = 5;
+            this.btnClearTribeChat.Text = "Clear Tribe Chat";
+            this.btnClearTribeChat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClearTribeChat.UseVisualStyleBackColor = true;
+            this.btnClearTribeChat.Click += new System.EventHandler(this.btnClearTribeChat_Click);
             // 
             // btnBrowse
             // 
@@ -141,21 +141,21 @@ namespace TribalAdmin.forms
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // btnDelTbUsr
+            // btnDeleteTribeMember
             // 
-            this.btnDelTbUsr.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelTbUsr.BackgroundImage")));
-            this.btnDelTbUsr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelTbUsr.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelTbUsr.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelTbUsr.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDelTbUsr.Location = new System.Drawing.Point(395, 2);
-            this.btnDelTbUsr.Name = "btnDelTbUsr";
-            this.btnDelTbUsr.Size = new System.Drawing.Size(200, 200);
-            this.btnDelTbUsr.TabIndex = 7;
-            this.btnDelTbUsr.Text = "Delete Tribe Member";
-            this.btnDelTbUsr.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelTbUsr.UseVisualStyleBackColor = true;
-            this.btnDelTbUsr.Click += new System.EventHandler(this.btnDelTbUsr_Click);
+            this.btnDeleteTribeMember.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteTribeMember.BackgroundImage")));
+            this.btnDeleteTribeMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeleteTribeMember.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeleteTribeMember.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTribeMember.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDeleteTribeMember.Location = new System.Drawing.Point(395, 2);
+            this.btnDeleteTribeMember.Name = "btnDeleteTribeMember";
+            this.btnDeleteTribeMember.Size = new System.Drawing.Size(200, 200);
+            this.btnDeleteTribeMember.TabIndex = 7;
+            this.btnDeleteTribeMember.Text = "Delete Tribe Member";
+            this.btnDeleteTribeMember.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDeleteTribeMember.UseVisualStyleBackColor = true;
+            this.btnDeleteTribeMember.Click += new System.EventHandler(this.btnDeleteTribeMember_Click);
             // 
             // frmAdmin
             // 
@@ -163,12 +163,12 @@ namespace TribalAdmin.forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(597, 405);
-            this.Controls.Add(this.btnDelTbUsr);
+            this.Controls.Add(this.btnDeleteTribeMember);
             this.Controls.Add(this.btnBrowse);
-            this.Controls.Add(this.btnClearTbChat);
-            this.Controls.Add(this.btnBlockTbSt);
-            this.Controls.Add(this.btnDelTbSt);
-            this.Controls.Add(this.btnDelTb);
+            this.Controls.Add(this.btnClearTribeChat);
+            this.Controls.Add(this.btnBlockTribeLinks);
+            this.Controls.Add(this.btnDeleteTribeLinks);
+            this.Controls.Add(this.btnDeleteTribe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdmin";
@@ -179,12 +179,12 @@ namespace TribalAdmin.forms
 
         #endregion
 
-        private System.Windows.Forms.Button btnDelTb;
-        private System.Windows.Forms.Button btnDelTbSt;
-        private System.Windows.Forms.Button btnBlockTbSt;
-        private System.Windows.Forms.Button btnClearTbChat;
+        private System.Windows.Forms.Button btnDeleteTribe;
+        private System.Windows.Forms.Button btnDeleteTribeLinks;
+        private System.Windows.Forms.Button btnBlockTribeLinks;
+        private System.Windows.Forms.Button btnClearTribeChat;
         private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.Button btnDelTbUsr;
+        private System.Windows.Forms.Button btnDeleteTribeMember;
     }
 }
 

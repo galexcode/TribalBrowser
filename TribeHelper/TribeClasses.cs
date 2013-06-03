@@ -114,7 +114,7 @@ namespace TribalHelper
 
     #endregion
 
-    #region TribeChat
+    #region Class TribeChat
 
     public class TribeChat
     {
@@ -127,4 +127,14 @@ namespace TribalHelper
 
     #endregion
 
+    #region Class TribeBlock
+
+    public class TribeBlock
+    {
+        public ObjectId Id { get; set; }
+        public string TbNm { get; set; }
+        public string Url { get; set; }
+    }
+
+    #endregion
 }

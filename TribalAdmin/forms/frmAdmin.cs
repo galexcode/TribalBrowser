@@ -44,29 +44,29 @@ namespace TribalAdmin.forms
 
         #region Controls
 
-        private void btnDelTb_Click(object sender, System.EventArgs e)
+        private void btnDeleteTribe_Click(object sender, System.EventArgs e)
         {
             _ShowJoinTribeInDeleteMode();
         }
 
-        private void btnDelTbSt_Click(object sender, System.EventArgs e)
+        private void btnDeleteTribeLinks_Click(object sender, System.EventArgs e)
         {
             _ShowAllTribesAndLinks();
         }
 
-        private void btnDelTbUsr_Click(object sender, System.EventArgs e)
+        private void btnDeleteTribeMember_Click(object sender, System.EventArgs e)
         {
-
+            _ShowDeleteTribeMember();
         }
 
-        private void btnBlockTbSt_Click(object sender, System.EventArgs e)
+        private void btnBlockTribeLinks_Click(object sender, System.EventArgs e)
         {
-
+            _ShowBlockTribeLinks();
         }
 
-        private void btnClearTbChat_Click(object sender, System.EventArgs e)
+        private void btnClearTribeChat_Click(object sender, System.EventArgs e)
         {
-
+            _ShowClearTribeChat();
         }
 
         private void btnBrowse_Click(object sender, System.EventArgs e)
@@ -88,10 +88,30 @@ namespace TribalAdmin.forms
 
         private void _ShowAllTribesAndLinks()
         {
+            //TODO: Create new form with search facility
             frmInsertTribeLinks ofrmInsertTribeLinks = new frmInsertTribeLinks();
             ofrmInsertTribeLinks.Show();
             ofrmInsertTribeLinks.ShowAllTribeLinks();
         }
+
+        private void _ShowBlockTribeLinks()
+        {
+            frmBlockTribeLinks ofrmBlockTribeLinks = new frmBlockTribeLinks();
+            ofrmBlockTribeLinks.ShowDialog();
+        }
+
+        private void _ShowClearTribeChat()
+        {
+            frmClearTribeChat ofrmClearTribeChat = new frmClearTribeChat();
+            ofrmClearTribeChat.ShowDialog();
+        }
+
+        private void _ShowDeleteTribeMember()
+        {
+            frmDeleteTribeMember ofrmDeleteTribeMember = new frmDeleteTribeMember();
+            ofrmDeleteTribeMember.ShowDialog();
+        }
+
         #endregion
     }
 }
