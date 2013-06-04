@@ -113,13 +113,19 @@ namespace TribalHelper
             }
         }
 
+        public void FindTribeBlocks(string sSearch)
+        {
+            m_oDataGridView.DataSource = m_oDataAccess.FindTribeBlocks(sSearch.Trim());
+        }
+
         #endregion
 
         #region Private methods
 
         private void _UpdateTribeBlock(DataGridViewCellEventArgs e)
         {
-            m_oDataAccess.UpdateTribeBlock(m_oDataGridView["colTbNm", e.RowIndex].Value.ToString().Trim(),
+            m_oDataAccess.UpdateTribeBlock((ObjectId)m_oDataGridView["colId", e.RowIndex].Value,
+                  m_oDataGridView["colTbNm", e.RowIndex].Value.ToString().Trim(),
                   m_oDataGridView["colUrl", e.RowIndex].Value.ToString().Trim());
             m_oMessageBox.Show(StringProvider.sTribeLinkSaved);
         }

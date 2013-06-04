@@ -73,9 +73,9 @@ namespace TribalHelper
         {
             var oTb = new Tribe
             {
-                TbNm = sTbNm,
+                TbNm = sTbNm.ToLower(),
                 UsrNm = sUsrNm,
-                Dsc = sDsc
+                Dsc = sDsc.ToLower()
             };
             m_colTribes.Insert(oTb);
         }
@@ -86,8 +86,8 @@ namespace TribalHelper
             {
                 UsrNm = sUsrNm,
                 Pss = sPss,
-                TbNm = sTbNm,
-                Ml = sMl
+                TbNm = sTbNm.ToLower(),
+                Ml = sMl.ToLower()
             };
             m_colTribeMembers.Insert(oTM);
             mTribeMember.TbNm = sTbNm;
@@ -97,11 +97,11 @@ namespace TribalHelper
         {
             var oTL = new TribeLinks
             {
-                St = sSt,
-                Dsc = sDsc,
-                TbNm = sTbNm,
+                St = sSt.ToLower(),
+                Dsc = sDsc.ToLower(),
+                TbNm = sTbNm.ToLower(),
                 UsrNm = sUsrNm,
-                Url = sUrl,
+                Url = sUrl.ToLower(),
                 Fav = sFav
             };
             m_colTribeLinks.Insert(oTL);
@@ -112,7 +112,7 @@ namespace TribalHelper
             var oTC = new TribeChat
             {
                 UsrNm = sUsrNm,
-                TbNm = sTbNm,
+                TbNm = sTbNm.ToLower(),
                 Msg = sMsg,
                 dt = odt
             };
@@ -123,8 +123,8 @@ namespace TribalHelper
         {
             var oTB = new TribeBlock
             {
-                TbNm = sTbNm,
-                Url = sUrl
+                TbNm = sTbNm.ToLower(),
+                Url = sUrl.ToLower()
             };
             m_colTribeBlock.Insert(oTB);
         }
@@ -151,7 +151,7 @@ namespace TribalHelper
 
         public Tribe FindTribe(string sTbNm)
         {
-            var query = Query<Tribe>.EQ(e => e.TbNm, sTbNm);
+            var query = Query<Tribe>.EQ(e => e.TbNm, sTbNm.ToLower());
             return m_colTribes.FindOne(query);
         }
 
@@ -177,7 +177,7 @@ namespace TribalHelper
 
         public bool TribeExists(string sTbNm)
         {
-            var query = Query<Tribe>.EQ(e => e.TbNm, sTbNm);
+            var query = Query<Tribe>.EQ(e => e.TbNm, sTbNm.ToLower());
             return m_colTribes.Find(query).Any();
         }
 
@@ -202,7 +202,7 @@ namespace TribalHelper
 
         public List<TribeLinks> FindAllTribeLinks(string sTbNm)
         {
-            var query = Query<TribeLinks>.EQ(e => e.TbNm, sTbNm);
+            var query = Query<TribeLinks>.EQ(e => e.TbNm, sTbNm.ToLower());
             return m_colTribeLinks.Find(query).ToList();
         }
 
@@ -213,13 +213,13 @@ namespace TribalHelper
 
         public BindingList<TribeLinks> FindAllMyTribeLinks(string sUsrNm, string sTbNm)
         {
-            var query = Query<TribeLinks>.Where(e => e.UsrNm == sUsrNm && e.TbNm == sTbNm);
+            var query = Query<TribeLinks>.Where(e => e.UsrNm == sUsrNm && e.TbNm == sTbNm.ToLower());
             return new BindingList<TribeLinks>(m_colTribeLinks.Find(query).ToList());
         }
 
         public BindingList<TribeLinks> FindAllMyFavouriteLinks(string sUsrNm, string sTbNm)
         {
-            var query = Query<TribeLinks>.Where(e => e.UsrNm == sUsrNm && e.TbNm == sTbNm && e.Fav == Favourite.True);
+            var query = Query<TribeLinks>.Where(e => e.UsrNm == sUsrNm && e.TbNm == sTbNm.ToLower() && e.Fav == Favourite.True);
             return new BindingList<TribeLinks>(m_colTribeLinks.Find(query).ToList());
         }
 
@@ -234,25 +234,25 @@ namespace TribalHelper
 
         public TribeLinks FindTribeLink(string sSt, string sTbNm)
         {
-            var query = Query<TribeLinks>.Where(e => e.St == sSt && e.TbNm == sTbNm);
+            var query = Query<TribeLinks>.Where(e => e.St == sSt.ToLower() && e.TbNm == sTbNm.ToLower());
             return m_colTribeLinks.FindOne(query);
         }
 
         public List<TribeLinks> FindTribeLinkLike(string sSt, string sTbNm)
         {
-            var query = Query<TribeLinks>.Where(e => e.St.Contains(sSt) && e.TbNm == sTbNm);
+            var query = Query<TribeLinks>.Where(e => e.St.Contains(sSt.ToLower()) && e.TbNm == sTbNm.ToLower());
             return m_colTribeLinks.Find(query).ToList();
         }
 
         public bool TribeLinkExists(string sSt, string sTbNm)
         {
-            var query = Query<TribeLinks>.Where(e => e.St == sSt && e.TbNm == sTbNm);
+            var query = Query<TribeLinks>.Where(e => e.St == sSt.ToLower() && e.TbNm == sTbNm.ToLower());
             return m_colTribeLinks.Find(query).Any();
         }
 
         public bool TribeFavouriteExists(string sSt, string sTbNm, string sUsrNm)
         {
-            var query = Query<TribeLinks>.Where(e => e.St == sSt && e.TbNm == sTbNm && e.UsrNm == sUsrNm);
+            var query = Query<TribeLinks>.Where(e => e.St == sSt.ToLower() && e.TbNm == sTbNm.ToLower() && e.UsrNm == sUsrNm);
             return m_colTribeLinks.Find(query).Any();
         }
 
@@ -260,7 +260,7 @@ namespace TribalHelper
         {
             SortByBuilder sbb = new SortByBuilder();
             sbb.Descending("_id");
-            var query = Query<TribeLinks>.EQ(e => e.TbNm, sTbNm);
+            var query = Query<TribeLinks>.EQ(e => e.TbNm, sTbNm.ToLower());
             return m_colTribeLinks.Find(query).SetSortOrder(sbb).SetLimit(50).ToList().ToList();
         }
 
@@ -268,13 +268,13 @@ namespace TribalHelper
         {
             SortByBuilder sbb = new SortByBuilder();
             sbb.Ascending("dt");
-            var query = Query<TribeChat>.EQ(e => e.TbNm, sTbNm);
+            var query = Query<TribeChat>.EQ(e => e.TbNm, sTbNm.ToLower());
             return m_colTribeChat.Find(query).SetSortOrder(sbb).SetLimit(50).ToList().ToList();
         }
 
         public BindingList<TribeBlock> FindTribeBlocks(string sTbNm)
         {
-            var query = Query<TribeBlock>.EQ(e => e.TbNm, sTbNm);
+            var query = Query<TribeBlock>.EQ(e => e.TbNm, sTbNm.ToLower());
             return new BindingList<TribeBlock>(m_colTribeBlock.Find(query).ToList());
         }
 
@@ -291,7 +291,7 @@ namespace TribalHelper
         {
             Tribe oTribe = new Tribe
                 {
-                    Dsc = sDsc
+                    Dsc = sDsc.ToLower()
                 };
             m_colTribes.Save(oTribe);
         }
@@ -300,9 +300,9 @@ namespace TribalHelper
         {
             TribeLinks oTribeLinks = new TribeLinks
                 {
-                    Url = sUrl,
-                    Dsc = sDsc,
-                    TbNm = sTbNm,
+                    Url = sUrl.ToLower(),
+                    Dsc = sDsc.ToLower(),
+                    TbNm = sTbNm.ToLower(),
                     UsrNm = sUsrNm
                 };
             m_colTribeLinks.Save(oTribeLinks);
@@ -313,7 +313,7 @@ namespace TribalHelper
             TribeMember oTribeMember = new TribeMember
                 {
                     Pss = sPss,
-                    TbNm = sTbNm
+                    TbNm = sTbNm.ToLower()
                 };
             m_colTribeMembers.Save(oTribeMember);
         }
@@ -325,7 +325,7 @@ namespace TribalHelper
         public void UpdateTribeMemberTribe(string sTbNm)
         {
             var query = Query<TribeMember>.EQ(e => e.UsrNm, mTribeMember.UsrNm);
-            var update = Update<TribeMember>.Set(e => e.TbNm, sTbNm);
+            var update = Update<TribeMember>.Set(e => e.TbNm, sTbNm.ToLower());
             m_colTribeMembers.Update(query, update);
             mTribeMember.TbNm = sTbNm;
         }
@@ -340,25 +340,43 @@ namespace TribalHelper
         public void UpdateTribeLink(string sSt, string sUrl, string sDsc, string sTbNm, string sUsrNm)
         {
             var query = Query<TribeLinks>.Where(e => e.St == sSt && e.TbNm == sTbNm);
-            var update = Update<TribeLinks>.Set(e => e.St, sSt)
-                                           .Set(e => e.Url, sUrl)
-                                           .Set(e => e.Dsc, sDsc)
-                                           .Set(e => e.TbNm, sTbNm);
+            var update = Update<TribeLinks>.Set(e => e.St, sSt.ToLower())
+                                           .Set(e => e.Url, sUrl.ToLower())
+                                           .Set(e => e.Dsc, sDsc.ToLower())
+                                           .Set(e => e.TbNm, sTbNm.ToLower());
+            m_colTribeLinks.Update(query, update);
+        }
+
+        public void UpdateTribeLink(ObjectId oId, string sSt, string sUrl, string sDsc, string sTbNm, string sUsrNm)
+        {
+            var query = Query<TribeLinks>.Where(e => e.Id == oId);
+            var update = Update<TribeLinks>.Set(e => e.St, sSt.ToLower())
+                                           .Set(e => e.Url, sUrl.ToLower())
+                                           .Set(e => e.Dsc, sDsc.ToLower())
+                                           .Set(e => e.TbNm, sTbNm.ToLower());
             m_colTribeLinks.Update(query, update);
         }
 
         public void UpdateTribe(string sPrevTbNm, string sDsc)
         {
             var query = Query<Tribe>.Where(e => e.TbNm == sPrevTbNm);
-            var update = Update<Tribe>.Set(e => e.TbNm, sPrevTbNm)
-                                           .Set(e => e.Dsc, sDsc);
+            var update = Update<Tribe>.Set(e => e.TbNm, sPrevTbNm.ToLower())
+                                           .Set(e => e.Dsc, sDsc.ToLower());
             m_colTribes.Update(query, update);
         }
 
         public void UpdateTribeBlock(string sTbNm, string sUrl)
         {
             var query = Query<TribeBlock>.Where(e => e.TbNm == sTbNm);
-            var update = Update<TribeBlock>.Set(e => e.Url, sUrl);
+            var update = Update<TribeBlock>.Set(e => e.Url, sUrl.ToLower());
+            m_colTribeBlock.Update(query, update);
+        }
+
+        public void UpdateTribeBlock(ObjectId oId, string sTbNm, string sUrl)
+        {
+            var query = Query<TribeBlock>.Where(e => e.Id == oId);
+            var update = Update<TribeBlock>.Set(e => e.TbNm, sTbNm.ToLower())
+                                           .Set(e => e.Url, sUrl.ToLower());
             m_colTribeBlock.Update(query, update);
         }
 

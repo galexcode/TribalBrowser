@@ -142,7 +142,7 @@ namespace TribalHelper
         {
             if (AdminMode)
             {
-                FindAllTribeLinks();
+                FindAllTribeLinksAdmin();
             }
             else
             {
@@ -191,9 +191,10 @@ namespace TribalHelper
             m_oDataGridView.DataSource = m_oDataAccess.FindAllMyTribeLinks(mTribeMember.UsrNm, sTbNm);
         }
 
-        public void FindAllTribeLinks()
+        public void FindAllTribeLinksAdmin()
         {
             m_oDataGridView.DataSource = m_oDataAccess.FindAllTribeLinks();
+            m_oDataGridView.Columns["colTbNm"].Visible = true;
         }
 
         public void ValidateUrl(DataGridViewCellEventArgs e)
@@ -211,16 +212,17 @@ namespace TribalHelper
 
         private void _UpdateTribeLink(DataGridViewCellEventArgs e)
         {
-            m_oDataAccess.UpdateTribeLink(m_oDataGridView["colSt", e.RowIndex].Value.ToString().Trim(),
-                  m_oDataGridView["colUrl", e.RowIndex].Value.ToString().Trim(),
-                  TribeMisc.ConvertIfNull(m_oDataGridView["colDsc", e.RowIndex].Value),
-                  mTribeMember.TbNm, mTribeMember.UsrNm);
+            m_oDataAccess.UpdateTribeLink((ObjectId)m_oDataGridView["colId", e.RowIndex].Value,
+                    m_oDataGridView["colSt", e.RowIndex].Value.ToString().Trim(),
+                    m_oDataGridView["colUrl", e.RowIndex].Value.ToString().Trim(),
+                    TribeMisc.ConvertIfNull(m_oDataGridView["colDsc", e.RowIndex].Value),
+                    _GetTribeName(e), mTribeMember.UsrNm);
             m_oMessageBox.Show(StringProvider.sTribeLinkSaved);
         }
 
         private void _InsertTribeLink(DataGridViewCellEventArgs e)
         {
-            if (m_oDataAccess.TribeLinkExists(m_oDataGridView["colSt", e.RowIndex].Value.ToString(), mTribeMember.TbNm))
+            if (m_oDataAccess.TribeLinkExists(m_oDataGridView["colSt", e.RowIndex].Value.ToString(), _GetTribeName(e)))
             {
                 m_oMessageBox.Show(StringProvider.sTribeLinkExists);
                 return;
@@ -233,7 +235,6 @@ namespace TribalHelper
             m_oMessageBox.Show(StringProvider.sTribeLinkSaved);
         }
 
-        
         private bool _CheckIfAnyFieldsNull(DataGridViewCellEventArgs e)
         {
             bool bFieldsAreNull = (m_oDataGridView["colSt", e.RowIndex].Value == null);
@@ -246,6 +247,19 @@ namespace TribalHelper
             return bFieldsAreNull;
         }
 
+        private string _GetTribeName(DataGridViewCellEventArgs e)
+        {
+            string sTbNm = "";
+            if (m_oDataGridView["colTbNm", e.RowIndex].Value != null)
+            {
+                sTbNm = m_oDataGridView["colTbNm", e.RowIndex].Value.ToString().Trim();
+            }
+            else
+            {
+                sTbNm = mTribeMember.TbNm;
+            }
+            return sTbNm;
+        }
         #endregion
     }
 }

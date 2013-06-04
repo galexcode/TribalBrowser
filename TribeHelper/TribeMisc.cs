@@ -72,10 +72,11 @@ namespace TribalHelper
 
             try
             {
-                WebRequest webRequest = WebRequest.Create(TribeMisc.AddHttp(sUrl.Trim().ToLower()));
+                HttpWebRequest webRequest = (HttpWebRequest)HttpWebRequest.Create(TribeMisc.AddHttp(sUrl.Trim().ToLower()));
                 webRequest.Timeout = 1200; // miliseconds
                 webRequest.Method = WebRequestMethods.Http.Head;
-                webRequest.GetResponse();
+                webRequest.AllowAutoRedirect = false;
+                var webResponse = webRequest.GetResponse();
             }
             catch
             {
@@ -85,6 +86,7 @@ namespace TribalHelper
             return bExists;
         }
 
+        
         #endregion
     }
 }

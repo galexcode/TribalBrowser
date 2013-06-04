@@ -173,6 +173,7 @@ namespace TribalAdmin.forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdmin";
             this.Text = "Tribal Admin";
+            this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.ResumeLayout(false);
 
         }

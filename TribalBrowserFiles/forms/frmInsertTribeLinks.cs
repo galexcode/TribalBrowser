@@ -58,7 +58,7 @@ namespace TribalBrowser.Forms
             if (m_oTribeSitesGrid == null) m_oTribeSitesGrid = new TribeSitesGrid(dgMySites);
             m_oTribeSitesGrid.AdminMode = true;
             lblMySites.Text = "All Tribe Links";
-            m_oTribeSitesGrid.FindAllTribeLinks();
+            m_oTribeSitesGrid.FindAllTribeLinksAdmin();
         }
 
         #endregion

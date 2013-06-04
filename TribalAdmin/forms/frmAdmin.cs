@@ -24,12 +24,15 @@
 
 using System.Windows.Forms;
 using TribalBrowser.Forms;
+using TribalLogin.Helpers;
 
 namespace TribalAdmin.forms
 {
     public partial class frmAdmin : Form
     {
         #region Member variables
+        
+        TribeLogon oTribeLogon = new TribeLogon();
 
         #endregion
 
@@ -38,6 +41,11 @@ namespace TribalAdmin.forms
         public frmAdmin()
         {
             InitializeComponent();
+        }
+
+        private void frmAdmin_Load(object sender, System.EventArgs e)
+        {
+            oTribeLogon.ShowWindowForm(this);
         }
 
         #endregion
@@ -83,35 +91,35 @@ namespace TribalAdmin.forms
         {
             frmJoinTribe ofrmJoinTribe = new frmJoinTribe();
             ofrmJoinTribe.AllowDelete();
-            ofrmJoinTribe.ShowDialog();
+            oTribeLogon.ShowDialogForm(ofrmJoinTribe);
         }
 
         private void _ShowAllTribesAndLinks()
         {
             //TODO: Create new form with search facility
             frmInsertTribeLinks ofrmInsertTribeLinks = new frmInsertTribeLinks();
-            ofrmInsertTribeLinks.Show();
+            oTribeLogon.ShowWindowForm(ofrmInsertTribeLinks);
             ofrmInsertTribeLinks.ShowAllTribeLinks();
         }
 
         private void _ShowBlockTribeLinks()
         {
             frmBlockTribeLinks ofrmBlockTribeLinks = new frmBlockTribeLinks();
-            ofrmBlockTribeLinks.ShowDialog();
+            oTribeLogon.ShowDialogForm(ofrmBlockTribeLinks);
         }
 
         private void _ShowClearTribeChat()
         {
             frmClearTribeChat ofrmClearTribeChat = new frmClearTribeChat();
-            ofrmClearTribeChat.ShowDialog();
+            oTribeLogon.ShowDialogForm(ofrmClearTribeChat);
         }
 
         private void _ShowDeleteTribeMember()
         {
             frmDeleteTribeMember ofrmDeleteTribeMember = new frmDeleteTribeMember();
-            ofrmDeleteTribeMember.ShowDialog();
+            oTribeLogon.ShowDialogForm(ofrmDeleteTribeMember);
         }
 
-        #endregion
+        #endregion     
     }
 }

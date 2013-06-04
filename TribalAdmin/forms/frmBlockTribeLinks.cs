@@ -64,6 +64,11 @@ namespace TribalAdmin.forms
             m_oTribeBlockGrid.ClickCell(e);
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            m_oTribeBlockGrid.FindTribeBlocks(txtSearch.Text.Trim());
+        }
+
         #endregion
 
         #region Private Helpers
