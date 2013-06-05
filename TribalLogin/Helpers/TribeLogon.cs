@@ -40,7 +40,7 @@ namespace TribalLogin.Helpers
 
         #region Public Methods
 
-        public void ShowDialogForm<T1>(T1 oForm) where T1 : Form
+        public void ShowDialogForm<T1>(T1 oForm, bool bAdminMode = false) where T1 : Form
         {
             if (mTribeMember.LgIn)
             {
@@ -49,12 +49,19 @@ namespace TribalLogin.Helpers
             else
             {
                 m_oMessageBox.Show(StringProvider.sPleaseLogin);
-                frmLogin ofrmLogin = new frmLogin(oForm);
+                frmLogin ofrmLogin = null;
+                if (bAdminMode == false)
+                {
+                    ofrmLogin = new frmLogin(oForm);
+                }
+                else
+                {
+                    ofrmLogin = new frmLogin(oForm, bAdminMode);
+                }  
                 ofrmLogin.ShowDialog();
             }
         }
-
-        public void ShowWindowForm<T>(T oForm) where T : Form
+        public void ShowWindowForm<T>(T oForm, bool bAdminMode = false) where T : Form
         {
             if (mTribeMember.LgIn)
             {
@@ -64,7 +71,15 @@ namespace TribalLogin.Helpers
             else
             {
                 m_oMessageBox.Show(StringProvider.sPleaseLogin);
-                frmLogin ofrmLogin = new frmLogin(oForm);
+                frmLogin ofrmLogin = null;
+                if (bAdminMode == false) 
+                {
+                    ofrmLogin = new frmLogin(oForm);
+                }
+                else
+                {
+                    ofrmLogin = new frmLogin(oForm, bAdminMode);
+                }  
                 ofrmLogin.ShowDialog();
             }
         }
@@ -73,7 +88,7 @@ namespace TribalLogin.Helpers
         {
             if (_PasswordsMatch(sPss, sConfirmPss))
             {
-                _SaveTribeMemberToDatabase(oParentForm, sUsrNm, sPss,sMl, bCloseParent);
+                _SaveTribeMemberToDatabase(oParentForm, sUsrNm, sPss, sMl, bCloseParent);
             }
             else
             {
@@ -98,7 +113,7 @@ namespace TribalLogin.Helpers
             return (sPss.Trim() == sConfirmPss.Trim());
         }
 
-        private void _SaveTribeMemberToDatabase(Form oParentForm, string sUsrNm, string sPss,string sMl, bool bCloseParent = true)
+        private void _SaveTribeMemberToDatabase(Form oParentForm, string sUsrNm, string sPss, string sMl, bool bCloseParent = true)
         {
             if (mTribeMember.LgIn)
             {
@@ -114,7 +129,7 @@ namespace TribalLogin.Helpers
             }
             else
             {
-                m_oDataAccess.InsertTribeMember(sUsrNm.Trim(), sPss.Trim(), mTribeMember.DefaultTbNm.Trim(),sMl.Trim());
+                m_oDataAccess.InsertTribeMember(sUsrNm.Trim(), sPss.Trim(), mTribeMember.DefaultTbNm.Trim(), sMl.Trim());
                 m_oMessageBox.Show(StringProvider.sTribeMemberCreated);
                 if (bCloseParent) oParentForm.Close();
             }

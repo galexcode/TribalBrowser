@@ -61,6 +61,7 @@ namespace TribalHelper
             m_colTribeLinks = m_oDatabase.GetCollection<TribeLinks>("TribeLinks");
             m_colTribeChat = m_oDatabase.GetCollection<TribeChat>("TribeChat");
             m_colTribeBlock = m_oDatabase.GetCollection<TribeBlock>("TribeBlock");
+            if (mTribeMember.TbNm == null) mTribeMember.TbNm = mTribeMember.DefaultTbNm;
         }
 
         #endregion

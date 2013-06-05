@@ -37,6 +37,7 @@ namespace TribalLogin.Forms
         private readonly DataAccess m_oDataAccess = new DataAccess();
         private readonly frmMessageBox ofrmMessageBox = new frmMessageBox();
         private readonly Form m_oOpeningForm;
+        private readonly bool m_bAdminMode = false;
 
         #endregion
 
@@ -51,6 +52,13 @@ namespace TribalLogin.Forms
         {
             m_oOpeningForm = oOpeningForm;
             InitializeComponent();
+        }
+
+        public frmLogin(Form oOpeningForm, bool bAdminMode)
+        {
+            m_oOpeningForm = oOpeningForm;
+            InitializeComponent();
+            m_bAdminMode = bAdminMode;
         }
 
         #endregion
@@ -112,20 +120,41 @@ namespace TribalLogin.Forms
         private void _CheckPassword()
         {
             lblCheckPass.Visible = true;
+                        
             if (m_oDataAccess.PasswordCorrect(txtUsrNm.Text, txtPss.Text))
             {
-                btnLogin.Enabled = true;
-                lblCheckPass.Text = StringProvider.sCorrect;
-                lblCheckPass.ForeColor = Color.LawnGreen;
-                btnLogin.BackgroundImage = Resources.tick;
+                _EnableLoginButton();
+                if (m_bAdminMode) _CheckIfTribalElder();
             }
             else
             {
-                btnLogin.Enabled = false;
-                lblCheckPass.Text = StringProvider.sInCorrect; ;
-                lblCheckPass.ForeColor = Color.OrangeRed;
-                btnLogin.BackgroundImage = Resources.cross;
+                _DisableLoginButton();
             }
+        }
+
+        private void _CheckIfTribalElder()
+        {
+            if (!TribalElders.UserNames.Contains(txtUsrNm.Text.Trim()))
+            {
+                _DisableLoginButton();
+                lblCheckPass.Text = StringProvider.sNotTribalElder;
+            }
+        }
+
+        private void _DisableLoginButton()
+        {
+            btnLogin.Enabled = false;
+            lblCheckPass.Text = StringProvider.sInCorrect; ;
+            lblCheckPass.ForeColor = Color.OrangeRed;
+            btnLogin.BackgroundImage = ResLogin.cross;
+        }
+
+        private void _EnableLoginButton()
+        {
+            btnLogin.Enabled = true;
+            lblCheckPass.Text = StringProvider.sCorrect;
+            lblCheckPass.ForeColor = Color.LawnGreen;
+            btnLogin.BackgroundImage = ResLogin.tick;
         }
 
         private void _Login()

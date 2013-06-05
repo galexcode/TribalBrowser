@@ -76,7 +76,7 @@ namespace TribalHelper
         public static string UsrNm { get; set; }
         public static string TbNm { get; set; }
         public static bool LgIn { get; set; }
-        public static string DefaultTbNm = "FrugalDisruptive";
+        public static string DefaultTbNm = "frugaldisruptive";
     }
 
     #endregion

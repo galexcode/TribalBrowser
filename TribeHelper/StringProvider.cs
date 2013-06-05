@@ -67,6 +67,7 @@ namespace TribalHelper
 
         public static string sCorrect = "Correct";
         public static string sInCorrect = "Incorrect";
+        public static string sNotTribalElder = "You must be a Tribal Elder";
         public static string sEnterUserName = "Please enter your username";
         public static string sNoEmail = "Unfortunately there is no associated email with this user name - please email: info@frugaldisruptive.com for help.";
         public static string sForgotPssSubj = "Information for Tribal Browser";

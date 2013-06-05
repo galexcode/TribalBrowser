@@ -45,7 +45,7 @@ namespace TribalAdmin.forms
 
         private void frmAdmin_Load(object sender, System.EventArgs e)
         {
-            oTribeLogon.ShowWindowForm(this);
+            oTribeLogon.ShowWindowForm(this,true);
         }
 
         #endregion
@@ -91,33 +91,33 @@ namespace TribalAdmin.forms
         {
             frmJoinTribe ofrmJoinTribe = new frmJoinTribe();
             ofrmJoinTribe.AllowDelete();
-            oTribeLogon.ShowDialogForm(ofrmJoinTribe);
+            oTribeLogon.ShowDialogForm(ofrmJoinTribe, true);
         }
 
         private void _ShowAllTribesAndLinks()
         {
             //TODO: Create new form with search facility
             frmInsertTribeLinks ofrmInsertTribeLinks = new frmInsertTribeLinks();
-            oTribeLogon.ShowWindowForm(ofrmInsertTribeLinks);
+            oTribeLogon.ShowWindowForm(ofrmInsertTribeLinks, true);
             ofrmInsertTribeLinks.ShowAllTribeLinks();
         }
 
         private void _ShowBlockTribeLinks()
         {
             frmBlockTribeLinks ofrmBlockTribeLinks = new frmBlockTribeLinks();
-            oTribeLogon.ShowDialogForm(ofrmBlockTribeLinks);
+            oTribeLogon.ShowDialogForm(ofrmBlockTribeLinks, true);
         }
 
         private void _ShowClearTribeChat()
         {
             frmClearTribeChat ofrmClearTribeChat = new frmClearTribeChat();
-            oTribeLogon.ShowDialogForm(ofrmClearTribeChat);
+            oTribeLogon.ShowDialogForm(ofrmClearTribeChat, true);
         }
 
         private void _ShowDeleteTribeMember()
         {
             frmDeleteTribeMember ofrmDeleteTribeMember = new frmDeleteTribeMember();
-            oTribeLogon.ShowDialogForm(ofrmDeleteTribeMember);
+            oTribeLogon.ShowDialogForm(ofrmDeleteTribeMember, true);
         }
 
         #endregion     

@@ -63,6 +63,8 @@ namespace TribalLogin.Forms
             this.lblCheckPass = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnForgot = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -73,10 +75,10 @@ namespace TribalLogin.Forms
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogin.Location = new System.Drawing.Point(120, 112);
+            this.btnLogin.Location = new System.Drawing.Point(159, 112);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(116, 102);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.Size = new System.Drawing.Size(92, 79);
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -98,7 +100,7 @@ namespace TribalLogin.Forms
             this.txtPss.MaxLength = 100;
             this.txtPss.Name = "txtPss";
             this.txtPss.Size = new System.Drawing.Size(342, 22);
-            this.txtPss.TabIndex = 2;
+            this.txtPss.TabIndex = 1;
             this.txtPss.UseSystemPasswordChar = true;
             this.txtPss.TextChanged += new System.EventHandler(this.txtPss_TextChanged);
             // 
@@ -119,7 +121,7 @@ namespace TribalLogin.Forms
             this.txtUsrNm.MaxLength = 100;
             this.txtUsrNm.Name = "txtUsrNm";
             this.txtUsrNm.Size = new System.Drawing.Size(342, 22);
-            this.txtUsrNm.TabIndex = 1;
+            this.txtUsrNm.TabIndex = 0;
             this.txtUsrNm.TextChanged += new System.EventHandler(this.txtUsrNm_TextChanged);
             // 
             // btnCreate
@@ -128,9 +130,9 @@ namespace TribalLogin.Forms
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreate.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCreate.Location = new System.Drawing.Point(266, 174);
+            this.btnCreate.Location = new System.Drawing.Point(3, 86);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(88, 77);
+            this.btnCreate.Size = new System.Drawing.Size(96, 77);
             this.btnCreate.TabIndex = 4;
             this.btnCreate.Text = "Create New Account";
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -140,13 +142,12 @@ namespace TribalLogin.Forms
             // 
             // lblCheckPass
             // 
-            this.lblCheckPass.AutoSize = true;
             this.lblCheckPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckPass.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblCheckPass.Location = new System.Drawing.Point(278, 59);
+            this.lblCheckPass.Location = new System.Drawing.Point(117, 59);
             this.lblCheckPass.Name = "lblCheckPass";
-            this.lblCheckPass.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCheckPass.Size = new System.Drawing.Size(81, 22);
+            this.lblCheckPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCheckPass.Size = new System.Drawing.Size(242, 22);
             this.lblCheckPass.TabIndex = 25;
             this.lblCheckPass.Text = "Incorrect";
             this.lblCheckPass.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -158,15 +159,25 @@ namespace TribalLogin.Forms
             this.btnForgot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnForgot.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForgot.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnForgot.Location = new System.Drawing.Point(12, 174);
+            this.btnForgot.Location = new System.Drawing.Point(3, 3);
             this.btnForgot.Name = "btnForgot";
-            this.btnForgot.Size = new System.Drawing.Size(94, 77);
-            this.btnForgot.TabIndex = 26;
+            this.btnForgot.Size = new System.Drawing.Size(96, 77);
+            this.btnForgot.TabIndex = 3;
             this.btnForgot.Text = "Forgot Your Password";
             this.btnForgot.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnForgot.UseCompatibleTextRendering = true;
             this.btnForgot.UseVisualStyleBackColor = true;
             this.btnForgot.Click += new System.EventHandler(this.btnForgot_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnCreate);
+            this.panel1.Controls.Add(this.btnForgot);
+            this.panel1.Location = new System.Drawing.Point(365, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(106, 173);
+            this.panel1.TabIndex = 27;
             // 
             // frmLogin
             // 
@@ -174,10 +185,9 @@ namespace TribalLogin.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(365, 263);
-            this.Controls.Add(this.btnForgot);
+            this.ClientSize = new System.Drawing.Size(483, 200);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCheckPass);
-            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.txtPss);
@@ -187,7 +197,7 @@ namespace TribalLogin.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "-";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +214,6 @@ namespace TribalLogin.Forms
         private System.Windows.Forms.Label lblCheckPass;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button btnForgot;
+        private System.Windows.Forms.Panel panel1;
     }
 }
