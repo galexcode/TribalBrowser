@@ -76,16 +76,6 @@ namespace TribalLogin.Forms
             ofrmTM.ShowDialog();
         }
 
-        private void txtPss_TextChanged(object sender, EventArgs e)
-        {
-            _CheckPassword();
-        }
-
-        private void txtUsrNm_TextChanged(object sender, EventArgs e)
-        {
-            _CheckPassword();
-        }
-
         private void btnForgot_Click(object sender, EventArgs e)
         {
             _ForgotPassword();
@@ -117,53 +107,62 @@ namespace TribalLogin.Forms
         {
         }
 
-        private void _CheckPassword()
+        private bool _PasswordCorrect()
         {
             lblCheckPass.Visible = true;
                         
             if (m_oDataAccess.PasswordCorrect(txtUsrNm.Text, txtPss.Text))
             {
-                _EnableLoginButton();
-                if (m_bAdminMode) _CheckIfTribalElder();
+                _CorrectLogin();
+                if (m_bAdminMode)
+                {
+                    return _IsTribalElder();
+                }
+                return true;
             }
             else
             {
-                _DisableLoginButton();
+                _IncorrectLogin();
+                return false;
             }
         }
 
-        private void _CheckIfTribalElder()
+        private bool _IsTribalElder()
         {
             if (!TribalElders.UserNames.Contains(txtUsrNm.Text.Trim()))
             {
-                _DisableLoginButton();
+                _IncorrectLogin();
                 lblCheckPass.Text = StringProvider.sNotTribalElder;
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
-        private void _DisableLoginButton()
+        private void _IncorrectLogin()
         {
-            btnLogin.Enabled = false;
-            lblCheckPass.Text = StringProvider.sInCorrect; ;
+            lblCheckPass.Text = StringProvider.sInCorrect;
             lblCheckPass.ForeColor = Color.OrangeRed;
-            btnLogin.BackgroundImage = ResLogin.cross;
         }
 
-        private void _EnableLoginButton()
+        private void _CorrectLogin()
         {
-            btnLogin.Enabled = true;
             lblCheckPass.Text = StringProvider.sCorrect;
             lblCheckPass.ForeColor = Color.LawnGreen;
-            btnLogin.BackgroundImage = ResLogin.tick;
         }
 
         private void _Login()
         {
-            mTribeMember.UsrNm = txtUsrNm.Text;
-            m_oDataAccess.Login();
-            Visible = false;
-            m_oOpeningForm.ShowDialog();
-            Close();
+            if (_PasswordCorrect())
+            {
+                mTribeMember.UsrNm = txtUsrNm.Text;
+                m_oDataAccess.Login();
+                Visible = false;
+                m_oOpeningForm.ShowDialog();
+                Close();
+            }
         }
 
         #endregion

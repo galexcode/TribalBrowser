@@ -23,11 +23,19 @@
 #endregion
 
 using System.Windows.Forms;
+using TribalHelper;
 
 namespace TribalAdmin.forms
 {
     public partial class frmClearTribeChat : Form
     {
+        #region Member Variables
+
+        private TribesGrid m_oTribesGrid;
+        private TribeChatGrid m_oTribeChat;
+
+        #endregion
+
         #region Constructors/ Initialisers
 
         public frmClearTribeChat()
@@ -35,6 +43,34 @@ namespace TribalAdmin.forms
             InitializeComponent();
         }
 
+        private void frmClearTribeChat_Load(object sender, System.EventArgs e)
+        {
+            m_oTribesGrid = new TribesGrid(dgTribes);
+            m_oTribesGrid.FindTop20Tribes();
+            m_oTribeChat = new TribeChatGrid(dgTribeChat);
+        }
+
+        #endregion
+
+        #region Controls
+
+        private void btnSearch_Click(object sender, System.EventArgs e)
+        {
+            m_oTribesGrid.FindTribeAndTop20(txtSearch.Text);
+        }
+
+        #endregion
+
+        private void dgTribes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgTribes["colTrTbNm", dgTribes.CurrentRow.Index].Value == null) return;
+            string sTbNm = dgTribes["colTrTbNm", dgTribes.CurrentRow.Index].Value.ToString();
+            if (e.ColumnIndex == dgTribes.Columns["colClear"].Index && e.RowIndex >= 0) m_oTribeChat.DeleteTribeChat(sTbNm);
+            m_oTribeChat.FindTribeChat(sTbNm);
+        }
+               
+        #region Private Helpers
+                
         #endregion
     }
 }

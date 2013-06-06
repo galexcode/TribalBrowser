@@ -30,6 +30,8 @@ namespace TribalBrowser.Forms
 {
     public partial class frmChat : Form
     {
+        //TODO: Put this in the TribeChat class
+
         #region Member variables
 
         private readonly DataAccess m_oDataAccess = new DataAccess();

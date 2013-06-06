@@ -144,6 +144,12 @@ namespace TribalHelper
             return new BindingList<TribeMember>(m_colTribeMembers.FindAll().ToList());
         }
 
+        public BindingList<TribeMember> FindOneTribeMember(string sUsrNm)
+        {
+             var query = Query<TribeMember>.EQ(e => e.UsrNm, sUsrNm);
+             return new BindingList<TribeMember>(m_colTribeMembers.Find(query).ToList());
+        }
+
         public TribeMember FindTribeMember(string sUsrNm)
         {
             var query = Query<TribeMember>.EQ(e => e.UsrNm, sUsrNm);

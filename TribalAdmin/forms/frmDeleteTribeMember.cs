@@ -23,17 +23,43 @@
 #endregion
 
 using System.Windows.Forms;
+using TribalHelper;
+using TribalMessageBox;
 
 namespace TribalAdmin.forms
 {
     public partial class frmDeleteTribeMember : Form
     {
+        #region Member variable
+
+        private readonly DataAccess m_oDataAccess = new DataAccess();
+        private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+
+        #endregion
+
         #region Constructors/ Initialisers
 
         public frmDeleteTribeMember()
         {
             InitializeComponent();
         }
+
+        private void frmDeleteTribeMember_Load(object sender, System.EventArgs e)
+        {
+            dgTribeMembers.DataSource = m_oDataAccess.FindAllTribeMembers();
+        }
+
+        #endregion
+
+        #region Controls
+
+        private void btnSearch_Click(object sender, System.EventArgs e)
+        {
+            dgTribeMembers.DataSource = m_oDataAccess.FindOneTribeMember(txtSearch.Text);
+        }
+
+        #endregion
+        #region Private Helpers
 
         #endregion
     }

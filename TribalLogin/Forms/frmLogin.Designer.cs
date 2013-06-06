@@ -71,7 +71,6 @@ namespace TribalLogin.Forms
             // 
             this.btnLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogin.BackgroundImage")));
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLogin.Enabled = false;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
@@ -102,7 +101,6 @@ namespace TribalLogin.Forms
             this.txtPss.Size = new System.Drawing.Size(342, 22);
             this.txtPss.TabIndex = 1;
             this.txtPss.UseSystemPasswordChar = true;
-            this.txtPss.TextChanged += new System.EventHandler(this.txtPss_TextChanged);
             // 
             // lblUserName
             // 
@@ -122,7 +120,6 @@ namespace TribalLogin.Forms
             this.txtUsrNm.Name = "txtUsrNm";
             this.txtUsrNm.Size = new System.Drawing.Size(342, 22);
             this.txtUsrNm.TabIndex = 0;
-            this.txtUsrNm.TextChanged += new System.EventHandler(this.txtUsrNm_TextChanged);
             // 
             // btnCreate
             // 

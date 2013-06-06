@@ -54,29 +54,27 @@ namespace TribalAdmin.forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeleteTribeMember));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnlTribeMember = new System.Windows.Forms.Panel();
             this.dgTribeMembers = new System.Windows.Forms.DataGridView();
             this.colSt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTbNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSaveSite = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colDeleteSite = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colSave = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFav = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPss = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLgLn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTribeMember.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTribeMembers)).BeginInit();
             this.SuspendLayout();
@@ -103,6 +101,7 @@ namespace TribalAdmin.forms
             this.btnSearch.Size = new System.Drawing.Size(51, 42);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -130,38 +129,37 @@ namespace TribalAdmin.forms
             this.dgTribeMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgTribeMembers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSt,
-            this.colUrl,
-            this.colDsc,
+            this.colMl,
             this.colTbNm,
-            this.colSaveSite,
-            this.colDeleteSite,
+            this.colSave,
+            this.colDelete,
             this.colId,
-            this.colUsrNm,
-            this.colFav});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgTribeMembers.DefaultCellStyle = dataGridViewCellStyle8;
+            this.colPss,
+            this.colLgLn});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgTribeMembers.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgTribeMembers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgTribeMembers.EnableHeadersVisualStyles = false;
             this.dgTribeMembers.Location = new System.Drawing.Point(0, 0);
             this.dgTribeMembers.Name = "dgTribeMembers";
             this.dgTribeMembers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgTribeMembers.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTribeMembers.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgTribeMembers.RowHeadersVisible = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgTribeMembers.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgTribeMembers.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgTribeMembers.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgTribeMembers.RowTemplate.Height = 24;
             this.dgTribeMembers.Size = new System.Drawing.Size(674, 287);
@@ -169,85 +167,71 @@ namespace TribalAdmin.forms
             // 
             // colSt
             // 
-            this.colSt.DataPropertyName = "St";
+            this.colSt.DataPropertyName = "UsrNm";
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
             this.colSt.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colSt.HeaderText = "Site Name";
+            this.colSt.HeaderText = "User Name";
             this.colSt.MaxInputLength = 100;
             this.colSt.Name = "colSt";
             this.colSt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colSt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colSt.Width = 200;
             // 
-            // colUrl
+            // colMl
             // 
-            this.colUrl.DataPropertyName = "Url";
+            this.colMl.DataPropertyName = "Ml";
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            this.colUrl.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colUrl.HeaderText = "Url or IP";
-            this.colUrl.MaxInputLength = 100;
-            this.colUrl.Name = "colUrl";
-            this.colUrl.Width = 200;
-            // 
-            // colDsc
-            // 
-            this.colDsc.DataPropertyName = "Dsc";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colDsc.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colDsc.HeaderText = "Description";
-            this.colDsc.MaxInputLength = 300;
-            this.colDsc.Name = "colDsc";
-            this.colDsc.Width = 400;
+            this.colMl.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colMl.HeaderText = "Email";
+            this.colMl.MaxInputLength = 100;
+            this.colMl.Name = "colMl";
+            this.colMl.Width = 200;
             // 
             // colTbNm
             // 
             this.colTbNm.DataPropertyName = "TbNm";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Silver;
-            this.colTbNm.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Silver;
+            this.colTbNm.DefaultCellStyle = dataGridViewCellStyle4;
             this.colTbNm.HeaderText = "Tribe Name";
             this.colTbNm.Name = "colTbNm";
             this.colTbNm.Visible = false;
             // 
-            // colSaveSite
+            // colSave
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Control;
+            this.colSave.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colSave.HeaderText = "";
+            this.colSave.Name = "colSave";
+            this.colSave.Text = "Save";
+            this.colSave.UseColumnTextForButtonValue = true;
+            // 
+            // colDelete
             // 
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
-            this.colSaveSite.DefaultCellStyle = dataGridViewCellStyle6;
-            this.colSaveSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colSaveSite.HeaderText = "";
-            this.colSaveSite.Name = "colSaveSite";
-            this.colSaveSite.Text = "Save";
-            this.colSaveSite.UseColumnTextForButtonValue = true;
-            // 
-            // colDeleteSite
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            this.colDeleteSite.DefaultCellStyle = dataGridViewCellStyle7;
-            this.colDeleteSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colDeleteSite.HeaderText = "";
-            this.colDeleteSite.Name = "colDeleteSite";
-            this.colDeleteSite.Text = "Delete";
-            this.colDeleteSite.UseColumnTextForButtonValue = true;
+            this.colDelete.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colDelete.HeaderText = "";
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Text = "Delete";
+            this.colDelete.UseColumnTextForButtonValue = true;
             // 
             // colId
             // 
@@ -256,19 +240,19 @@ namespace TribalAdmin.forms
             this.colId.Name = "colId";
             this.colId.Visible = false;
             // 
-            // colUsrNm
+            // colPss
             // 
-            this.colUsrNm.DataPropertyName = "UsrNm";
-            this.colUsrNm.HeaderText = "colUsrNm";
-            this.colUsrNm.Name = "colUsrNm";
-            this.colUsrNm.Visible = false;
+            this.colPss.DataPropertyName = "Pss";
+            this.colPss.HeaderText = "colPss";
+            this.colPss.Name = "colPss";
+            this.colPss.Visible = false;
             // 
-            // colFav
+            // colLgLn
             // 
-            this.colFav.DataPropertyName = "Fav";
-            this.colFav.HeaderText = "colFav";
-            this.colFav.Name = "colFav";
-            this.colFav.Visible = false;
+            this.colLgLn.DataPropertyName = "LgIn";
+            this.colLgLn.HeaderText = "colLgIn";
+            this.colLgLn.Name = "colLgLn";
+            this.colLgLn.Visible = false;
             // 
             // frmDeleteTribeMember
             // 
@@ -284,6 +268,7 @@ namespace TribalAdmin.forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDeleteTribeMember";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmDeleteTribeMember_Load);
             this.pnlTribeMember.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgTribeMembers)).EndInit();
             this.ResumeLayout(false);
@@ -299,13 +284,12 @@ namespace TribalAdmin.forms
         private System.Windows.Forms.Panel pnlTribeMember;
         private System.Windows.Forms.DataGridView dgTribeMembers;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUrl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDsc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMl;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTbNm;
-        private System.Windows.Forms.DataGridViewButtonColumn colSaveSite;
-        private System.Windows.Forms.DataGridViewButtonColumn colDeleteSite;
+        private System.Windows.Forms.DataGridViewButtonColumn colSave;
+        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUsrNm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFav;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPss;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLgLn;
     }
 }

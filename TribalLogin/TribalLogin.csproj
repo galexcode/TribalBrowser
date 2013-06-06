@@ -60,11 +60,6 @@
     </Compile>
     <Compile Include="Helpers\TribeLogon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResLogin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResLogin.resx</DependentUpon>
-    </Compile>
     <Compile Include="TribalElders.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
@@ -74,10 +69,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTribeMemberDetails.resx">
       <DependentUpon>frmTribeMemberDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResLogin.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResLogin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -89,12 +80,6 @@
       <Project>{D34A0DA6-15FE-4724-8425-B9A4E757CF2D}</Project>
       <Name>TribalHelper</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cross.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tick.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="cat_logo.ico" />

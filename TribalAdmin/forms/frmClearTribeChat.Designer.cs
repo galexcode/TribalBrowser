@@ -76,7 +76,7 @@ namespace TribalAdmin.forms
             this.colDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTrUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colClear = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlChat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTribeChat)).BeginInit();
             this.pnlTribe.SuspendLayout();
@@ -184,6 +184,7 @@ namespace TribalAdmin.forms
             this.btnSearch.Size = new System.Drawing.Size(51, 42);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -202,7 +203,7 @@ namespace TribalAdmin.forms
             this.pnlTribe.Controls.Add(this.dgTribes);
             this.pnlTribe.Location = new System.Drawing.Point(2, 60);
             this.pnlTribe.Name = "pnlTribe";
-            this.pnlTribe.Size = new System.Drawing.Size(806, 116);
+            this.pnlTribe.Size = new System.Drawing.Size(806, 113);
             this.pnlTribe.TabIndex = 10;
             // 
             // dgTribes
@@ -220,7 +221,7 @@ namespace TribalAdmin.forms
             this.colDsc,
             this.ID,
             this.colTrUsrNm,
-            this.colDelete});
+            this.colClear});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,8 +248,9 @@ namespace TribalAdmin.forms
             this.dgTribes.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgTribes.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgTribes.RowTemplate.Height = 24;
-            this.dgTribes.Size = new System.Drawing.Size(806, 116);
+            this.dgTribes.Size = new System.Drawing.Size(806, 113);
             this.dgTribes.TabIndex = 3;
+            this.dgTribes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTribes_CellContentClick);
             // 
             // colTrTbNm
             // 
@@ -292,13 +294,12 @@ namespace TribalAdmin.forms
             this.colTrUsrNm.Name = "colTrUsrNm";
             this.colTrUsrNm.Visible = false;
             // 
-            // colDelete
+            // colClear
             // 
-            this.colDelete.HeaderText = "";
-            this.colDelete.Name = "colDelete";
-            this.colDelete.Text = "Delete";
-            this.colDelete.UseColumnTextForButtonValue = true;
-            this.colDelete.Visible = false;
+            this.colClear.HeaderText = "";
+            this.colClear.Name = "colClear";
+            this.colClear.Text = "Clear";
+            this.colClear.UseColumnTextForButtonValue = true;
             // 
             // frmClearTribeChat
             // 
@@ -315,6 +316,7 @@ namespace TribalAdmin.forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmClearTribeChat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmClearTribeChat_Load);
             this.pnlChat.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgTribeChat)).EndInit();
             this.pnlTribe.ResumeLayout(false);
@@ -342,6 +344,6 @@ namespace TribalAdmin.forms
         private System.Windows.Forms.DataGridViewTextBoxColumn colDsc;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTrUsrNm;
-        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
+        private System.Windows.Forms.DataGridViewButtonColumn colClear;
     }
 }
