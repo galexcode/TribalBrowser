@@ -32,8 +32,7 @@ namespace TribalAdmin.forms
     {
         #region Member variable
 
-        private readonly DataAccess m_oDataAccess = new DataAccess();
-        private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
+        private TribeMemberGrid m_oTribeMemberGrid;
 
         #endregion
 
@@ -46,7 +45,8 @@ namespace TribalAdmin.forms
 
         private void frmDeleteTribeMember_Load(object sender, System.EventArgs e)
         {
-            dgTribeMembers.DataSource = m_oDataAccess.FindAllTribeMembers();
+            m_oTribeMemberGrid = new TribeMemberGrid(dgTribeMembers);
+            m_oTribeMemberGrid.FindAllTribeMembers();
         }
 
         #endregion
@@ -55,12 +55,19 @@ namespace TribalAdmin.forms
 
         private void btnSearch_Click(object sender, System.EventArgs e)
         {
-            dgTribeMembers.DataSource = m_oDataAccess.FindOneTribeMember(txtSearch.Text);
+            m_oTribeMemberGrid.FindOneTribeMember(txtSearch.Text);
         }
 
         #endregion
+
+        private void dgTribeMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            m_oTribeMemberGrid.ClickCell(e);
+        }
+
         #region Private Helpers
 
+     
         #endregion
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="TribeClasses.cs" />
     <Compile Include="TribeEmail.cs" />
     <Compile Include="TribeMemberFavourites.cs" />
+    <Compile Include="TribeMemberGrid.cs" />
     <Compile Include="TribeMisc.cs" />
     <Compile Include="TribesGrid.cs" />
     <Compile Include="TribeSitesGrid.cs" />

@@ -139,15 +139,15 @@ namespace TribalHelper
             return m_colTribeMembers.FindOne(query);
         }
 
-        public BindingList<TribeMember> FindAllTribeMembers()
+        public List<TribeMember> FindAllTribeMembers()
         {
-            return new BindingList<TribeMember>(m_colTribeMembers.FindAll().ToList());
+            return m_colTribeMembers.FindAll().ToList();
         }
 
-        public BindingList<TribeMember> FindOneTribeMember(string sUsrNm)
+        public List<TribeMember> FindOneTribeMember(string sUsrNm)
         {
              var query = Query<TribeMember>.EQ(e => e.UsrNm, sUsrNm);
-             return new BindingList<TribeMember>(m_colTribeMembers.Find(query).ToList());
+             return m_colTribeMembers.Find(query).ToList();
         }
 
         public TribeMember FindTribeMember(string sUsrNm)
@@ -412,6 +412,12 @@ namespace TribalHelper
         public void DeleteTribeMember(string sUsrNm)
         {
             var query = Query<TribeMember>.Where(e => e.UsrNm == sUsrNm);
+            m_colTribeMembers.Remove(query);
+        }
+
+        public void DeleteTribeMember(ObjectId oId)
+        {
+            var query = Query<TribeMember>.Where(e => e.Id == oId);
             m_colTribeMembers.Remove(query);
         }
 

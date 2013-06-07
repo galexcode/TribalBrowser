@@ -100,11 +100,17 @@ namespace TribalHelper
 
         #endregion
 
-        #region Chat
+        #region frmChat
 
         public static string sJoinChat = " has joined the conversation.";
         public static string sEndChat = " has left the conversation.";
         public static string sChatCleared = "The chat history for this tribe has been cleared.";
+
+        #endregion
+
+        #region  frmDeleteTribeMember
+
+        public static string sConfirmDeleteTribeMember = "Are you sure you want to Tribe member: ";
 
         #endregion
 
