@@ -57,7 +57,7 @@ namespace TribalAdmin.forms
             this.btnDeleteTribeLinks = new System.Windows.Forms.Button();
             this.btnBlockTribeLinks = new System.Windows.Forms.Button();
             this.btnClearTribeChat = new System.Windows.Forms.Button();
-            this.btnBrowse = new System.Windows.Forms.Button();
+            this.btnClearDatabase = new System.Windows.Forms.Button();
             this.btnDeleteTribeMember = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -125,21 +125,21 @@ namespace TribalAdmin.forms
             this.btnClearTribeChat.UseVisualStyleBackColor = true;
             this.btnClearTribeChat.Click += new System.EventHandler(this.btnClearTribeChat_Click);
             // 
-            // btnBrowse
+            // btnClearDatabase
             // 
-            this.btnBrowse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBrowse.BackgroundImage")));
-            this.btnBrowse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBrowse.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBrowse.Location = new System.Drawing.Point(395, 202);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(200, 200);
-            this.btnBrowse.TabIndex = 6;
-            this.btnBrowse.Text = "Browse";
-            this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            this.btnClearDatabase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClearDatabase.BackgroundImage")));
+            this.btnClearDatabase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClearDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClearDatabase.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearDatabase.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClearDatabase.Location = new System.Drawing.Point(395, 202);
+            this.btnClearDatabase.Name = "btnClearDatabase";
+            this.btnClearDatabase.Size = new System.Drawing.Size(200, 200);
+            this.btnClearDatabase.TabIndex = 6;
+            this.btnClearDatabase.Text = "Clear Database";
+            this.btnClearDatabase.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClearDatabase.UseVisualStyleBackColor = true;
+            this.btnClearDatabase.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnDeleteTribeMember
             // 
@@ -164,7 +164,7 @@ namespace TribalAdmin.forms
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(597, 405);
             this.Controls.Add(this.btnDeleteTribeMember);
-            this.Controls.Add(this.btnBrowse);
+            this.Controls.Add(this.btnClearDatabase);
             this.Controls.Add(this.btnClearTribeChat);
             this.Controls.Add(this.btnBlockTribeLinks);
             this.Controls.Add(this.btnDeleteTribeLinks);
@@ -172,6 +172,7 @@ namespace TribalAdmin.forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tribal Admin";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.ResumeLayout(false);
@@ -184,7 +185,7 @@ namespace TribalAdmin.forms
         private System.Windows.Forms.Button btnDeleteTribeLinks;
         private System.Windows.Forms.Button btnBlockTribeLinks;
         private System.Windows.Forms.Button btnClearTribeChat;
-        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Button btnClearDatabase;
         private System.Windows.Forms.Button btnDeleteTribeMember;
     }
 }

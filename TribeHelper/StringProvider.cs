@@ -117,6 +117,9 @@ namespace TribalHelper
         #region Misc
 
         public static string sFavourites = @"'s Favourite: ";
+        public static string sClearDatabase = "Are you sure you want to clear the database - all records will be lost.";
+        public static string sCleared = "All records cleared.";
+
 
         #endregion
     }

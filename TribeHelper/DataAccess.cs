@@ -146,8 +146,8 @@ namespace TribalHelper
 
         public List<TribeMember> FindOneTribeMember(string sUsrNm)
         {
-             var query = Query<TribeMember>.EQ(e => e.UsrNm, sUsrNm);
-             return m_colTribeMembers.Find(query).ToList();
+            var query = Query<TribeMember>.EQ(e => e.UsrNm, sUsrNm);
+            return m_colTribeMembers.Find(query).ToList();
         }
 
         public TribeMember FindTribeMember(string sUsrNm)
@@ -419,6 +419,15 @@ namespace TribalHelper
         {
             var query = Query<TribeMember>.Where(e => e.Id == oId);
             m_colTribeMembers.Remove(query);
+        }
+
+        public void ClearDatabase()
+        {
+            m_colTribeBlock.RemoveAll();
+            m_colTribeChat.RemoveAll();
+            m_colTribeLinks.RemoveAll();
+            m_colTribeMembers.RemoveAll();
+            m_colTribes.RemoveAll();
         }
 
         #endregion

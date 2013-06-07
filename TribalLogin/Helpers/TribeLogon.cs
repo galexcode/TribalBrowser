@@ -84,6 +84,17 @@ namespace TribalLogin.Helpers
             }
         }
 
+        public void ShowLogin()
+        {
+            frmLogin ofrmLogin = new frmLogin();
+            ofrmLogin.ShowDialog();
+        }
+
+        public void ShowLogin(bool bAdminMode)
+        {
+            frmLogin ofrmLogin = new frmLogin(bAdminMode);
+            ofrmLogin.ShowDialog();
+        }
         public void SaveTribeMember(Form oParentForm, string sUsrNm, string sPss, string sConfirmPss, string sMl, bool bCloseParent = true)
         {
             if (_PasswordsMatch(sPss, sConfirmPss))

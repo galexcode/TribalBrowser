@@ -48,6 +48,12 @@ namespace TribalLogin.Forms
             InitializeComponent();
         }
 
+        public frmLogin(bool bAdminMode)
+        {
+            InitializeComponent();
+            m_bAdminMode = bAdminMode;
+        }
+
         public frmLogin(Form oOpeningForm)
         {
             m_oOpeningForm = oOpeningForm;
@@ -110,7 +116,7 @@ namespace TribalLogin.Forms
         private bool _PasswordCorrect()
         {
             lblCheckPass.Visible = true;
-                        
+
             if (m_oDataAccess.PasswordCorrect(txtUsrNm.Text, txtPss.Text))
             {
                 _CorrectLogin();
@@ -160,7 +166,8 @@ namespace TribalLogin.Forms
                 mTribeMember.UsrNm = txtUsrNm.Text;
                 m_oDataAccess.Login();
                 Visible = false;
-                m_oOpeningForm.ShowDialog();
+                Hide();
+                if (m_oOpeningForm != null) m_oOpeningForm.ShowDialog();
                 Close();
             }
         }
