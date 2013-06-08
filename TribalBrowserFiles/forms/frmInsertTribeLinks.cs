@@ -47,6 +47,7 @@ namespace TribalBrowser.Forms
         {
             m_oTribeSitesGrid = new TribeSitesGrid(dgMySites);
             m_oTribeSitesGrid.RefreshGrid();
+            _SetLabelsAndTooltips();
         }
 
         #endregion
@@ -59,6 +60,8 @@ namespace TribalBrowser.Forms
             m_oTribeSitesGrid.AdminMode = true;
             lblMySites.Text = "All Tribe Links";
             m_oTribeSitesGrid.FindAllTribeLinksAdmin();
+            Width = Width + 100;
+            pnlMySites.Width = pnlMySites.Width + 100;
         }
 
         #endregion
@@ -75,6 +78,15 @@ namespace TribalBrowser.Forms
             m_oTribeSitesGrid.ValidateUrl(e);
         }
        
+        #endregion
+
+        #region Private Helpers
+
+        private void _SetLabelsAndTooltips()
+        {
+            lblMySites.Text = StringProvider.slblMySites + mTribeMember.TbNm;
+        }
+
         #endregion
     }
 }

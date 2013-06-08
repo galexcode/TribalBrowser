@@ -35,7 +35,7 @@ namespace TribalBrowser.Forms
 
         private readonly DataAccess m_oDataAccess = new DataAccess();
         private readonly frmMessageBox m_oMessageBox = new frmMessageBox();
-        
+
         #endregion
 
         #region Constructors/ Initialisers
@@ -52,6 +52,16 @@ namespace TribalBrowser.Forms
         private void btnCreate_Click(object sender, EventArgs e)
         {
             _CreateTribe();
+        }
+
+        private void txtTbNm_TextChanged(object sender, EventArgs e)
+        {
+            lblTxtTbNmChrs.Text = (100 - txtTbNm.TextLength).ToString();
+        }
+
+        private void txtDsc_TextChanged(object sender, EventArgs e)
+        {
+            lblTxtDscChrs.Text = (300 - txtDsc.TextLength).ToString();
         }
 
         #endregion
@@ -72,7 +82,7 @@ namespace TribalBrowser.Forms
                 return;
             }
 
-            m_oDataAccess.InsertTribe(txtTbNm.Text, txtDsc.Text,mTribeMember.UsrNm);
+            m_oDataAccess.InsertTribe(txtTbNm.Text, txtDsc.Text, mTribeMember.UsrNm);
             m_oDataAccess.UpdateTribeMemberTribe(txtTbNm.Text);
             m_oMessageBox.Show(StringProvider.sTribeCreated);
         }

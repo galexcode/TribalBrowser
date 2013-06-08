@@ -60,6 +60,8 @@ namespace TribalBrowser.Forms
             this.txtDsc = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lblTxtTbNmChrs = new System.Windows.Forms.Label();
+            this.lblTxtDscChrs = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCreate
@@ -85,6 +87,7 @@ namespace TribalBrowser.Forms
             this.txtTbNm.Name = "txtTbNm";
             this.txtTbNm.Size = new System.Drawing.Size(485, 22);
             this.txtTbNm.TabIndex = 1;
+            this.txtTbNm.TextChanged += new System.EventHandler(this.txtTbNm_TextChanged);
             // 
             // lblName
             // 
@@ -105,6 +108,7 @@ namespace TribalBrowser.Forms
             this.txtDsc.Name = "txtDsc";
             this.txtDsc.Size = new System.Drawing.Size(485, 151);
             this.txtDsc.TabIndex = 2;
+            this.txtDsc.TextChanged += new System.EventHandler(this.txtDsc_TextChanged);
             // 
             // lblDescription
             // 
@@ -117,12 +121,37 @@ namespace TribalBrowser.Forms
             this.lblDescription.TabIndex = 6;
             this.lblDescription.Text = "Description";
             // 
+            // lblTxtTbNmChrs
+            // 
+            this.lblTxtTbNmChrs.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTxtTbNmChrs.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblTxtTbNmChrs.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.lblTxtTbNmChrs.Location = new System.Drawing.Point(394, 9);
+            this.lblTxtTbNmChrs.Name = "lblTxtTbNmChrs";
+            this.lblTxtTbNmChrs.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblTxtTbNmChrs.Size = new System.Drawing.Size(103, 22);
+            this.lblTxtTbNmChrs.TabIndex = 8;
+            this.lblTxtTbNmChrs.Text = "100";
+            // 
+            // lblTxtDscChrs
+            // 
+            this.lblTxtDscChrs.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTxtDscChrs.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblTxtDscChrs.Location = new System.Drawing.Point(394, 70);
+            this.lblTxtDscChrs.Name = "lblTxtDscChrs";
+            this.lblTxtDscChrs.Size = new System.Drawing.Size(103, 22);
+            this.lblTxtDscChrs.TabIndex = 7;
+            this.lblTxtDscChrs.Text = "300";
+            this.lblTxtDscChrs.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // frmInsertTribe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(509, 410);
+            this.Controls.Add(this.lblTxtTbNmChrs);
+            this.Controls.Add(this.lblTxtDscChrs);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.txtDsc);
             this.Controls.Add(this.lblName);
@@ -145,5 +174,7 @@ namespace TribalBrowser.Forms
         private System.Windows.Forms.TextBox txtDsc;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Label lblTxtTbNmChrs;
+        private System.Windows.Forms.Label lblTxtDscChrs;
     }
 }

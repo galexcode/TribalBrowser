@@ -89,6 +89,7 @@ namespace TribalHelper
 
         public bool MatchesFirstGridValue(string sSt)
         {
+            if (m_oDataGridView.RowCount == 0) return false;
             if (m_oDataGridView["colSt", 0].Value == null) return false;
             return m_oDataGridView["colSt", 0].Value.ToString().Trim() == sSt.Trim();
         }

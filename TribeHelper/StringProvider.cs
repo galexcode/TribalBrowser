@@ -51,8 +51,9 @@ namespace TribalHelper
         #region frmTribeMemberDetails
 
         public static string sTribeMemberCreated = "Your account has been created. Now join a Tribe.";
-        public static string sTribeMemberAmended = "Your password has been changed.";
+        public static string sTribeMemberAmended = "Your details have been saved.";
         public static string sTribeMemberExists = "This username already exists. Please choose another name.";
+        public static string sPasswordMismatch = "Passwords do not match";
 
         #endregion
 
@@ -72,6 +73,7 @@ namespace TribalHelper
         public static string sNoEmail = "Unfortunately there is no associated email with this user name - please email: info@frugaldisruptive.com for help.";
         public static string sForgotPssSubj = "Information for Tribal Browser";
         public static string sForgotPssMssg = "The information you require is: ";
+        public static string sUsernameNotFound = "This user doesn't exist.";
 
         #endregion
 
@@ -83,6 +85,7 @@ namespace TribalHelper
         public static string sTribeLinkUrlBad = "The Url or IP address doesn't point to a website";
         public static string sTribeSiteUrlNull = "The Site name or the Url cannot be blank.";
         public static string sConfirmDeleteTribeSite = "Are you sure you want to delete site: ";
+        public static string slblMySites = "My Sites/Links to share with my Tribe: ";
 
         #endregion
 
@@ -114,12 +117,19 @@ namespace TribalHelper
 
         #endregion
 
+        #region frmBlockTribeLinks
+
+        public static string sConfirmDeleteTribeBlockSite = "Are you sure you want to delete the blocked site: ";
+        public static string sTribeBlockLinkSaved = "The Tribe Block link has been saved. TribeMembers will no longer be able to access this link.";
+
+        #endregion
+
         #region Misc
 
         public static string sFavourites = @"'s Favourite: ";
         public static string sClearDatabase = "Are you sure you want to clear the database - all records will be lost.";
         public static string sCleared = "All records cleared.";
-
+        public static string sEmailServerNotSetup = "Sending emails is disabled. The email server code has not been implemented - we basically need to setup a mail server.";
 
         #endregion
     }

@@ -51,7 +51,7 @@ namespace TribalLogin.Forms
                 txtUsrNm.Text = mTribeMember.UsrNm;
                 txtUsrNm.ReadOnly = true;
                 txtUsrNm.Enabled = false;
-                m_oTribeLogon.ShowMyDetails(txtUsrNm, txtPss, txtConfirmPss);
+                m_oTribeLogon.ShowMyDetails(txtUsrNm, txtPss, txtConfirmPss,txtMl);
             }
         }
 

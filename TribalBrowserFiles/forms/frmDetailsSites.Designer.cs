@@ -473,7 +473,6 @@ namespace TribalBrowser.Forms
             this.txtMl.Name = "txtMl";
             this.txtMl.Size = new System.Drawing.Size(342, 22);
             this.txtMl.TabIndex = 20;
-            this.txtMl.UseSystemPasswordChar = true;
             // 
             // frmDetailsSites
             // 

@@ -45,6 +45,7 @@ namespace TribalLogin.Helpers
             if (mTribeMember.LgIn)
             {
                 oForm.ShowDialog();
+                oForm.BringToFront();
             }
             else
             {
@@ -88,13 +89,16 @@ namespace TribalLogin.Helpers
         {
             frmLogin ofrmLogin = new frmLogin();
             ofrmLogin.ShowDialog();
+            ofrmLogin.BringToFront();
         }
 
         public void ShowLogin(bool bAdminMode)
         {
             frmLogin ofrmLogin = new frmLogin(bAdminMode);
             ofrmLogin.ShowDialog();
+            ofrmLogin.BringToFront();
         }
+
         public void SaveTribeMember(Form oParentForm, string sUsrNm, string sPss, string sConfirmPss, string sMl, bool bCloseParent = true)
         {
             if (_PasswordsMatch(sPss, sConfirmPss))
@@ -103,16 +107,17 @@ namespace TribalLogin.Helpers
             }
             else
             {
-                m_oMessageBox.Show("Passwords do not match");
+                m_oMessageBox.Show(StringProvider.sPasswordMismatch);
             }
         }
 
-        public void ShowMyDetails(TextBox txtUsrNm, TextBox txtPss, TextBox txtConfirmPss)
+        public void ShowMyDetails(TextBox txtUsrNm, TextBox txtPss, TextBox txtConfirmPss, TextBox txtMl)
         {
             TribeMember oTribeMember = m_oDataAccess.FindTribeMember();
             txtUsrNm.Text = oTribeMember.UsrNm;
             txtPss.Text = oTribeMember.Pss;
             txtConfirmPss.Text = oTribeMember.Pss;
+            txtMl.Text = oTribeMember.Ml;
         }
 
         #endregion
@@ -128,7 +133,7 @@ namespace TribalLogin.Helpers
         {
             if (mTribeMember.LgIn)
             {
-                m_oDataAccess.UpdateTribeMemberPasswd(sPss.Trim());
+                m_oDataAccess.UpdateTribeMemberPasswdEmail(sPss.Trim(), sMl.Trim());
                 m_oMessageBox.Show(StringProvider.sTribeMemberAmended);
                 if (bCloseParent) oParentForm.Close();
                 return;

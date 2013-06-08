@@ -337,10 +337,11 @@ namespace TribalHelper
             mTribeMember.TbNm = sTbNm;
         }
 
-        public void UpdateTribeMemberPasswd(string sPss)
+        public void UpdateTribeMemberPasswdEmail(string sPss, string sMl)
         {
             var query = Query<TribeMember>.EQ(e => e.UsrNm, mTribeMember.UsrNm);
-            var update = Update<TribeMember>.Set(e => e.Pss, sPss);
+            var update = Update<TribeMember>.Set(e => e.Pss, sPss)
+                                            .Set(e => e.Ml, sMl);
             m_colTribeMembers.Update(query, update);
         }
 
@@ -440,12 +441,22 @@ namespace TribalHelper
             mTribeMember.LgIn = true;
             var update = Update<TribeMember>.Set(e => e.LgIn, mTribeMember.LgIn.ToString());
             m_colTribeMembers.Update(query, update);
+            _SetmTribeMember();
         }
 
         public bool PasswordCorrect(string sUsrNm, string sPss)
         {
             var query = Query<TribeMember>.Where(e => e.UsrNm == sUsrNm && e.Pss == sPss);
             return m_colTribeMembers.Find(query).Any();
+        }
+
+
+        private void _SetmTribeMember()
+        {
+            TribeMember oTribeMember = FindTribeMember();
+            mTribeMember.UsrNm = oTribeMember.UsrNm;
+            mTribeMember.TbNm = oTribeMember.TbNm;
+            TribeMisc.SaveUserInfo(mTribeMember.TbNm);
         }
 
         #endregion

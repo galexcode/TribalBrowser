@@ -105,6 +105,7 @@ namespace TribalBrowser.Forms
             this.dgMySites.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgMySites.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgMySites.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgMySites.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgMySites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgMySites.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -155,6 +156,7 @@ namespace TribalBrowser.Forms
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.colSt.DefaultCellStyle = dataGridViewCellStyle2;
             this.colSt.HeaderText = "Site Name";
             this.colSt.MaxInputLength = 100;

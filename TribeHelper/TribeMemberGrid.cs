@@ -75,6 +75,7 @@ namespace TribalHelper
             if (m_oMessageBox.ShowCancel(StringProvider.sConfirmDeleteTribeMember + m_oDataGridView["colUsrNm", e.RowIndex].Value.ToString().Trim()) == DialogResult.OK)
             {
                 m_oDataAccess.DeleteTribeMember((ObjectId)m_oDataGridView["colId", e.RowIndex].Value);
+                FindAllTribeMembers();
             }
         }
 

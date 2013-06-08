@@ -71,7 +71,7 @@ namespace TribalAdmin.forms
             this.btnDeleteTribe.Location = new System.Drawing.Point(0, 2);
             this.btnDeleteTribe.Name = "btnDeleteTribe";
             this.btnDeleteTribe.Size = new System.Drawing.Size(200, 200);
-            this.btnDeleteTribe.TabIndex = 2;
+            this.btnDeleteTribe.TabIndex = 0;
             this.btnDeleteTribe.Text = "Delete Tribe";
             this.btnDeleteTribe.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeleteTribe.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@ namespace TribalAdmin.forms
             this.btnDeleteTribeLinks.Location = new System.Drawing.Point(195, 2);
             this.btnDeleteTribeLinks.Name = "btnDeleteTribeLinks";
             this.btnDeleteTribeLinks.Size = new System.Drawing.Size(200, 200);
-            this.btnDeleteTribeLinks.TabIndex = 3;
+            this.btnDeleteTribeLinks.TabIndex = 1;
             this.btnDeleteTribeLinks.Text = "Delete Tribe Links";
             this.btnDeleteTribeLinks.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeleteTribeLinks.UseVisualStyleBackColor = true;
@@ -100,10 +100,10 @@ namespace TribalAdmin.forms
             this.btnBlockTribeLinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBlockTribeLinks.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBlockTribeLinks.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBlockTribeLinks.Location = new System.Drawing.Point(0, 202);
+            this.btnBlockTribeLinks.Location = new System.Drawing.Point(0, 201);
             this.btnBlockTribeLinks.Name = "btnBlockTribeLinks";
             this.btnBlockTribeLinks.Size = new System.Drawing.Size(200, 200);
-            this.btnBlockTribeLinks.TabIndex = 4;
+            this.btnBlockTribeLinks.TabIndex = 3;
             this.btnBlockTribeLinks.Text = "Block Tribe Links";
             this.btnBlockTribeLinks.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBlockTribeLinks.UseVisualStyleBackColor = true;
@@ -116,10 +116,10 @@ namespace TribalAdmin.forms
             this.btnClearTribeChat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClearTribeChat.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearTribeChat.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClearTribeChat.Location = new System.Drawing.Point(195, 202);
+            this.btnClearTribeChat.Location = new System.Drawing.Point(195, 201);
             this.btnClearTribeChat.Name = "btnClearTribeChat";
             this.btnClearTribeChat.Size = new System.Drawing.Size(200, 200);
-            this.btnClearTribeChat.TabIndex = 5;
+            this.btnClearTribeChat.TabIndex = 4;
             this.btnClearTribeChat.Text = "Clear Tribe Chat";
             this.btnClearTribeChat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClearTribeChat.UseVisualStyleBackColor = true;
@@ -132,10 +132,10 @@ namespace TribalAdmin.forms
             this.btnClearDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClearDatabase.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearDatabase.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClearDatabase.Location = new System.Drawing.Point(395, 202);
+            this.btnClearDatabase.Location = new System.Drawing.Point(394, 201);
             this.btnClearDatabase.Name = "btnClearDatabase";
             this.btnClearDatabase.Size = new System.Drawing.Size(200, 200);
-            this.btnClearDatabase.TabIndex = 6;
+            this.btnClearDatabase.TabIndex = 5;
             this.btnClearDatabase.Text = "Clear Database";
             this.btnClearDatabase.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClearDatabase.UseVisualStyleBackColor = true;
@@ -148,10 +148,10 @@ namespace TribalAdmin.forms
             this.btnDeleteTribeMember.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteTribeMember.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteTribeMember.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDeleteTribeMember.Location = new System.Drawing.Point(395, 2);
+            this.btnDeleteTribeMember.Location = new System.Drawing.Point(394, 2);
             this.btnDeleteTribeMember.Name = "btnDeleteTribeMember";
             this.btnDeleteTribeMember.Size = new System.Drawing.Size(200, 200);
-            this.btnDeleteTribeMember.TabIndex = 7;
+            this.btnDeleteTribeMember.TabIndex = 2;
             this.btnDeleteTribeMember.Text = "Delete Tribe Member";
             this.btnDeleteTribeMember.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeleteTribeMember.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@ namespace TribalAdmin.forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(597, 405);
+            this.ClientSize = new System.Drawing.Size(595, 403);
             this.Controls.Add(this.btnDeleteTribeMember);
             this.Controls.Add(this.btnClearDatabase);
             this.Controls.Add(this.btnClearTribeChat);

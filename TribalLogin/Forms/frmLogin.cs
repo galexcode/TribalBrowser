@@ -35,7 +35,7 @@ namespace TribalLogin.Forms
         #region Member variables
 
         private readonly DataAccess m_oDataAccess = new DataAccess();
-        private readonly frmMessageBox ofrmMessageBox = new frmMessageBox();
+        private readonly frmMessageBox m_ofrmMessageBox = new frmMessageBox();
         private readonly Form m_oOpeningForm;
         private readonly bool m_bAdminMode = false;
 
@@ -80,6 +80,7 @@ namespace TribalLogin.Forms
         {
             frmTribeMemberDetails ofrmTM = new frmTribeMemberDetails();
             ofrmTM.ShowDialog();
+            ofrmTM.BringToFront();
         }
 
         private void btnForgot_Click(object sender, EventArgs e)
@@ -95,14 +96,21 @@ namespace TribalLogin.Forms
         {
             if (String.IsNullOrEmpty(txtUsrNm.Text.Trim()))
             {
-                ofrmMessageBox.Show(StringProvider.sEnterUserName);
+                m_ofrmMessageBox.Show(StringProvider.sEnterUserName);
                 return;
             }
 
             TribeMember oTribeMember = m_oDataAccess.FindTribeMember(txtUsrNm.Text.Trim());
+
+            if (oTribeMember == null)
+            {
+                m_ofrmMessageBox.Show(StringProvider.sUsernameNotFound);
+                return;
+            }
+
             if (String.IsNullOrEmpty(oTribeMember.Ml))
             {
-                ofrmMessageBox.Show(StringProvider.sNoEmail);
+                m_ofrmMessageBox.Show(StringProvider.sNoEmail);
                 return;
             }
 
@@ -167,7 +175,11 @@ namespace TribalLogin.Forms
                 m_oDataAccess.Login();
                 Visible = false;
                 Hide();
-                if (m_oOpeningForm != null) m_oOpeningForm.ShowDialog();
+                if (m_oOpeningForm != null)
+                {
+                    m_oOpeningForm.ShowDialog();
+                    m_oOpeningForm.BringToFront();
+                }
                 Close();
             }
         }

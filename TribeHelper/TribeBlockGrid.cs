@@ -79,7 +79,7 @@ namespace TribalHelper
 
         public void DeleteTribeBlock(DataGridViewCellEventArgs e)
         {
-            if (m_oMessageBox.ShowCancel(StringProvider.sConfirmDeleteTribeSite + m_oDataGridView["colUrl", e.RowIndex].Value.ToString().Trim()) == DialogResult.OK)
+            if (m_oMessageBox.ShowCancel(StringProvider.sConfirmDeleteTribeBlockSite + m_oDataGridView["colUrl", e.RowIndex].Value.ToString().Trim()) == DialogResult.OK)
             {
                 m_oDataAccess.DeleteTribeLinks(m_oDataGridView["colSt", e.RowIndex].Value.ToString().Trim(), mTribeMember.TbNm);
                 RefreshGrid();
@@ -127,14 +127,14 @@ namespace TribalHelper
             m_oDataAccess.UpdateTribeBlock((ObjectId)m_oDataGridView["colId", e.RowIndex].Value,
                   m_oDataGridView["colTbNm", e.RowIndex].Value.ToString().Trim(),
                   m_oDataGridView["colUrl", e.RowIndex].Value.ToString().Trim());
-            m_oMessageBox.Show(StringProvider.sTribeLinkSaved);
+            m_oMessageBox.Show(StringProvider.sTribeBlockLinkSaved);
         }
 
         private void _InsertTribeBlock(DataGridViewCellEventArgs e)
         {
             m_oDataAccess.InsertTribeBlock(m_oDataGridView["colTbNm", e.RowIndex].Value.ToString().Trim(),
                    m_oDataGridView["colUrl", e.RowIndex].Value.ToString().Trim());
-            m_oMessageBox.Show(StringProvider.sTribeLinkSaved);
+            m_oMessageBox.Show(StringProvider.sTribeBlockLinkSaved);
         }
         
         #endregion

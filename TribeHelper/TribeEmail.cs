@@ -24,21 +24,31 @@
 
 using System.Net.Mail;
 using System.Net;
+using TribalMessageBox;
 
 namespace TribalHelper
 {
     public static class TribeEmail
     {
+        #region Member variables
+
+        private static readonly frmMessageBox m_ofrmMessageBox = new frmMessageBox();
+
+        #endregion
+
         #region Public Methods
 
         public static void SendMail(string sEmailAdd, string sSubj, string sMssg)
         {
-            SmtpClient oClient = new SmtpClient("smtp.gmail.com", 587)
-            {
-                Credentials = new NetworkCredential("Username@gmail.com", "Psswd"),
-                EnableSsl = true
-            };
-            oClient.Send("Username@gmail.com", sEmailAdd, sSubj, sMssg);
+            m_ofrmMessageBox.Show(StringProvider.sEmailServerNotSetup);
+            return;
+
+            //SmtpClient oClient = new SmtpClient("smtp.gmail.com", 587)
+            //{
+            //    Credentials = new NetworkCredential("Username@gmail.com", "Psswd"),
+            //    EnableSsl = true
+            //};
+            //oClient.Send("Username@gmail.com", sEmailAdd, sSubj, sMssg);
         }
 
         #endregion

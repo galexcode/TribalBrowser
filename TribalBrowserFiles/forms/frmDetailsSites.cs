@@ -90,7 +90,7 @@ namespace TribalBrowser.Forms
 
         private void _PopulateFields()
         {
-            oTribeLogon.ShowMyDetails(txtUsrNm, txtPss, txtConfirmPss);
+            oTribeLogon.ShowMyDetails(txtUsrNm, txtPss, txtConfirmPss,txtMl);
             m_oTribesGrid.ShowAllMyTribes();
             if (dgMyTribes["colTrTbNm", 0].Value != null) m_oTribeSitesGrid.FindAllMyTribeLinks(dgMyTribes["colTrTbNm", 0].Value.ToString());
         }

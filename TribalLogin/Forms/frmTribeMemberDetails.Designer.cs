@@ -157,7 +157,6 @@ namespace TribalLogin.Forms
             this.txtMl.Name = "txtMl";
             this.txtMl.Size = new System.Drawing.Size(342, 22);
             this.txtMl.TabIndex = 18;
-            this.txtMl.UseSystemPasswordChar = true;
             // 
             // frmTribeMemberDetails
             // 
