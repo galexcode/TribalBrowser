@@ -69,12 +69,6 @@ namespace TribalBrowser.Forms
             this.btnHome = new System.Windows.Forms.Button();
             this.pnlTribeSites = new System.Windows.Forms.Panel();
             this.dgTribeSites = new System.Windows.Forms.DataGridView();
-            this.wbTribalBrowser = new System.Windows.Forms.WebBrowser();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuItemNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemView = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnChat = new System.Windows.Forms.Button();
             this.colSt = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +76,12 @@ namespace TribalBrowser.Forms
             this.colUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTbNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFav = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wbTribalBrowser = new System.Windows.Forms.WebBrowser();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemView = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnChat = new System.Windows.Forms.Button();
             this.pnlTribeSites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTribeSites)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
@@ -225,6 +225,69 @@ namespace TribalBrowser.Forms
             this.dgTribeSites.TabIndex = 15;
             this.dgTribeSites.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTribeSites_CellContentClick);
             // 
+            // colSt
+            // 
+            this.colSt.DataPropertyName = "St";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSt.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colSt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colSt.HeaderText = "Site";
+            this.colSt.Name = "colSt";
+            this.colSt.Width = 200;
+            // 
+            // colDsc
+            // 
+            this.colDsc.DataPropertyName = "Dsc";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDsc.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colDsc.HeaderText = "Description";
+            this.colDsc.Name = "colDsc";
+            this.colDsc.Width = 600;
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.Visible = false;
+            // 
+            // colUrl
+            // 
+            this.colUrl.DataPropertyName = "Url";
+            this.colUrl.HeaderText = "colUrl";
+            this.colUrl.Name = "colUrl";
+            this.colUrl.Visible = false;
+            // 
+            // colUsrNm
+            // 
+            this.colUsrNm.DataPropertyName = "UsrNm";
+            this.colUsrNm.HeaderText = "colUsrNm";
+            this.colUsrNm.Name = "colUsrNm";
+            this.colUsrNm.Visible = false;
+            // 
+            // colTbNm
+            // 
+            this.colTbNm.DataPropertyName = "TbNm";
+            this.colTbNm.HeaderText = "colTbNm";
+            this.colTbNm.Name = "colTbNm";
+            this.colTbNm.Visible = false;
+            // 
+            // colFav
+            // 
+            this.colFav.DataPropertyName = "Fav";
+            this.colFav.HeaderText = "colFav";
+            this.colFav.Name = "colFav";
+            this.colFav.Visible = false;
+            // 
             // wbTribalBrowser
             // 
             this.wbTribalBrowser.AllowWebBrowserDrop = false;
@@ -292,69 +355,6 @@ namespace TribalBrowser.Forms
             this.btnChat.UseVisualStyleBackColor = true;
             this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
             // 
-            // colSt
-            // 
-            this.colSt.DataPropertyName = "St";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSt.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colSt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colSt.HeaderText = "Site";
-            this.colSt.Name = "colSt";
-            this.colSt.Width = 200;
-            // 
-            // colDsc
-            // 
-            this.colDsc.DataPropertyName = "Dsc";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colDsc.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colDsc.HeaderText = "Description";
-            this.colDsc.Name = "colDsc";
-            this.colDsc.Width = 600;
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.Visible = false;
-            // 
-            // colUrl
-            // 
-            this.colUrl.DataPropertyName = "Url";
-            this.colUrl.HeaderText = "colUrl";
-            this.colUrl.Name = "colUrl";
-            this.colUrl.Visible = false;
-            // 
-            // colUsrNm
-            // 
-            this.colUsrNm.DataPropertyName = "UsrNm";
-            this.colUsrNm.HeaderText = "colUsrNm";
-            this.colUsrNm.Name = "colUsrNm";
-            this.colUsrNm.Visible = false;
-            // 
-            // colTbNm
-            // 
-            this.colTbNm.DataPropertyName = "TbNm";
-            this.colTbNm.HeaderText = "colTbNm";
-            this.colTbNm.Name = "colTbNm";
-            this.colTbNm.Visible = false;
-            // 
-            // colFav
-            // 
-            this.colFav.DataPropertyName = "Fav";
-            this.colFav.HeaderText = "colFav";
-            this.colFav.Name = "colFav";
-            this.colFav.Visible = false;
-            // 
             // frmBrowser
             // 
             this.AcceptButton = this.btnLoad;
@@ -374,7 +374,7 @@ namespace TribalBrowser.Forms
             this.Name = "frmBrowser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Refresh";
-            this.Text = "FD Tribal Browser Lite";
+            this.Text = "Tribal Browser";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlTribeSites.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgTribeSites)).EndInit();
