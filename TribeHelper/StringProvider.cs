@@ -124,12 +124,18 @@ namespace TribalHelper
 
         #endregion
 
+        #region frmCreateProfile
+
+        public static string sProfileSaved = "The Profile has been saved.";
+
+        #endregion
+
         #region Misc
 
         public static string sFavourites = @"'s Favourite: ";
         public static string sClearDatabase = "Are you sure you want to clear the database - all records will be lost.";
         public static string sCleared = "All records cleared.";
-        public static string sEmailServerNotSetup = "Sending emails is disabled. The email server code has not been implemented - we basically need to setup a mail server.";
+        public static string sEmailServerNotSetup = "Sending emails is disabled. The email server code has not been implemented - we basically need to setup a mail server. Please email darren@frugaldisruptive.com if you have any problems.";
 
         #endregion
     }

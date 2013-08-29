@@ -29,6 +29,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using System.ComponentModel;
 using System;
+using System.Drawing;
 
 namespace TribalHelper
 {
@@ -46,6 +47,8 @@ namespace TribalHelper
         private readonly MongoCollection<TribeLinks> m_colTribeLinks;
         private readonly MongoCollection<TribeChat> m_colTribeChat;
         private readonly MongoCollection<TribeBlock> m_colTribeBlock;
+        private readonly MongoCollection<TribeProfile> m_colTribeProfile;
+        private readonly MongoCollection<TribeProfileComment> m_colTribeProfileComment;
 
         #endregion
 
@@ -61,6 +64,8 @@ namespace TribalHelper
             m_colTribeLinks = m_oDatabase.GetCollection<TribeLinks>("TribeLinks");
             m_colTribeChat = m_oDatabase.GetCollection<TribeChat>("TribeChat");
             m_colTribeBlock = m_oDatabase.GetCollection<TribeBlock>("TribeBlock");
+            m_colTribeProfile = m_oDatabase.GetCollection<TribeProfile>("TribeProfile");
+            m_colTribeProfileComment = m_oDatabase.GetCollection<TribeProfileComment>("TribeProfileComment");
             if (mTribeMember.TbNm == null) mTribeMember.TbNm = mTribeMember.DefaultTbNm;
         }
 
@@ -129,6 +134,29 @@ namespace TribalHelper
             };
             m_colTribeBlock.Insert(oTB);
         }
+
+        public void InsertTribeProfile(string sPfNm, string sPfAbt, Bitmap iPfImg, string sUsrNm)
+        {
+            var oTP = new TribeProfile
+            {
+                PfNm = sPfNm.ToLower(),
+                PfAbt = sPfAbt.ToLower(),
+                PfImg = iPfImg,
+                UsrNm = sUsrNm
+            };
+            m_colTribeProfile.Insert(oTP);
+        }
+
+        public void InsertTribeProfileComment(string sPfNm, string sPfCmt)
+        {
+            var oTPC = new TribeProfileComment
+            {
+                PfNm = sPfNm.ToLower(),
+                PfCmt = sPfCmt.ToLower(),
+            };
+            m_colTribeProfileComment.Insert(oTPC);
+        }
+
         #endregion
 
         #region Find
@@ -290,6 +318,40 @@ namespace TribalHelper
             return new BindingList<TribeBlock>(m_colTribeBlock.FindAll().ToList());
         }
 
+        public bool TribeProfileExists(string sPfNm)
+        {
+            var query = Query<TribeProfile>.Where(e => e.PfNm == sPfNm.ToLower());
+            return m_colTribeProfile.Find(query).Any();
+        }
+
+        public TribeProfile FindTribeProfile(string sPfNm)
+        {
+            var query = Query<TribeProfile>.EQ(e => e.PfNm, sPfNm.ToLower());
+            return m_colTribeProfile.FindOne(query);
+        }
+
+        public BindingList<TribeProfile> FindAllTribeProfiles2()
+        {
+            return new BindingList<TribeProfile>(m_colTribeProfile.FindAll().ToList());
+        }
+
+        public List<TribeProfile> FindAllTribeProfiles()
+        {
+            return m_colTribeProfile.FindAll().ToList();
+        }
+
+        public BindingList<TribeProfile> FindTribeProfiles(string sPfNm)
+        {
+            var query = Query<TribeProfile>.EQ(e => e.PfNm, sPfNm.ToLower());
+            return new BindingList<TribeProfile>(m_colTribeProfile.Find(query).ToList());
+        }
+
+        public List<TribeProfileComment> FindAllTribeProfileComment(string sPfNm)
+        {
+            var query = Query<TribeProfileComment>.EQ(e => e.PfNm, sPfNm.ToLower());
+            return m_colTribeProfileComment.Find(query).ToList();
+        }
+
         #endregion
 
         #region Save
@@ -386,6 +448,16 @@ namespace TribalHelper
             var update = Update<TribeBlock>.Set(e => e.TbNm, sTbNm.ToLower())
                                            .Set(e => e.Url, sUrl.ToLower());
             m_colTribeBlock.Update(query, update);
+        }
+
+        public void UpdateTribeProfile(string sPfNm, string sPfAbt, Image iPfImg, string sUsrNm)
+        {
+            var query = Query<TribeProfile>.Where(e => e.PfNm == sPfNm);
+            var update = Update<TribeProfile>.Set(e => e.PfNm, sPfNm.ToLower())
+                                             .Set(e => e.PfAbt, sPfAbt.ToLower())
+                                             .Set(e => e.PfImg, iPfImg)
+                                             .Set(e => e.UsrNm, sUsrNm);
+            m_colTribeProfile.Update(query, update);
         }
 
         #endregion

@@ -24,6 +24,8 @@
 
 using System;
 using MongoDB.Bson;
+using System.Drawing;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TribalHelper
 {
@@ -137,4 +139,25 @@ namespace TribalHelper
     }
 
     #endregion
+
+    #region Class TribeProfiles
+
+    public class TribeProfile
+    {
+        public ObjectId Id { get; set; }
+        public string PfNm { get; set; }
+        public string PfAbt { get; set; }
+        public Bitmap PfImg { get; set; }
+        public string UsrNm { get; set; }
+    }
+
+    public class TribeProfileComment
+    {
+        public ObjectId Id { get; set; }
+        public string PfNm { get; set; }
+        public string PfCmt { get; set; }
+    }
+
+    #endregion
+
 }

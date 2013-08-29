@@ -61,6 +61,8 @@ namespace TribalBrowser.Forms
             this.btnCreateLinks = new System.Windows.Forms.Button();
             this.btnDetails = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCreateProfilePage = new System.Windows.Forms.Button();
+            this.btnFindProfiles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBrowser
@@ -159,12 +161,46 @@ namespace TribalBrowser.Forms
             this.btnDetails.UseVisualStyleBackColor = true;
             this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
+            // btnCreateProfilePage
+            // 
+            this.btnCreateProfilePage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateProfilePage.BackgroundImage")));
+            this.btnCreateProfilePage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCreateProfilePage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCreateProfilePage.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateProfilePage.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCreateProfilePage.Location = new System.Drawing.Point(605, 2);
+            this.btnCreateProfilePage.Name = "btnCreateProfilePage";
+            this.btnCreateProfilePage.Size = new System.Drawing.Size(200, 200);
+            this.btnCreateProfilePage.TabIndex = 7;
+            this.btnCreateProfilePage.Text = "Create a Profile Page";
+            this.btnCreateProfilePage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCreateProfilePage.UseVisualStyleBackColor = true;
+            this.btnCreateProfilePage.Click += new System.EventHandler(this.btnCreateProfilePage_Click);
+            // 
+            // btnFindProfiles
+            // 
+            this.btnFindProfiles.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFindProfiles.BackgroundImage")));
+            this.btnFindProfiles.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFindProfiles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFindProfiles.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindProfiles.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnFindProfiles.Location = new System.Drawing.Point(605, 203);
+            this.btnFindProfiles.Name = "btnFindProfiles";
+            this.btnFindProfiles.Size = new System.Drawing.Size(200, 200);
+            this.btnFindProfiles.TabIndex = 8;
+            this.btnFindProfiles.Text = "Find a Profile Page";
+            this.btnFindProfiles.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnFindProfiles.UseVisualStyleBackColor = true;
+            this.btnFindProfiles.Click += new System.EventHandler(this.btnFindProfiles_Click);
+            // 
             // frmTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(607, 404);
+            this.ClientSize = new System.Drawing.Size(808, 404);
+            this.Controls.Add(this.btnFindProfiles);
+            this.Controls.Add(this.btnCreateProfilePage);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.btnCreateLinks);
             this.Controls.Add(this.btnDetailsSites);
@@ -188,5 +224,7 @@ namespace TribalBrowser.Forms
         private System.Windows.Forms.Button btnCreateLinks;
         private System.Windows.Forms.Button btnDetails;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Button btnCreateProfilePage;
+        private System.Windows.Forms.Button btnFindProfiles;
     }
 }

@@ -61,6 +61,18 @@
     <Compile Include="Forms\frmChat.Designer.cs">
       <DependentUpon>frmChat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmCreateProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCreateProfile.Designer.cs">
+      <DependentUpon>frmCreateProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmShowProfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmShowProfiles.Designer.cs">
+      <DependentUpon>frmShowProfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmViewFavourites.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,32 +117,57 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\frmAddFavourite.resx">
       <DependentUpon>frmAddFavourite.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmBrowser.resx">
       <DependentUpon>frmBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmChat.resx">
       <DependentUpon>frmChat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCreateProfile.resx">
+      <DependentUpon>frmCreateProfile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmInsertTribe.resx">
       <DependentUpon>frmInsertTribe.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmShowProfiles.resx">
+      <DependentUpon>frmShowProfiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmViewFavourites.resx">
       <DependentUpon>frmViewFavourites.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDetailsSites.resx">
       <DependentUpon>frmDetailsSites.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmJoinTribe.resx">
       <DependentUpon>frmJoinTribe.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmInsertTribeLinks.resx">
       <DependentUpon>frmInsertTribeLinks.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTools.resx">
       <DependentUpon>frmTools.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

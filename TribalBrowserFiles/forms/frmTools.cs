@@ -76,6 +76,19 @@ namespace TribalBrowser.Forms
             ofrmDetails.ShowDialog();
         }
 
+        private void btnCreateProfilePage_Click(object sender, EventArgs e)
+        {
+            frmCreateProfile ofrmCreateProfile = new frmCreateProfile();
+            ofrmCreateProfile.ShowDialog();
+        }
+
+        private void btnFindProfiles_Click(object sender, EventArgs e)
+        {
+            frmShowProfiles ofrmShowProfiles = new frmShowProfiles();
+            ofrmShowProfiles.ShowDialog();
+        }
+
         #endregion
+                
     }
 }

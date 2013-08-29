@@ -46,6 +46,7 @@ namespace TribalLogin.Helpers
             {
                 oForm.ShowDialog();
                 oForm.BringToFront();
+                oForm.Focus();
             }
             else
             {
@@ -60,6 +61,7 @@ namespace TribalLogin.Helpers
                     ofrmLogin = new frmLogin(oForm, bAdminMode);
                 }  
                 ofrmLogin.ShowDialog();
+                ofrmLogin.Focus();
             }
         }
         public void ShowWindowForm<T>(T oForm, bool bAdminMode = false) where T : Form
@@ -68,6 +70,7 @@ namespace TribalLogin.Helpers
             {
                 oForm.Show();
                 oForm.BringToFront();
+                oForm.Focus();
             }
             else
             {
@@ -82,6 +85,7 @@ namespace TribalLogin.Helpers
                     ofrmLogin = new frmLogin(oForm, bAdminMode);
                 }  
                 ofrmLogin.ShowDialog();
+                ofrmLogin.Focus();
             }
         }
 
@@ -90,6 +94,7 @@ namespace TribalLogin.Helpers
             frmLogin ofrmLogin = new frmLogin();
             ofrmLogin.ShowDialog();
             ofrmLogin.BringToFront();
+            ofrmLogin.Focus();
         }
 
         public void ShowLogin(bool bAdminMode)
@@ -97,6 +102,7 @@ namespace TribalLogin.Helpers
             frmLogin ofrmLogin = new frmLogin(bAdminMode);
             ofrmLogin.ShowDialog();
             ofrmLogin.BringToFront();
+            ofrmLogin.Focus();
         }
 
         public void SaveTribeMember(Form oParentForm, string sUsrNm, string sPss, string sConfirmPss, string sMl, bool bCloseParent = true)
