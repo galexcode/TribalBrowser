@@ -261,7 +261,8 @@ namespace TribalHelper
         public List<TribeLinks> FindTribeLinksAndTop20(string sSt, string sTbNm)
         {
             HashSet<TribeLinks> oTribeLinks = new HashSet<TribeLinks>();
-            if (FindTribeLink(sSt, sTbNm) != null) oTribeLinks.Add(FindTribeLink(sSt, sTbNm));
+            TribeLinks oTribeLink = FindTribeLink(sSt, sTbNm);
+            if (oTribeLinks != null) oTribeLinks.Add(oTribeLink);
             oTribeLinks.UnionWith(FindTribeLinkLike(sSt, sTbNm));
             oTribeLinks.UnionWith(FindTop20TribeLinks(sTbNm));
             return oTribeLinks.ToList();
@@ -330,9 +331,13 @@ namespace TribalHelper
             return m_colTribeProfile.FindOne(query);
         }
 
-        public BindingList<TribeProfile> FindAllTribeProfiles2()
+        public List<TribeProfile> FindTribeProfilesAndTop20(string sPfNm)
         {
-            return new BindingList<TribeProfile>(m_colTribeProfile.FindAll().ToList());
+            HashSet<TribeProfile> oTribeProfiles = new HashSet<TribeProfile>();
+            TribeProfile oTribeProfile = FindTribeProfile(sPfNm);
+            if (oTribeProfile != null) oTribeProfiles.Add(oTribeProfile);
+            oTribeProfiles.UnionWith(FindAllTribeProfiles());
+            return oTribeProfiles.ToList();
         }
 
         public List<TribeProfile> FindAllTribeProfiles()

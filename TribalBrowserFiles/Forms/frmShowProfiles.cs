@@ -56,7 +56,7 @@ namespace TribalBrowser.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            dgProfiles.DataSource = m_oDataAccess.FindTribeProfilesAndTop20(txtSearch.Text);
         }
 
         private void dgProfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
