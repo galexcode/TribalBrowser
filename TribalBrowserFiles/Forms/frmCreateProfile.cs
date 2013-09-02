@@ -56,6 +56,7 @@ namespace TribalBrowser.Forms
         private void frmCreateProfile_Load(object sender, EventArgs e)
         {
             _LoadProfile();
+            _ResetComment();
         }
 
         #endregion
@@ -88,6 +89,16 @@ namespace TribalBrowser.Forms
             m_oMessageBox.Show(StringProvider.sProfileSaved);
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            _ResetComment();
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            _SendComment();
+        }
+
         #endregion
 
         #region Private Helpers
@@ -99,6 +110,34 @@ namespace TribalBrowser.Forms
             txtPfNm.Text = oTribeProfile.PfNm.ToLower();
             txtPfAbt.Text = oTribeProfile.PfAbt.ToLower();
             picPfImg.Image = oTribeProfile.PfImg;
+            if (mTribeMember.UsrNm != oTribeProfile.UsrNm) _DisableFields();
+        }
+
+        private void _DisableFields()
+        {
+            txtPfNm.ReadOnly = true;
+            txtPfNm.ReadOnly = true;
+            btnSave.Enabled = false;
+            btnUploadImg.Enabled = false;
+        }
+
+        private void _ResetComment()
+        {
+            _ShowTribeComment();
+            txtPfCmt.Text = ">";
+            txtPfCmt.SelectionStart = txtPfCmt.Text.Length;
+            if (dgPfCmts.RowCount > 0) dgPfCmts.FirstDisplayedScrollingRowIndex = dgPfCmts.RowCount - 1;
+        }
+
+        private void _SendComment()
+        {
+            m_oDataAccess.InsertTribeProfileComment(txtPfNm.Text,txtPfCmt.Text + Environment.NewLine, DateTime.Now);
+            _ResetComment();
+        }
+
+        private void _ShowTribeComment()
+        {
+            dgPfCmts.DataSource = m_oDataAccess.FindAllTribeProfileComment(txtPfNm.Text);
         }
 
         #endregion

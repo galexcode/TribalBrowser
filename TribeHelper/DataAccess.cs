@@ -147,12 +147,13 @@ namespace TribalHelper
             m_colTribeProfile.Insert(oTP);
         }
 
-        public void InsertTribeProfileComment(string sPfNm, string sPfCmt)
+        public void InsertTribeProfileComment(string sPfNm, string sPfCmt, DateTime odt)
         {
             var oTPC = new TribeProfileComment
             {
                 PfNm = sPfNm.ToLower(),
                 PfCmt = sPfCmt.ToLower(),
+                dt = odt
             };
             m_colTribeProfileComment.Insert(oTPC);
         }
@@ -354,7 +355,9 @@ namespace TribalHelper
         public List<TribeProfileComment> FindAllTribeProfileComment(string sPfNm)
         {
             var query = Query<TribeProfileComment>.EQ(e => e.PfNm, sPfNm.ToLower());
-            return m_colTribeProfileComment.Find(query).ToList();
+            SortByBuilder sbb = new SortByBuilder();
+            sbb.Ascending("dt");
+            return m_colTribeProfileComment.Find(query).SetSortOrder(sbb).ToList();
         }
 
         #endregion

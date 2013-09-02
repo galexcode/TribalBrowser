@@ -156,6 +156,7 @@ namespace TribalHelper
         public ObjectId Id { get; set; }
         public string PfNm { get; set; }
         public string PfCmt { get; set; }
+        public DateTime dt { get; set; }
     }
 
     #endregion

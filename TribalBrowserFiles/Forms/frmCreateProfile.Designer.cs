@@ -68,14 +68,13 @@ namespace TribalBrowser.Forms
             this.txtPfCmt = new System.Windows.Forms.TextBox();
             this.pnlPfCms = new System.Windows.Forms.Panel();
             this.dgPfCmts = new System.Windows.Forms.DataGridView();
-            this.Msg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUsrNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTbNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coldt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPfCms = new System.Windows.Forms.Label();
             this.lblAddPfCm = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.PfCmt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPfNm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coldt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.picPfImg)).BeginInit();
             this.pnlPfCm.SuspendLayout();
             this.pnlPfCms.SuspendLayout();
@@ -180,6 +179,7 @@ namespace TribalBrowser.Forms
             this.btnClear.Size = new System.Drawing.Size(48, 43);
             this.btnClear.TabIndex = 17;
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSend
             // 
@@ -193,6 +193,7 @@ namespace TribalBrowser.Forms
             this.btnSend.Size = new System.Drawing.Size(48, 43);
             this.btnSend.TabIndex = 16;
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // pnlPfCm
             // 
@@ -240,10 +241,9 @@ namespace TribalBrowser.Forms
             this.dgPfCmts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPfCmts.ColumnHeadersVisible = false;
             this.dgPfCmts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Msg,
+            this.PfCmt,
             this.colID,
-            this.colUsrNm,
-            this.colTbNm,
+            this.colPfNm,
             this.coldt});
             this.dgPfCmts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgPfCmts.Location = new System.Drawing.Point(0, 0);
@@ -254,53 +254,6 @@ namespace TribalBrowser.Forms
             this.dgPfCmts.RowTemplate.Height = 24;
             this.dgPfCmts.Size = new System.Drawing.Size(642, 315);
             this.dgPfCmts.TabIndex = 0;
-            // 
-            // Msg
-            // 
-            this.Msg.DataPropertyName = "Msg";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Msg.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Msg.HeaderText = "Msg";
-            this.Msg.Name = "Msg";
-            this.Msg.ReadOnly = true;
-            this.Msg.Width = 600;
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "Id";
-            this.colID.HeaderText = "colID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
-            // 
-            // colUsrNm
-            // 
-            this.colUsrNm.DataPropertyName = "UsrNm";
-            this.colUsrNm.HeaderText = "colUsrNm";
-            this.colUsrNm.Name = "colUsrNm";
-            this.colUsrNm.ReadOnly = true;
-            this.colUsrNm.Visible = false;
-            // 
-            // colTbNm
-            // 
-            this.colTbNm.DataPropertyName = "TbNm";
-            this.colTbNm.HeaderText = "colTbNm";
-            this.colTbNm.Name = "colTbNm";
-            this.colTbNm.ReadOnly = true;
-            this.colTbNm.Visible = false;
-            // 
-            // coldt
-            // 
-            this.coldt.DataPropertyName = "dt";
-            this.coldt.HeaderText = "coldt";
-            this.coldt.Name = "coldt";
-            this.coldt.ReadOnly = true;
-            this.coldt.Visible = false;
             // 
             // lblPfCms
             // 
@@ -336,6 +289,45 @@ namespace TribalBrowser.Forms
             this.btnSave.TabIndex = 4;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // PfCmt
+            // 
+            this.PfCmt.DataPropertyName = "PfCmt";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PfCmt.DefaultCellStyle = dataGridViewCellStyle1;
+            this.PfCmt.HeaderText = "Comment";
+            this.PfCmt.Name = "PfCmt";
+            this.PfCmt.ReadOnly = true;
+            this.PfCmt.Width = 600;
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "Id";
+            this.colID.HeaderText = "colID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            // 
+            // colPfNm
+            // 
+            this.colPfNm.DataPropertyName = "PfNm";
+            this.colPfNm.HeaderText = "colPfNm";
+            this.colPfNm.Name = "colPfNm";
+            this.colPfNm.ReadOnly = true;
+            this.colPfNm.Visible = false;
+            // 
+            // coldt
+            // 
+            this.coldt.DataPropertyName = "dt";
+            this.coldt.HeaderText = "coldt";
+            this.coldt.Name = "coldt";
+            this.coldt.ReadOnly = true;
+            this.coldt.Visible = false;
             // 
             // frmCreateProfile
             // 
@@ -387,14 +379,13 @@ namespace TribalBrowser.Forms
         private System.Windows.Forms.Panel pnlPfCm;
         private System.Windows.Forms.Panel pnlPfCms;
         private System.Windows.Forms.DataGridView dgPfCmts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Msg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUsrNm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTbNm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coldt;
         private System.Windows.Forms.Label lblPfCms;
         private System.Windows.Forms.TextBox txtPfCmt;
         private System.Windows.Forms.Label lblAddPfCm;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PfCmt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPfNm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coldt;
     }
 }
